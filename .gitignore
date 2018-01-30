@@ -1,0 +1,32 @@
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# Intellij
+.idea/
+*.iml
+*.iws
+
+# Maven
+log/
+target/
+
+# VIM
+*.swp
+
+# Mac
+.DS_Store
+.DS_Store?
+
+# Windows
+Desktop.ini
+*.lnk
+*.cab
+*.msi
+*.msm
+*.msp
+$RECYCLE.BIN/
+Thumbs.db
+ehthumbs.db
