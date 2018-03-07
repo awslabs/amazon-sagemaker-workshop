@@ -88,7 +88,7 @@ Use the console or AWS CLI to create an Amazon S3 bucket. Keep in mind that your
 
 ### 3. Accessing the Notebook Instance
 
-1. Wait for the server status to change to **InService**. This will take a few minutes.
+1. Wait for the server status to change to **InService**. This will take several minutes, possibly five.
 
 ![Access Notebook](./images/Picture4.png)
 
@@ -162,6 +162,9 @@ To avoid charges for resources you no longer need when you're done with this wor
 
 - Notebook instance:  you have two options if you do not want to keep the notebook instance running. If you would like to save it for later, you can stop rather than deleting it. To delete it, click the **Notebook instances** link in the left panel. Next, click the radio button next to the notebook instance created for this workshop, then select **Delete** from the **Actions** drop down menu. To simply stop it instead, just click the **Stop** link.  After it is stopped, you can start it again by clicking the **Start** link.  Keep in mind that if you stop rather than delete it, you will be charged for the storage associated with it.  
 
-## License
+## License & Contributing
 
-The contents of this workshop are licensed under the Apache 2.0 License. 
+The contents of this workshop are licensed under the [Apache 2.0 License](./LICENSE). 
+If you are interested in contributing to this project, please see the [Contributing Guidelines](./contributing/CONTRIBUTING.md).  In connection with contributing, also review the [Code of Conduct](./contributing/CODE_OF_CONDUCT.md).
+
+
