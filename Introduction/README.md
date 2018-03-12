@@ -2,18 +2,21 @@
 
 ## Modules
 
-This workshop is divided into multiple modules. Module 1 must be completed first, followed by Module 2.  You can complete the other modules (Modules 3 and 4) in any order.  
+This workshop is divided into multiple modules. **Creating a Notebook Instance** must be completed first, followed by **Video Game Sales**.  You can complete the other modules in any order.  
 
-1. [**Creating a Notebook Instance**](../NotebookCreation) (Follow the link, then return here.)
-2. Video Game Sales Notebook
-3. Distributed Training with TensorFlow Notebook
-4. Image Classification Notebook 
+- [**Creating a Notebook Instance**](../NotebookCreation) (Follow the link, then return here.)
+
+- Video Game Sales 
+
+- Distributed Training with TensorFlow 
+
+- Image Classification  
 
 Be patient as you work your way through the notebook-based modules. After you run a cell in a notebook, it may take several seconds for the code to show results. For the cells that start training jobs, it may take several minutes. In particular, the last two modules have training jobs that may last up to 10 minutes.  
 
 After you have completed the workshop, you can delete all of the resources that were created by following the Cleanup Guide provided with this lab guide. 
 
-## Module 2:  Video Game Sales Notebook
+## Video Game Sales
 
 In this module, we'll work our way through an example Jupyter notebook that demonstrates how to use an Amazon-provided algorithm in SageMaker. More specifically, we'll use SageMaker's version of XGBoost, a popular and efficient open-source implementation of the gradient boosted trees algorithm. Gradient boosting is a supervised learning algorithm that attempts to predict a target variable by combining the estimates of a set of simpler, weaker models. XGBoost has done remarkably well in machine learning competitions because it robustly handles a wide variety of data types, relationships, and distributions. It often is a useful, go-to algorithm in working with structured data, such as data that might be found in relational databases and flat files. 
 
@@ -44,7 +47,7 @@ To begin, follow these steps:
 <p><strong>NOTE:  training the model for this example typically takes about 5 minutes.</strong></p>
 
 
-## Module 3:  Distributed Training with TensorFlow Notebook
+## Distributed Training with TensorFlow 
 
 In this module we will be using images of handwritten digits from the [MNIST Database](http://yann.lecun.com/exdb/mnist/) to demonstrate how to perform distributed training using SageMaker. Using a convolutional neural network model based on the [TensorFlow MNIST Example](https://github.com/tensorflow/models/tree/master/official/mnist), we will demonstrate how to use a Jupyter notebook and the [SageMaker Python SDK](https://github.com/aws/sagemaker-python-sdk) to create your own script to pre-process data, train a model, create a SageMaker hosted endpoint, and make predictions against this endpoint. The model will predict what the handwritten digit is in the image presented for prediction. Besides demonstrating a "bring your own script" for TensorFlow use case, the example also showcases how easy it is to set up a cluster of multiple instances for model training in SageMaker.
 
@@ -56,7 +59,7 @@ In this module we will be using images of handwritten digits from the [MNIST Dat
 
 <p><strong>NOTE:  training the model for this example typically takes about 8 minutes.</strong></p>
 
-## Module 4:  Image Classification Notebook
+## Image Classification 
 
 For this module, we'll work with an image classification example notebook. In particular, we'll use the Amazon-provided image classification algorithm, which is a supervised learning algorithm that takes an image as input and classifies it into one of multiple output categories. It uses a convolutional neural network (ResNet) that can be trained from scratch, or trained using transfer learning when a large number of training images are not available. Even if you don't have experience with neural networks or image classification, SageMaker's image classification algorithm makes the technology easy to use, with no need to design and set up your own neural network.  
 
