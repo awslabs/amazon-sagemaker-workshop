@@ -1,46 +1,10 @@
-# Amazon SageMaker Workshops
-
-Amazon SageMaker is a fully managed service that enables developers and data scientists to quickly and easily build, train, and deploy machine learning models at any scale. This repository contains a collection of workshops and other hands on content that will guide you through using the many features of SageMaker.  
-
-![Overview](./images/overview.png)
-
-You'll start by creating a SageMaker notebook instance with the requisite permissions. You will then interact with SageMaker via sample Jupyter notebooks, the AWS CLI, and the SageMaker console. For example, you'll create model training jobs using SageMaker's hosted training feature, and create endpoints to serve predictions from your models using SageMaker's hosted endpoint feature.  
-
-# Workshops
-
-- [**Introduction to SageMaker**](Introduction) - This workshop demonstrates the main features of SageMaker via a set of straightforward examples for common use cases.
-
-
-- [**Introduction to SageMaker (Advanced)**](Introduction-Advanced) - [COMING SOON] This workshop is targeted to experienced data scientists. It demonstrates the main features of SageMaker via a set of advanced examples for more complex use cases.
-
-
-- [**SageMaker Built-in Algorithms**](Built-in-Algorithms) - This workshop shows you how to use some of SageMaker's built-in algorithms.  
-
-## Prerequisites
-
-### AWS Account
-
-In order to complete this workshop you'll need an AWS Account with access to create AWS IAM, S3 and SageMaker resources. The code and instructions in this workshop assume only one student is using a given AWS account at a time. If you try sharing an account with another student, you'll run into naming conflicts for certain resources. You can work around these by appending a unique suffix to the resources that fail to create due to conflicts, but the instructions do not provide details on the changes required to make this work.
-
-Some of the resources you will launch as part of this workshop are eligible for the AWS free tier if your account is less than 12 months old. See the [AWS Free Tier page](https://aws.amazon.com/free/) for more details.
-
-### AWS Region
-
-SageMaker is not available in all AWS Regions at this time.  Accordingly, we recommend running this workshop in one of the following supported AWS Regions:  N. Virginia, Oregon, Ohio, or Ireland.
-
-Once you've chosen a region, you should create all of the resources for this workshop there, including a new Amazon S3 bucket and a new SageMaker notebook instance. Make sure you select your region from the dropdown in the upper right corner of the AWS Console before getting started.
-
-![Region selection screenshot](./images/region-selection.png)
-
-### Browser
-
-We recommend you use the latest version of Chrome or Firefox to complete this workshop.
+# Introduction to SageMaker
 
 ## Modules
 
 This workshop is divided into multiple modules. Module 1 must be completed first, followed by Module 2.  You can complete the other modules (Modules 3 and 4) in any order.  
 
-1. Creating a Notebook Instance
+1. [**Creating a Notebook Instance**](../NotebookCreation) (Follow the link, then return here.)
 2. Video Game Sales Notebook
 3. Distributed Training with TensorFlow Notebook
 4. Image Classification Notebook 
@@ -48,66 +12,6 @@ This workshop is divided into multiple modules. Module 1 must be completed first
 Be patient as you work your way through the notebook-based modules. After you run a cell in a notebook, it may take several seconds for the code to show results. For the cells that start training jobs, it may take several minutes. In particular, the last two modules have training jobs that may last up to 10 minutes.  
 
 After you have completed the workshop, you can delete all of the resources that were created by following the Cleanup Guide provided with this lab guide. 
-
-## Module 1:  Creating a Notebook Instance
-
-In this module we'll start by creating an Amazon S3 bucket that will be used throughout the workshop.  We'll then create a SageMaker notebook instance, which we will use to run the other workshop modules.
-
-### 1. Create a S3 Bucket
-
-SageMaker typically uses S3 as storage for data and model artifacts.  In this step you'll create a S3 bucket for this purpose. To begin, sign into the AWS Management Console, https://console.aws.amazon.com/.
-
-#### High-Level Instructions
-
-Use the console or AWS CLI to create an Amazon S3 bucket. Keep in mind that your bucket's name must be globally unique across all regions and customers. We recommend using a name like `smworkshop-firstname-lastname`. If you get an error that your bucket name already exists, try adding additional numbers or characters until you find an unused name.
-
-<details>
-<summary><strong>Step-by-step instructions (expand for details)</strong></summary><p>
-
-1. In the AWS Management Console, choose **Services** then select **S3** under Storage.
-
-1. Choose **+Create Bucket**
-
-1. Provide a globally unique name for your bucket such as `smworkshop-firstname-lastname`.
-
-1. Select the Region you've chosen to use for this workshop from the dropdown.
-
-1. Choose **Create** in the lower left of the dialog without selecting a bucket to copy settings from.
-
-</p></details>
-
-### 2. Launching the Notebook Instance
-
-1. In the upper-right corner of the AWS Management Console, confirm you are in the desired AWS region. Select N. Virginia, Oregon, Ohio, or Ireland.
-
-2. Click on Amazon SageMaker from the list of all services.  This will bring you to the Amazon SageMaker console homepage.
-
-![Services in Console](./images/Picture1.png)
-
-3. To create a new notebook instance, go to **Notebook instances**, and click the **Create notebook instance** button at the top of the browser window.
-
-![Notebook Instances](./images/Picture2.png)
-
-4. Type [First Name]-[Last Name]-workshop into the **Notebook instance name** text box, and select ml.m4.xlarge for the **Notebook instance type**.
-
-![Create Notebook Instance](./images/create-instance.png)
-
-5. For IAM role, choose **Create a new role**, and in the resulting pop-up modal, select **Specific S3 buckets** under **S3 Buckets you specify – optional**. In the text field, paste the name of the S3 bucket you created above.  It should look similar to ```smworkshop-john-smith```. Click **Create role**.
-
-![Create IAM role](./images/create-iam-role.png)
-
-6. You will be taken back to the Create Notebook instance page.  Click **Create notebook instance**.
-
-### 3. Accessing the Notebook Instance
-
-1. Wait for the server status to change to **InService**. This will take several minutes, possibly five.
-
-![Access Notebook](./images/Picture4.png)
-
-2. Click **Open**. You will now see the Jupyter homepage for your notebook instance.
-
-![Open Notebook](./images/Picture5.png)
-
 
 ## Module 2:  Video Game Sales Notebook
 
@@ -166,17 +70,9 @@ Follow these steps:
 
 <p><strong>NOTE:  training the model for this example typically takes about 10 minutes.</strong> However, keep in mind that this is relatively short because transfer learning is used rather than training from scratch, which could take many hours.</p>
 
-## Cleanup Guide
 
-To avoid charges for resources you no longer need when you're done with this workshop, you can delete them or, in the case of your notebook instance, stop them.  Here are the resources you should consider:
+## Cleanup
 
-- Endpoints:  these are the clusters of one or more instances serving inferences from your models. If you did not delete them from within the notebooks, you can delete them via the SageMaker console.  To do so, click the **Endpoints** link in the left panel.  Then, for each endpoint, click the radio button next to it, then select **Delete** from the **Actions** drop down menu. You can follow a similar procedure to delete the related Models and Endpoint configurations.
-
-- Notebook instance:  you have two options if you do not want to keep the notebook instance running. If you would like to save it for later, you can stop rather than deleting it. To delete it, click the **Notebook instances** link in the left panel. Next, click the radio button next to the notebook instance created for this workshop, then select **Delete** from the **Actions** drop down menu. To simply stop it instead, just click the **Stop** link.  After it is stopped, you can start it again by clicking the **Start** link.  Keep in mind that if you stop rather than delete it, you will be charged for the storage associated with it.  
-
-## License & Contributing
-
-The contents of this workshop are licensed under the [Apache 2.0 License](./LICENSE). 
-If you are interested in contributing to this project, please see the [Contributing Guidelines](./contributing/CONTRIBUTING.md).  In connection with contributing, also review the [Code of Conduct](./contributing/CODE_OF_CONDUCT.md).
+To avoid charges for endpoints and other resources you might not need after the workshop, please refer to the [**Cleanup Guide**](../CleanupGuide).
 
 
