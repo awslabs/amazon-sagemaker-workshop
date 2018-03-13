@@ -2,19 +2,44 @@
 
 ## Modules
 
-This workshop is divided into multiple modules. **Creating a Notebook Instance** must be completed first, followed by **Video Game Sales**.  You can complete the other modules in any order.  
+This workshop is divided into multiple modules. After completing **Preliminaries**, complete the module **Creating a Notebook Instance** next.  You can complete the remaining module(s) in any order.  
+
+- Preliminaries
 
 - [**Creating a Notebook Instance**](../NotebookCreation) (Follow the link, then return here.)
 
 - Parallelized Data Distribution 
 
-- ( TBD ) 
+## Preliminaries
 
-Be patient as you work your way through the notebook-based modules. After you run a cell in a notebook, it may take several seconds for the code to show results. For the cells that start training jobs, it may take several minutes. In particular, the last two modules have training jobs that may last up to 10 minutes.  
+- Be sure you have completed all of the Prerequisites listed in the [**main README**](../README.md).
 
-After you have completed the workshop, you can delete all of the resources that were created by following the Cleanup Guide provided with this lab guide. 
+
+- Download this repository to your computer by clicking the green **Clone or download** button from the upper right of the main page of the repository, then **Download ZIP**.
+
+If you are new to using Jupyter notebooks, you may now skip ahead to the next module.
+
+#### Jupyter Notebooks:  A Brief Overview
+
+Jupyter notebooks tell a story by combining explanatory text and code. There are two types of "cells" in a notebook:  code cells, and "markdown" cells with explanatory text.  
+
+You will be running the code cells.  These are distinguished by having "In" next to them in the left margin next to the cell, and a greyish background.  Markdown cells lack "In" and have a white background. To run a code cell, simply click in it, then either click the **Run Cell** button in the notebook's toolbar, or use Control+Enter from your computer's keyboard.  
+
+It may take a few seconds to a few minutes for a code cell to run.  Please run each code cell in order, and **only once**, to avoid repeated operations.  For example, running the same training job cell twice might create two training jobs, possibly exceeding your service limits.
 
 ## Parallelized Data Distribution
+
+1. In your notebook instance, click the **New** button on the right and select **Folder**.  
+
+2. Click the checkbox next to your new folder, click the **Rename** button above in the menu bar, and give the folder a name such as 'distributed-data'.
+
+3. Click the folder to enter it.
+
+4. To upload the notebook for this module, click the **Upload** button on the right. Then in the file selection popup, select the file 'data_distribution_types.ipynb' from the notebooks subdirectory in the folder on your computer where you downloaded this GitHub repository. Click the blue **Upload** button that appears to the right of the notebook's file name.
+
+5. You are now ready to begin the notebook:  click the notebook's file name to open it.
+
+6. In the ```bucket = '<your_s3_bucket_name_here>'``` code line, paste the name of the S3 bucket you created in **Creating a Notebook Instance** to replace ```<your_s3_bucket_name_here>```.  The code line should now read similar to ```bucket = 'smworkshop-john-smith'```.  Do NOT paste the entire path (s3://.......), just the bucket name.  
 
 Paste the code snippet below into a text editor, and then change the text in the angle brackets (< >) as follows.  Do NOT put quotes around the values you insert.  
 - arn_role:  (get from notebook instance in console).  It should look like the following:  `arn:aws:iam::1234567890:role/service-role/AmazonSageMaker-ExecutionRole-20171211T211964`.
