@@ -29,6 +29,8 @@ It may take a few seconds to a few minutes for a code cell to run.  Please run e
 
 ## Parallelized Data Distribution
 
+SageMaker makes it easy to train machine learning models across a cluster containing a large number of machines. This a non-trivial process, but SageMaker's built-in algorithms and pre-built MXNet and TensorFlow containers hide most of the complexity from you. Nevertheless, there are decisions about how to structure data that will have implications regarding how the distributed training is carried out. In this module, we will go through details on setting up your data to take full advantage of distributed processing when using one of the built-in algorithms.
+
 1. **Exploratory Data Analysis**:  For this part of the module, we'll be using a SageMaker notebook instance to explore and visualize a data set.  To begin, in your notebook instance, click the **New** button on the right and select **Folder**.  
 
 2. Click the checkbox next to your new folder, click the **Rename** button above in the menu bar, and give the folder a name such as 'distributed-data'.
@@ -49,7 +51,7 @@ It may take a few seconds to a few minutes for a code cell to run.  Please run e
 
 - In the second job, we'll use `ShardedByS3Key` for the `train` channel (note that we'll keep `FullyReplicated` for the validation channel. So, for the training data, we'll pass each S3 object to a separate machine. Since we have 5 files (one for each year), we'll train on 5 machines, meaning each machine will get a year's worth of records.
 
-Open a terminal window to enter commands.  [Windows users:  use PuTTY to connect to your Amazon Linux EC2 instance.]
+- To begin, open a terminal window to enter commands.  [Windows users:  use PuTTY to connect to your Amazon Linux EC2 instance.]
 
 9. Create a text file named `sm-cli.sh`. In the terminal window, change to the directory in which you created the file (if you're not already there), then run the following command :
 
@@ -119,7 +121,7 @@ train_source={S3DataSource={S3DataType=S3Prefix,S3DataDistributionType=ShardedBy
 
 16.  In the SageMaker console, click **Jobs** in the left panel to check the status of the training jobs, which run concurrently.  When they are complete, their **Status** column will change from InProgress to Complete.  Duration of these jobs can last up to 8 or 9 minutes, including time for setting up the training cluster.
 
-To check the actual training time for each job when both are complete, click the training job name in the jobs table, then examine the **Training time** listed at the top right under **Job Settings**.  As we can see, and might expect, the sharded distribution type trained substantially faster than the fully replicated type. This is a key differentiator to consider when preparing data and picking the distribution type.
+- To check the actual training time for each job when both are complete, click the training job name in the jobs table, then examine the **Training time** listed at the top right under **Job Settings**.  As we can see, and might expect, the sharded distribution type trained substantially faster than the fully replicated type. This is a key differentiator to consider when preparing data and picking the distribution type.
 
 17.  **SageMaker Model Creation**:  Now that we've trained our machine learning models, we'll want to make predictions by setting up a hosted endpoint for them. The first step in doing that is to point our hosting service to the model. We will point to the model.tar.gz that came from training, then create the hosting model.  We'll do this twice, once for each model we trained earlier. Here are the steps to do this via the SageMaker console:
 
@@ -133,10 +135,17 @@ To check the actual training time for each job when both are complete, click the
 
 19.  **Evaluation**:  To compare predictions from our two models, let's return to the notebook we used earlier.  When you are finished, return here and proceed to the Cleanup section.  
 
+### Conclusion & Extensions
+
+In this module, we ran a regression on a relatively artificial example, and we skipped some pre-processing steps along the way (like potentially transforming or winsorizing our target variable, looking for interations in our features, etc.). But the main point was to highlight the difference in training time and accuracy of a model trained through two different distribution methods.
+
+Overall, sharding data into separate files and sending them to separate training nodes will run faster, but may produce lower accuracy than a model that replicates the data across all nodes. Naturally, this can be influenced by training the sharded model longer, with more epochs. And it should be noted that we trained with a very small number of epochs to highlight this difference.
+
+Different algorithms can be expected to show variation in which distribution mechanism is most effective at achieving optimal compute spend per point of model accuracy. The message remains the same though, that the process of finding the right distribution type is another experiment in optimizing model training times.
 
 ## Cleanup
 
-To avoid charges for endpoints and other resources you might not need after the workshop, please refer to the [**Cleanup Guide**](../CleanupGuide).
+To avoid charges for endpoints and other resources you might not need after the workshop, please refer to the [**Cleanup Guide**](../CleanupGuide). 
 
 
 
