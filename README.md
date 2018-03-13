@@ -41,6 +41,8 @@ To complete certain workshops, you'll need the AWS Command Line Interface (CLI) 
 
 Follow the [AWS CLI Getting Started](http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-set-up.html) guide to install and configure the CLI on your machine.
 
+WINDOWS USERS NOTE:  For workshops that use the AWS CLI, Bash scripts are utilized. You can either setup your local Windows computer with Bash, OR for the CLI-based portions of the workshop use a cloud-based EC2 instance with the Amazon Linux AMI, which comes with the AWS CLI pre-installed. Connect to your EC2 instance with PuTTY or a similar tool, and then upgrade the AWS CLI with the command `sudo pip install --upgrade awscli`, and configure it per the above instructions.  
+
 
 ## Browser
 
