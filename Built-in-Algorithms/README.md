@@ -29,7 +29,7 @@ It may take a few seconds to a few minutes for a code cell to run.  Please run e
 
 ## Parallelized Data Distribution
 
-1. In your notebook instance, click the **New** button on the right and select **Folder**.  
+1. **Exploratory Data Analysis**:  For this part of the module, we'll be using a SageMaker notebook instance to explore and visualize a data set.  To begin, in your notebook instance, click the **New** button on the right and select **Folder**.  
 
 2. Click the checkbox next to your new folder, click the **Rename** button above in the menu bar, and give the folder a name such as 'distributed-data'.
 
@@ -43,7 +43,13 @@ It may take a few seconds to a few minutes for a code cell to run.  Please run e
 
 7. Follow the directions in the notebook.  When it is time to set up a training job, return from the notebook to these instructions.  
 
-8. Open a terminal window to enter commands.  [Windows users:  use PuTTY to connect to your Amazon Linux EC2 instance.]
+8. **First Training Job**:  Now that we have our data in S3, we can begin training. We'll use SageMaker's Linear Learner algorithm. Since the focus of this module is data distribution to a training cluster and efficient loading of data, we'll fit two models in order to compare data distribution types: 
+
+- In the first job, we'll use `FullyReplicated` for our `train` channel. This will pass every file in our input S3 location to every machine (in this case we're using 5 machines). 
+
+- In the second job, we'll use `ShardedByS3Key` for the `train` channel (note that we'll keep `FullyReplicated` for the validation channel. So, for the training data, we'll pass each S3 object to a separate machine. Since we have 5 files (one for each year), we'll train on 5 machines, meaning each machine will get a year's worth of records.
+
+Open a terminal window to enter commands.  [Windows users:  use PuTTY to connect to your Amazon Linux EC2 instance.]
 
 9. Create a text file named `sm-cli.sh`. In the terminal window, change to the directory in which you created the file (if you're not already there), then run the following command :
 
@@ -69,7 +75,7 @@ prefix=/sagemaker/data_distribution_types
 
 ```
 training_image=<training-image-for-region>
-training_job_name=linear-sharded-`date '+%Y-%m-%d-%H-%M-%S'`
+training_job_name=linear-replicated-`date '+%Y-%m-%d-%H-%M-%S'`
 ```
 
 12.  Paste the following code into your text file after the other lines:
@@ -77,7 +83,7 @@ training_job_name=linear-sharded-`date '+%Y-%m-%d-%H-%M-%S'`
 ```
 training_data=$bucket$prefix/train
 eval_data=$bucket$prefix/validation
-train_source={S3DataSource={S3DataType=S3Prefix,S3DataDistributionType=ShardedByS3Key,S3Uri=$training_data}}
+train_source={S3DataSource={S3DataType=S3Prefix,S3DataDistributionType=FullyReplicated,S3Uri=$training_data}}
 eval_source={S3DataSource={S3DataType=S3Prefix,S3DataDistributionType=FullyReplicated,S3Uri=$eval_data}}
 
 aws sagemaker create-training-job \
@@ -92,11 +98,41 @@ aws sagemaker create-training-job \
     
 ```
 
-13.  In your terminal window, run the following command:
+13.  In your terminal window, run the following command, and then move onto the next step.
 
 ```
 ./sm-cli.sh.  
 ```
+
+14. **Second Training Job**:  For our next training job with the `FullyReplicated` distribution type, please find and replace the following variables in the `sm-cli.sh` script with the code listed below:
+
+```
+training_job_name=linear-sharded-`date '+%Y-%m-%d-%H-%M-%S'`
+train_source={S3DataSource={S3DataType=S3Prefix,S3DataDistributionType=ShardedByS3Key,S3Uri=$training_data}}
+```
+
+15.  In your terminal window, run the following command:
+
+```
+./sm-cli.sh.  
+```
+
+16.  In the SageMaker console, click **Jobs** in the left panel to check the status of the training jobs, which run concurrently.  When they are complete, their **Status** column will change from InProgress to Complete.  Duration of these jobs can last up to 8 or 9 minutes, including time for setting up the training cluster.
+
+To check the actual training time for each job when both are complete, click the training job name in the jobs table, then examine the **Training time** listed at the top right under **Job Settings**.  As we can see, and might expect, the sharded distribution type trained substantially faster than the fully replicated type. This is a key differentiator to consider when preparing data and picking the distribution type.
+
+17.  **SageMaker Model Creation**:  Now that we've trained our machine learning models, we'll want to make predictions by setting up a hosted endpoint for them. The first step in doing that is to point our hosting service to the model. We will point to the model.tar.gz that came from training, then create the hosting model.  We'll do this twice, once for each model we trained earlier. Here are the steps to do this via the SageMaker console:
+
+[TBD]
+
+17.  **Endpoint Configuration**:  Once we've setup our models, we can configure what our hosting endpoints should be. Here we specify the EC2 instance type to use for hosting, the initial number of instances, and our hosting model name.  Again, we'll do this twice, once for each model we trained earlier. Here are the steps to do this via the SageMaker console:
+
+[TBD]
+
+18.  **Endpoint Creation**:  Now that we've specified how our endpoints should be configured, we can create them.
+
+19.  **Evaluation**:  To compare predictions from our two models, let's return to the notebook we used earlier.  When you are finished, return here and proceed to the Cleanup section.  
+
 
 ## Cleanup
 
