@@ -125,15 +125,41 @@ train_source={S3DataSource={S3DataType=S3Prefix,S3DataDistributionType=ShardedBy
 
 17.  **SageMaker Model Creation**:  Now that we've trained our machine learning models, we'll want to make predictions by setting up a hosted endpoint for them. The first step in doing that is to point our hosting service to the model. We will point to the model.tar.gz that came from training, then create the hosting model.  We'll do this twice, once for each model we trained earlier. Here are the steps to do this via the SageMaker console:
 
-[TBD]
+- In the left pane of the SageMaker console, right click the **Models** link and open it in another tab of your browser.  Click the **Create Model** button at the upper right above the 'Models' table.
 
-17.  **Endpoint Configuration**:  Once we've setup our models, we can configure what our hosting endpoints should be. Here we specify the EC2 instance type to use for hosting, the initial number of instances, and our hosting model name.  Again, we'll do this twice, once for each model we trained earlier. Here are the steps to do this via the SageMaker console:
+- For the 'Model name' field under **Model Settings**, enter `distributed-replicated`.  
 
-[TBD]
+- For the 'Location of inference code image' field under **Primary Container**, enter the same Docker image you specified in Step 11 above for the region where you're running this workshop.
 
-18.  **Endpoint Creation**:  Now that we've specified how our endpoints should be configured, we can create them.
+- For the 'Location of model artifacts' field under **Primary Container**, enter the path to the output of your replicated training job.  To find the path, go back to your first browser tab, click **Jobs** in the left pane, then find and click the replicated job name, which will look like `linear-replicated-<date>`.  Scroll down to the **Outputs** section, then copy the path under 'S3 model artifact'.  Paste the path in the field; it should look like `s3://sagemaker-projects-pdx/sagemaker/data_distribution_types/linear-replicated-2018-03-11-18-13-13/output/model.tar.gz`.  
 
-19.  **Evaluation**:  To compare predictions from our two models, let's return to the notebook we used earlier.  When you are finished, return here and proceed to the Cleanup section.  
+- Click **Create model** at the bottom of the page.
+
+- Repeat the above steps for the sharded training job model, except:  for 'Model name', enter `distributed-sharded`, and for 'Location of model artifacts', enter the path for the sharded training job model artifact.  
+
+18.  **Endpoint Configuration**:  Once we've setup our models, we can configure what our hosting endpoints should be. Here we specify the EC2 instance type to use for hosting, the initial number of instances, and our hosting model name.  Again, we'll do this twice, once for each model we trained earlier. Here are the steps to do this via the SageMaker console:
+
+- In the left pane of the SageMaker console, click **Endpoint configuration**.  Click the **Create endpoint configuration** button at the upper right above the 'Endpoint configuration' table.
+
+- For the 'Endpoint configuration name' field under **New endpoint configuration**, enter `distributed-replicated`.  
+
+- Under **Production variants**, click **Add model**.  From the **Add model** popup, select the `distributed-replicated` model you created earlier, and click **Save**.  Then click **Create endpoint configuration** at the bottom of the page.
+
+- Repeat the above steps for the sharded training job model, except:  for 'Endpoint configuration name', enter `distributed-sharded`, and for the **Add model** popup, select the `distributed-sharded` model.  
+
+19.  **Endpoint Creation**:  Now that we've specified how our endpoints should be configured, we can create them.
+
+- In the left pane of the SageMaker console, click **Endpoints**.  Click the **Create endpoint** button at the upper right above the 'Endpoints' table.
+
+- For the 'Endpoint name' field under **Endpoint**, enter `distributed-replicated`. 
+
+- Under **Attach endpoint configuration**, leave 'Use an existing endpoint configuration' selected, then under **Endpoint configuration**, select `distributed-replicated` from the table, then click **Select endpoint configuration** at the bottom of the table.  Then click **Create endpoint** at the bottom of the page.
+
+- Repeat the above steps, except:  for 'Endpoint name', enter `distributed-sharded`, and for the **Endpoint configuration** table, select the `distributed-sharded` endpoint configuration. 
+
+- It will take several minutes for endpoint creation.  In the **Endpoints** table, refer to the 'Status' column, and wait for both endpoints to change from 'Creating' to 'InService' before proceeding to the next step.  
+
+20.  **Evaluation**:  To compare predictions from our two models, let's return to the notebook we used earlier.  When you are finished, return here and proceed to the Cleanup section.  
 
 ### Conclusion & Extensions
 
