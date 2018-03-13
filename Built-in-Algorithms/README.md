@@ -17,9 +17,9 @@ This workshop is divided into multiple modules. After completing **Preliminaries
 
 - Download this repository to your computer by clicking the green **Clone or download** button from the upper right of the main page of the repository, then **Download ZIP**.
 
-If you are new to using Jupyter notebooks, you may now skip ahead to the next module.
+If you are new to using Jupyter notebooks, read the next section, otherwise you may now skip ahead to the next module.
 
-#### Jupyter Notebooks:  A Brief Overview
+### Jupyter Notebooks:  A Brief Overview
 
 Jupyter notebooks tell a story by combining explanatory text and code. There are two types of "cells" in a notebook:  code cells, and "markdown" cells with explanatory text.  
 
@@ -41,7 +41,17 @@ It may take a few seconds to a few minutes for a code cell to run.  Please run e
 
 6. In the ```bucket = '<your_s3_bucket_name_here>'``` code line, paste the name of the S3 bucket you created in **Creating a Notebook Instance** to replace ```<your_s3_bucket_name_here>```.  The code line should now read similar to ```bucket = 'smworkshop-john-smith'```.  Do NOT paste the entire path (s3://.......), just the bucket name.  
 
-Paste the code snippet below into a text editor, and then change the text in the angle brackets (< >) as follows.  Do NOT put quotes around the values you insert.  
+7. Follow the directions in the notebook.  When it is time to set up a training job, return from the notebook to these instructions.  
+
+8. Open a terminal window to enter commands.  [Windows users:  use PuTTY to connect to your Amazon Linux EC2 instance.]
+
+9. Create a text file named `sm-cli.sh`. In the terminal window, change to the directory in which you created the file (if you're not already there), then run the following command :
+
+```
+chmod +x sm-cli.sh
+```
+
+10.  Paste the code snippet below into a text editor, and then change the text in the angle brackets (< >) as follows.  Do NOT put quotes around the values you insert.  
 - arn_role:  (get from notebook instance in console).  It should look like the following:  `arn:aws:iam::1234567890:role/service-role/AmazonSageMaker-ExecutionRole-20171211T211964`.
 - bucket:  the name of the S3 bucket you used in your notebook.  It should look like:  `s3://my-amazing-bucket`.
 
@@ -51,7 +61,7 @@ bucket=<name-of-your-s3-bucket>
 prefix=/sagemaker/data_distribution_types
 ```
 
-Next, you'll specify the training code image and job name. Paste the following code into your text file just below the previous lines, replacing the training image with one specified below depending on the region in which you are running this lab:  
+11.  Next, you'll specify the training code image and job name. Paste the following code into your text file just below the previous lines, replacing the training image with one specified below depending on the region in which you are running this lab:  
 - N. Virginia:  382416733822.dkr.ecr.us-east-1.amazonaws.com/linear-learner:latest
 - Oregon:  174872318107.dkr.ecr.us-west-2.amazonaws.com/linear-learner:latest
 - Ohio:  404615174143.dkr.ecr.us-east-2.amazonaws.com/linear-learner:latest
@@ -62,7 +72,7 @@ training_image=<training-image-for-region>
 training_job_name=linear-sharded-`date '+%Y-%m-%d-%H-%M-%S'`
 ```
 
-Finally, paste the following code into your text file after the other lines:
+12.  Paste the following code into your text file after the other lines:
 
 ```
 training_data=$bucket$prefix/train
@@ -82,8 +92,11 @@ aws sagemaker create-training-job \
     
 ```
 
-Run the command chmod +x, then ./sm-cli.sh.  
+13.  In your terminal window, run the following command:
 
+```
+./sm-cli.sh.  
+```
 
 ## Cleanup
 
