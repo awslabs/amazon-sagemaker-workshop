@@ -12,12 +12,11 @@ This workshop is divided into multiple modules. After completing **Preliminaries
 
 ## Preliminaries
 
-- Be sure you have completed all of the Prerequisites listed in the [**main README**](../README.md).
-
+- Be sure you have completed all of the Prerequisites listed in the [**main README**](../README.md). Since this workshop makes use of the AWS CLI, it is especially important for Windows users to review the section about the AWS CLI, and make sure they have access to both the AWS CLI and a Bash environment for scripting.  
 
 - Download this repository to your computer by clicking the green **Clone or download** button from the upper right of the main page of the repository, then **Download ZIP**.
 
-If you are new to using Jupyter notebooks, read the next section, otherwise you may now skip ahead to the next module.
+If you are new to using Jupyter notebooks, read the next section, otherwise you may now skip ahead to the next module, **Parallelized Data Distribution**.
 
 ### Jupyter Notebooks:  A Brief Overview
 
@@ -45,13 +44,15 @@ SageMaker makes it easy to train machine learning models across a cluster contai
 
 7. Follow the directions in the notebook.  When it is time to set up a training job, return from the notebook to these instructions.  
 
-8. **First Training Job**:  Now that we have our data in S3, we can begin training. We'll use SageMaker's Linear Learner algorithm. Since the focus of this module is data distribution to a training cluster and efficient loading of data, we'll fit two models in order to compare data distribution types: 
+8. **First Training Job**:  Now that we have our data in S3, we can begin training. We'll use SageMaker's Linear Learner algorithm. Since the focus of this module is data distribution to a training cluster, we'll fit two models in order to compare data distribution types: 
 
 - In the first job, we'll use `FullyReplicated` for our `train` channel. This will pass every file in our input S3 location to every machine (in this case we're using 5 machines). 
 
 - In the second job, we'll use `ShardedByS3Key` for the `train` channel (note that we'll keep `FullyReplicated` for the validation channel. So, for the training data, we'll pass each S3 object to a separate machine. Since we have 5 files (one for each year), we'll train on 5 machines, meaning each machine will get a year's worth of records.
 
-- To begin, open a terminal window to enter commands.  [Windows users:  use PuTTY to connect to your Amazon Linux EC2 instance.]
+- We'll be using the AWS CLI and Bash scripts to run the training jobs. As a reminder to Windows users, per the Prerequisites, you'll need to have Bash set up on your computer, or use PuTTY to connect to an Amazon Linux EC2 instance.
+
+- To begin, open a terminal window to enter commands.  
 
 9. Create a text file named `sm-cli.sh`. In the terminal window, change to the directory in which you created the file (if you're not already there), then run the following command :
 
@@ -123,9 +124,9 @@ train_source={S3DataSource={S3DataType=S3Prefix,S3DataDistributionType=ShardedBy
 
 - To check the actual training time for each job when both are complete, click the training job name in the jobs table, then examine the **Training time** listed at the top right under **Job Settings**.  As we can see, and might expect, the sharded distribution type trained substantially faster than the fully replicated type. This is a key differentiator to consider when preparing data and picking the distribution type.
 
-17.  **SageMaker Model Creation**:  Now that we've trained our machine learning models, we'll want to make predictions by setting up a hosted endpoint for them. The first step in doing that is to point our hosting service to the model. We will point to the model.tar.gz that came from training, then create the hosting model.  We'll do this twice, once for each model we trained earlier. Here are the steps to do this via the SageMaker console:
+17.  **SageMaker Model Creation**:  Now that we've trained our machine learning models, we'll want to make predictions by setting up a hosted endpoint for them. The first step in doing that is to create a SageMaker model object that wraps the actual model artifact from training. To create the model object, we will point to the model.tar.gz that came from training and the inference code container, then create the hosting model object.  We'll do this twice, once for each model we trained earlier. Here are the steps to do this via the SageMaker console:
 
-- In the left pane of the SageMaker console, right click the **Models** link and open it in another tab of your browser.  Click the **Create Model** button at the upper right above the 'Models' table.
+- In the left pane of the SageMaker console home page, right click the **Models** link and open it in another tab of your browser.  Click the **Create Model** button at the upper right above the 'Models' table.
 
 - For the 'Model name' field under **Model Settings**, enter `distributed-replicated`.  
 
@@ -159,7 +160,7 @@ train_source={S3DataSource={S3DataType=S3Prefix,S3DataDistributionType=ShardedBy
 
 - It will take several minutes for endpoint creation.  In the **Endpoints** table, refer to the 'Status' column, and wait for both endpoints to change from 'Creating' to 'InService' before proceeding to the next step.  
 
-20.  **Evaluation**:  To compare predictions from our two models, let's return to the notebook we used earlier.  When you are finished, return here and proceed to the Cleanup section.  
+20.  **Evaluation**:  To compare predictions from our two models, let's return to the notebook we used earlier.  When you are finished, return here and proceed to the next section.  
 
 ### Conclusion & Extensions
 

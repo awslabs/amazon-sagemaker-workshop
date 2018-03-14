@@ -4,7 +4,9 @@ Amazon SageMaker is a fully managed service that enables developers and data sci
 
 ![Overview](./images/overview.png)
 
-You'll start by creating a SageMaker notebook instance with the requisite permissions. You will then interact with SageMaker via sample Jupyter notebooks, the AWS CLI, and the SageMaker console. For example, you'll create model training jobs using SageMaker's hosted training feature, and create endpoints to serve predictions from your models using SageMaker's hosted endpoint feature.  
+You'll start by creating a SageMaker notebook instance with the requisite permissions. Depending on the workshop, you will then interact with SageMaker via sample Jupyter notebooks, the AWS CLI, the SageMaker console, or all three. During a workshop, you'll explore various data sets, create model training jobs using SageMaker's hosted training feature, and create endpoints to serve predictions from your models using SageMaker's hosted endpoint feature.  
+
+** BEFORE attempting any of the workshops, please review the Prequisites below and complete any action that are required.**
 
 # Workshops
 
@@ -34,6 +36,9 @@ Once you've chosen a region, you should create all of the resources for this wor
 
 ![Region selection screenshot](./images/region-selection.png)
 
+## Browser
+
+We recommend you use the latest version of Chrome or Firefox to complete this workshop.
 
 ## AWS Command Line Interface
 
@@ -43,10 +48,9 @@ Follow the [AWS CLI Getting Started](http://docs.aws.amazon.com/cli/latest/userg
 
 WINDOWS USERS NOTE:  For workshops that use the AWS CLI, Bash scripts are utilized. You can either setup your local Windows computer with Bash, OR for the CLI-based portions of the workshop use a cloud-based EC2 instance with the Amazon Linux AMI, which comes with the AWS CLI pre-installed. Connect to your EC2 instance with PuTTY or a similar tool, and then upgrade the AWS CLI with the command `sudo pip install --upgrade awscli`, and configure it per the above instructions.  
 
+## Text Editor
 
-## Browser
-
-We recommend you use the latest version of Chrome or Firefox to complete this workshop.
+For any workshop that requires use of the AWS Command Line Interface (see above), you also will need a **plain text** editor for writing Bash scripts. Make sure the text editor supports plain text because any editor that inserts Windows or other special characters potentially will cause scripts to fail.
 
 
 # License & Contributing
