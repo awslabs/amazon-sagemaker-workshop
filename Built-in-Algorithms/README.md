@@ -12,7 +12,7 @@ This workshop is divided into multiple modules. After completing **Preliminaries
 
 ## Preliminaries
 
-- Be sure you have completed all of the Prerequisites listed in the [**main README**](../README.md). Since this workshop makes use of the AWS CLI, it is especially important for Windows users to review the section about the AWS CLI, and make sure they have access to both the AWS CLI and a Bash environment for scripting.  
+- Be sure you have completed all of the Prerequisites listed in the [**main README**](../README.md). Since this workshop makes use of the AWS CLI, it is especially important for Windows users to review the section about the AWS CLI, and make sure they have working access to both the AWS CLI and a Bash environment for scripting.  
 
 - Download this repository to your computer by clicking the green **Clone or download** button from the upper right of the main page of the repository, then **Download ZIP**.
 
@@ -48,9 +48,11 @@ SageMaker makes it easy to train machine learning models across a cluster contai
 
 - In the first job, we'll use `FullyReplicated` for our `train` channel. This will pass every file in our input S3 location to every machine (in this case we're using 5 machines). 
 
-- In the second job, we'll use `ShardedByS3Key` for the `train` channel (note that we'll keep `FullyReplicated` for the validation channel. So, for the training data, we'll pass each S3 object to a separate machine. Since we have 5 files (one for each year), we'll train on 5 machines, meaning each machine will get a year's worth of records.
+- In the second job, we'll use `ShardedByS3Key` for the `train` channel (note that we'll keep `FullyReplicated` for the validation channel). So, for the training data, we'll pass each S3 object to a separate machine. Since we have 5 files (one for each year), we'll train on 5 machines, meaning each machine will get a year's worth of records.
 
-- We'll be using the AWS CLI and Bash scripts to run the training jobs. As a reminder to Windows users, per the Prerequisites, you'll need to have Bash set up on your computer, or use PuTTY to connect to an Amazon Linux EC2 instance.
+- We'll be using the AWS CLI and Bash scripts to run the training jobs. Using the AWS CLI and scripts is an excellent way to automate machine learning pipelines and repetitive tasks, such as periodic training jobs. 
+
+- As a reminder to Windows users, per the Prerequisites, you'll need to have Bash set up on your computer, or use PuTTY to connect to an Amazon Linux EC2 instance.
 
 - To begin, open a terminal window to enter commands.  
 
@@ -61,7 +63,7 @@ chmod +x sm-cli.sh
 ```
 
 10.  Paste the code snippet below into a text editor, and then change the text in the angle brackets (< >) as follows.  Do NOT put quotes around the values you insert.  
-- arn_role:  (get from notebook instance in console).  It should look like the following:  `arn:aws:iam::1234567890:role/service-role/AmazonSageMaker-ExecutionRole-20171211T211964`.
+- arn_role:  To get the value for this variable, go to the SageMaker console, click **Notebook instances** in the left pane, then in the 'Notebook instances' table, click the name of the instance you created for this workshop.  In the **Notebook instance settings** section, look for the 'IAM role ARN' value, and copy its text. It should look like the following:  `arn:aws:iam::1234567890:role/service-role/AmazonSageMaker-ExecutionRole-20171211T211964`.
 - bucket:  the name of the S3 bucket you used in your notebook.  It should look like:  `s3://my-amazing-bucket`.
 
 ```
@@ -107,14 +109,14 @@ aws sagemaker create-training-job \
 ./sm-cli.sh.  
 ```
 
-14. **Second Training Job**:  For our next training job with the `FullyReplicated` distribution type, please find and replace the following variables in the `sm-cli.sh` script with the code listed below:
+14. **Second Training Job**:  For our next training job with the `ShardedByS3Key` distribution type, please find and replace the following variables in the `sm-cli.sh` script, using the code listed below. After you've made these modifications, save the modified script.  
 
 ```
 training_job_name=linear-sharded-`date '+%Y-%m-%d-%H-%M-%S'`
 train_source={S3DataSource={S3DataType=S3Prefix,S3DataDistributionType=ShardedByS3Key,S3Uri=$training_data}}
 ```
 
-15.  In your terminal window, run the following command:
+15.  In your terminal window, run the following command to start your second training job now, there is no need to wait for the first training job to complete:
 
 ```
 ./sm-cli.sh.  
