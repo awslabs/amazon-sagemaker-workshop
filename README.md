@@ -6,7 +6,7 @@ Amazon SageMaker is a fully managed service that enables developers and data sci
 
 You'll start by creating a SageMaker notebook instance with the requisite permissions. Depending on the workshop, you will then interact with SageMaker via sample Jupyter notebooks, the AWS CLI, the SageMaker console, or all three. During a workshop, you'll explore various data sets, create model training jobs using SageMaker's hosted training feature, and create endpoints to serve predictions from your models using SageMaker's hosted endpoint feature.  
 
-** BEFORE attempting any of the workshops, please review the Prequisites below and complete any action that are required.**
+**BEFORE attempting any of the workshops, please review the Prequisites below and complete any action that are required.**
 
 # Workshops
 
