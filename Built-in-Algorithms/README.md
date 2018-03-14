@@ -42,6 +42,10 @@ SageMaker makes it easy to train machine learning models across a cluster contai
 
 6. In the ```bucket = '<your_s3_bucket_name_here>'``` code line, paste the name of the S3 bucket you created in **Creating a Notebook Instance** to replace ```<your_s3_bucket_name_here>```.  The code line should now read similar to ```bucket = 'smworkshop-john-smith'```.  Do NOT paste the entire path (s3://.......), just the bucket name.  
 
+- In this workshop, you also will be accessing a S3 bucket that holds data from one of the AWS Public Data Sets.
+
+- If you followed the [**Creating a Notebook Instance**](../NotebookCreation) module to create your notebook instance, you should be able to access this S3 bucket. Otherwise, if you are using your own notebook instance created elsewhere, you may need to modify the associated IAM role to add permissions for `s3:ListBucket` for `arn:aws:s3:::gdelt-open-data`, and `s3:GetObject` for `arn:aws:s3:::gdelt-open-data/*`.
+
 7. Follow the directions in the notebook.  When it is time to set up a training job, return from the notebook to these instructions.  
 
 8. **First Training Job**:  Now that we have our data in S3, we can begin training. We'll use SageMaker's Linear Learner algorithm. Since the focus of this module is data distribution to a training cluster, we'll fit two models in order to compare data distribution types: 

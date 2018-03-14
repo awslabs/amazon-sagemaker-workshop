@@ -32,19 +32,19 @@ Use the console or AWS CLI to create an Amazon S3 bucket. Keep in mind that your
 
 2. Click on Amazon SageMaker from the list of all services.  This will bring you to the Amazon SageMaker console homepage.
 
-![Services in Console](../images/Picture1.png)
+![Services in Console](./images/console-services.png)
 
 3. To create a new notebook instance, go to **Notebook instances**, and click the **Create notebook instance** button at the top of the browser window.
 
-![Notebook Instances](../images/Picture2.png)
+![Notebook Instances](./images/notebook-instances.png)
 
 4. Type [First Name]-[Last Name]-workshop into the **Notebook instance name** text box, and select ml.m4.xlarge for the **Notebook instance type**.
 
-![Create Notebook Instance](../images/create-instance.png)
+![Create Notebook Instance](./images/notebook-settings.png)
 
-5. For IAM role, choose **Create a new role**, and in the resulting pop-up modal, select **Specific S3 buckets** under **S3 Buckets you specify – optional**. In the text field, paste the name of the S3 bucket you created above.  It should look similar to ```smworkshop-john-smith```. Click **Create role**.
+5. For IAM role, choose **Create a new role**, and in the resulting pop-up modal, select **Specific S3 buckets** under **S3 Buckets you specify – optional**. In the text field, paste the name of the S3 bucket you created above, AND the following bucket name separated from the first by a comma:  `gdelt-open-data`.  The combined field entry should look similar to ```smworkshop-john-smith, gdelt-open-data```. Click **Create role**.
 
-![Create IAM role](../images/create-iam-role.png)
+![Create IAM role](./images/role-popup.png)
 
 6. You will be taken back to the Create Notebook instance page.  Click **Create notebook instance**.
 
@@ -52,9 +52,10 @@ Use the console or AWS CLI to create an Amazon S3 bucket. Keep in mind that your
 
 1. Wait for the server status to change to **InService**. This will take several minutes, possibly five.
 
-![Access Notebook](../images/Picture4.png)
+![Access Notebook](./images/open-notebook.png)
 
 2. Click **Open**. You will now see the Jupyter homepage for your notebook instance.
 
-![Open Notebook](../images/Picture5.png)
+![Open Notebook](./images/jupyter-homepage.png)
+
 
