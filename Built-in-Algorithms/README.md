@@ -103,7 +103,7 @@ chmod +x replicated.sh
   - Ohio:  404615174143.dkr.ecr.us-east-2.amazonaws.com/linear-learner:latest
   - Ireland:  438346466558.dkr.ecr.eu-west-1.amazonaws.com/linear-learner:latest
    
-- bucket:  the name of the S3 bucket you used in your notebook.  It should look like:  `s3://my-amazing-bucket`.
+- bucket:  the name of the S3 bucket you used in your notebook.  It should look like:  `s3://smworkshop-john-smith`.
 
 - region:  the region code for the region where you are running this workshop, either `us-east-1` for N. Virginia, `us-west-2` for Oregon, `us-east-2` for Ohio, or `eu-west-1` for Ireland.
 
@@ -141,7 +141,7 @@ sagemaker create-training-job \
 ./replicated.sh  
 ```
 
-12. **Second Training Job**:  For our next training job with the `ShardedByS3Key` distribution type, please create a text file named `sharded.sh`.  then run the following command:
+12. **Second Training Job**:  For our next training job with the `ShardedByS3Key` distribution type, please create a text file named `sharded.sh`.  then run the following command in your terminal window:
 
 ```
 chmod +x sharded.sh
@@ -157,7 +157,7 @@ chmod +x sharded.sh
   - Ohio:  404615174143.dkr.ecr.us-east-2.amazonaws.com/linear-learner:latest
   - Ireland:  438346466558.dkr.ecr.eu-west-1.amazonaws.com/linear-learner:latest
    
-- bucket:  same as for the previous script.  It should look like:  `s3://my-amazing-bucket`.
+- bucket:  same as for the previous script.  It should look like:  `s3://smworkshop-john-smith`.
 
 - region:  the region code for the region where you are running this workshop, either `us-east-1` for N. Virginia, `us-west-2` for Oregon, `us-east-2` for Ohio, or `eu-west-1` for Ireland.
 
@@ -192,7 +192,7 @@ sagemaker create-training-job \
 14.  In your terminal window, run the following command to start your second training job now, there is no need to wait for the first training job to complete:
 
 ```
-./sharded.sh.  
+./sharded.sh 
 ```
 
 15.  In the SageMaker console, click **Jobs** in the left panel to check the status of the training jobs, which run concurrently.  When they are complete, their **Status** column will change from InProgress to Complete.  As a reminder, duration of these jobs can last up to about 10 minutes, including time for setting up the training cluster.
