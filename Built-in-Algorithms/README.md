@@ -1,5 +1,20 @@
 # Built-in Algorithms Workshop
 
+## Introduction
+
+Amazon SageMaker provides high-performance, scalable machine learning algorithms optimized for speed, scale, and accuracy, and designed to run on extremely large training datasets. Based on the type of learning that you are undertaking, you can choose from either supervised algorithms (e.g. linear/logistic regression or classification), or unsupervised algorithms (e.g. k-means clustering). Besides general purpose algorithms, SageMaker's set of built-in algorithms also includes specific-purpose algorithms suited for tasks in domains such as natural language processing and image processing.  
+
+SageMaker's built-in algorithms are re-envisioned from the ground up, specifically for large training data sets. Most algorithms available elsewhere rely on being able to load files or the entire data set into memory, which doesn’t work for very large datasets. Even algorithms that don’t do this need all of the data downloaded before training starts, instead of streaming the data in and processing it as it comes in. And lastly, large training data sets can cause some algorithms available elsewhere to give up - in some cases, with training data sets as small as a few gigabytes.
+
+To summarize, there are many reasons to use SageMaker’s built-in algorithms instead of "bringing your own" (BYO) algorithm if the built-in algorithms fit your use case:  
+
+- With BYO, time/cost must be spent on design (e.g. of a neural net).
+- With BYO, you must solve the problems of scalability and reliability for large data sets. 
+- Built-in algorithms take care of these concerns.
+- Built-in algorithms also provide many conveniences such as reduced need for external hyperparameter optimization, efficient data loading, etc.  
+- Faster training, and faster inference with smaller models produced by some built-in algorithms.
+- Even if you’re doing BYO, built-in algorithms may be helpful at some point in the machine learning pipeline, such as the PCA built-in algorithm for dimensionality reduction.
+
 ## Modules
 
 This workshop is divided into multiple modules. After completing **Preliminaries**, complete the module **Creating a Notebook Instance** next.  You can complete the remaining module(s) in any order.  
@@ -60,36 +75,32 @@ SageMaker makes it easy to train machine learning models across a cluster contai
 
 - To begin, open a terminal window to enter commands.  
 
-9. Create a text file named `sm-cli.sh`. In the terminal window, change to the directory in which you created the file (if you're not already there), then run the following command :
+9. Create a text file named `replicated.sh`. In the terminal window, change to the directory in which you created the file (if you're not already there), then run the following command :
 
 ```
-chmod +x sm-cli.sh
+chmod +x replicated.sh
 ```
 
-10.  Paste the code snippet below into a text editor, and then change the text in the angle brackets (< >) as follows.  Do NOT put quotes around the values you insert.  
+10.  Paste the bash script below into the `replicated.sh` file, and then change the text in the angle brackets (< >) as follows.  Do NOT put quotes around the values you insert or retain the brackets.  
+
 - arn_role:  To get the value for this variable, go to the SageMaker console, click **Notebook instances** in the left pane, then in the 'Notebook instances' table, click the name of the instance you created for this workshop.  In the **Notebook instance settings** section, look for the 'IAM role ARN' value, and copy its text. It should look like the following:  `arn:aws:iam::1234567890:role/service-role/AmazonSageMaker-ExecutionRole-20171211T211964`.
+
+- training_image:  select one of the following, depending on the AWS Region where you are running this workshop.
+   N. Virginia:  382416733822.dkr.ecr.us-east-1.amazonaws.com/linear-learner:latest
+   Oregon:  174872318107.dkr.ecr.us-west-2.amazonaws.com/linear-learner:latest
+   Ohio:  404615174143.dkr.ecr.us-east-2.amazonaws.com/linear-learner:latest
+   Ireland:  438346466558.dkr.ecr.eu-west-1.amazonaws.com/linear-learner:latest
+   
 - bucket:  the name of the S3 bucket you used in your notebook.  It should look like:  `s3://my-amazing-bucket`.
 
 ```
 arn_role=<arn-of-your-notebook-role>
-bucket=<name-of-your-s3-bucket>
-prefix=/sagemaker/data_distribution_types
-```
-
-11.  Next, you'll specify the training code image and job name. Paste the following code into your text file just below the previous lines, replacing the training image with one specified below depending on the region in which you are running this lab:  
-- N. Virginia:  382416733822.dkr.ecr.us-east-1.amazonaws.com/linear-learner:latest
-- Oregon:  174872318107.dkr.ecr.us-west-2.amazonaws.com/linear-learner:latest
-- Ohio:  404615174143.dkr.ecr.us-east-2.amazonaws.com/linear-learner:latest
-- Ireland:  438346466558.dkr.ecr.eu-west-1.amazonaws.com/linear-learner:latest
-
-```
 training_image=<training-image-for-region>
+bucket=<name-of-your-s3-bucket>
+
+prefix=/sagemaker/data_distribution_types
 training_job_name=linear-replicated-`date '+%Y-%m-%d-%H-%M-%S'`
-```
 
-12.  Paste the following code into your text file after the other lines:
-
-```
 training_data=$bucket$prefix/train
 eval_data=$bucket$prefix/validation
 train_source={S3DataSource={S3DataType=S3Prefix,S3DataDistributionType=FullyReplicated,S3Uri=$training_data}}
@@ -104,33 +115,69 @@ aws sagemaker create-training-job \
 --output-data-config S3OutputPath=$bucket$prefix \
 --hyper-parameters feature_dim=25,mini_batch_size=500,predictor_type=regressor,epochs=2,num_models=32,loss=absolute_loss \
 --stopping-condition MaxRuntimeInSeconds=3600
-    
-```
-
-13.  In your terminal window, run the following command, and then move onto the next step.
 
 ```
-./sm-cli.sh.  
-```
 
-14. **Second Training Job**:  For our next training job with the `ShardedByS3Key` distribution type, please find and replace the following variables in the `sm-cli.sh` script, using the code listed below. After you've made these modifications, save the modified script.  
+11.  In your terminal window, run the following command, and then move onto the next step.
 
 ```
+./replicated.sh  
+```
+
+12. **Second Training Job**:  For our next training job with the `ShardedByS3Key` distribution type, please create a text file named `sharded.sh`.  then run the following command :
+
+```
+chmod +x sharded.sh
+```
+
+13.  Paste the bash script below into the `sharded.sh` file, and then change the text in the angle brackets (< >) as follows.  Do NOT put quotes around the values you insert or retain the brackets.  
+
+- arn_role:  same as for the previous script. It should look like the following:  `arn:aws:iam::1234567890:role/service-role/AmazonSageMaker-ExecutionRole-20171211T211964`.
+
+- training_image:  same as the previous script; the image depends on the AWS Region where you are running this workshop.  They are shown again here for convenience:  
+   N. Virginia:  382416733822.dkr.ecr.us-east-1.amazonaws.com/linear-learner:latest
+   Oregon:  174872318107.dkr.ecr.us-west-2.amazonaws.com/linear-learner:latest
+   Ohio:  404615174143.dkr.ecr.us-east-2.amazonaws.com/linear-learner:latest
+   Ireland:  438346466558.dkr.ecr.eu-west-1.amazonaws.com/linear-learner:latest
+   
+- bucket:  same as for the previous script.  It should look like:  `s3://my-amazing-bucket`.
+
+```
+arn_role=<arn-of-your-notebook-role>
+training_image=<training-image-for-region>
+bucket=<name-of-your-s3-bucket>
+
+prefix=/sagemaker/data_distribution_types
 training_job_name=linear-sharded-`date '+%Y-%m-%d-%H-%M-%S'`
+
+training_data=$bucket$prefix/train
+eval_data=$bucket$prefix/validation
 train_source={S3DataSource={S3DataType=S3Prefix,S3DataDistributionType=ShardedByS3Key,S3Uri=$training_data}}
+eval_source={S3DataSource={S3DataType=S3Prefix,S3DataDistributionType=FullyReplicated,S3Uri=$eval_data}}
+
+aws sagemaker create-training-job \
+--role-arn $arn_role \
+--training-job-name $training_job_name \
+--algorithm-specification TrainingImage=$training_image,TrainingInputMode=File \
+--resource-config InstanceCount=5,InstanceType=ml.c4.2xlarge,VolumeSizeInGB=10 \
+--input-data-config ChannelName=train,DataSource=$train_source,CompressionType=None,RecordWrapperType=None ChannelName=validation,DataSource=$eval_source,CompressionType=None,RecordWrapperType=None \
+--output-data-config S3OutputPath=$bucket$prefix \
+--hyper-parameters feature_dim=25,mini_batch_size=500,predictor_type=regressor,epochs=2,num_models=32,loss=absolute_loss \
+--stopping-condition MaxRuntimeInSeconds=3600
+
 ```
 
-15.  In your terminal window, run the following command to start your second training job now, there is no need to wait for the first training job to complete:
+14.  In your terminal window, run the following command to start your second training job now, there is no need to wait for the first training job to complete:
 
 ```
-./sm-cli.sh.  
+./sharded.sh.  
 ```
 
-16.  In the SageMaker console, click **Jobs** in the left panel to check the status of the training jobs, which run concurrently.  When they are complete, their **Status** column will change from InProgress to Complete.  Duration of these jobs can last up to 8 or 9 minutes, including time for setting up the training cluster.
+15.  In the SageMaker console, click **Jobs** in the left panel to check the status of the training jobs, which run concurrently.  When they are complete, their **Status** column will change from InProgress to Complete.  Duration of these jobs can last up to 8 or 9 minutes, including time for setting up the training cluster.
 
 - To check the actual training time for each job when both are complete, click the training job name in the jobs table, then examine the **Training time** listed at the top right under **Job Settings**.  As we can see, and might expect, the sharded distribution type trained substantially faster than the fully replicated type. This is a key differentiator to consider when preparing data and picking the distribution type.
 
-17.  **SageMaker Model Creation**:  Now that we've trained our machine learning models, we'll want to make predictions by setting up a hosted endpoint for them. The first step in doing that is to create a SageMaker model object that wraps the actual model artifact from training. To create the model object, we will point to the model.tar.gz that came from training and the inference code container, then create the hosting model object.  We'll do this twice, once for each model we trained earlier. Here are the steps to do this via the SageMaker console (see screenshot below for an example of all relevant fields filled in for the Oregon AWS Region):
+16.  **SageMaker Model Creation**:  Now that we've trained our machine learning models, we'll want to make predictions by setting up a hosted endpoint for them. The first step in doing that is to create a SageMaker model object that wraps the actual model artifact from training. To create the model object, we will point to the model.tar.gz that came from training and the inference code container, then create the hosting model object.  We'll do this twice, once for each model we trained earlier. Here are the steps to do this via the SageMaker console (see screenshot below for an example of all relevant fields filled in for the Oregon AWS Region):
 
 - In the left pane of the SageMaker console home page, right click the **Models** link and open it in another tab of your browser.  Click the **Create Model** button at the upper right above the 'Models' table.
 
@@ -146,7 +193,7 @@ train_source={S3DataSource={S3DataType=S3Prefix,S3DataDistributionType=ShardedBy
 
 ![Model](./images/model.png)
 
-18.  **Endpoint Configuration**:  Once we've setup our models, we can configure what our hosting endpoints should be. Here we specify the EC2 instance type to use for hosting, the initial number of instances, and our hosting model name.  Again, we'll do this twice, once for each model we trained earlier. Here are the steps to do this via the SageMaker console (see screenshot below for an example of all relevant fields filled in for the Oregon AWS Region):
+17.  **Endpoint Configuration**:  Once we've setup our models, we can configure what our hosting endpoints should be. Here we specify the EC2 instance type to use for hosting, the initial number of instances, and our hosting model name.  Again, we'll do this twice, once for each model we trained earlier. Here are the steps to do this via the SageMaker console (see screenshot below for an example of all relevant fields filled in for the Oregon AWS Region):
 
 - In the left pane of the SageMaker console, click **Endpoint configuration**.  Click the **Create endpoint configuration** button at the upper right above the 'Endpoint configuration' table.
 
@@ -158,7 +205,7 @@ train_source={S3DataSource={S3DataType=S3Prefix,S3DataDistributionType=ShardedBy
 
 ![Endpoint Configuration](./images/endpoint-config.png)
 
-19.  **Endpoint Creation**:  Now that we've specified how our endpoints should be configured, we can create them.  For this final step in the process of settng up endpoints, we'll once again use the SageMaker console to do so (see screenshot below for an example of all relevant fields filled in for the Oregon AWS Region):
+18.  **Endpoint Creation**:  Now that we've specified how our endpoints should be configured, we can create them.  For this final step in the process of settng up endpoints, we'll once again use the SageMaker console to do so (see screenshot below for an example of all relevant fields filled in for the Oregon AWS Region):
 
 - In the left pane of the SageMaker console, click **Endpoints**.  Click the **Create endpoint** button at the upper right above the 'Endpoints' table.
 
@@ -172,7 +219,7 @@ train_source={S3DataSource={S3DataType=S3Prefix,S3DataDistributionType=ShardedBy
 
 ![Endpoint](./images/endpoint.png)
 
-20.  **Evaluation**:  To compare predictions from our two models, let's return to the notebook we used earlier.  When you are finished, return here and proceed to the next section.  
+19.  **Evaluate**:  To compare predictions from our two models, let's return to the notebook we used earlier.  When you are finished, return here and proceed to the next section.  
 
 ### Conclusion & Extensions
 
