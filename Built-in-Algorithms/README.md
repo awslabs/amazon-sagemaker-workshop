@@ -79,15 +79,17 @@ In this module, we will learn about how to take full advantage of distributed tr
 
 7. Follow the directions in the notebook.  When it is time to set up a training job, return from the notebook to these instructions.  
 
-8. **First Training Job**:  Now that we have our data in S3, we can begin training. We'll use SageMaker's built-in Linear Learner algorithm. Since the focus of this module is data distribution to a training cluster, we'll fit two models in order to compare data distribution types. To understand the different types, please read the following description:
+8. **First Training Job**:  Now that we have our data in S3, we can begin training. We'll use SageMaker's built-in Linear Learner algorithm. Since the focus of this module is data distribution to a training cluster, we'll fit two models in order to compare data distribution types. To understand the different types, please read the following:
 
 - In the first job, we'll use `FullyReplicated` for our `train` channel. This will pass every file in our input S3 location to every machine (in this case we're using 5 machines). 
 
 - In the second job, we'll use `ShardedByS3Key` for the `train` channel (note that we'll keep `FullyReplicated` for the validation channel). So, for the training data, we'll pass each S3 object to a separate machine. Since we have 5 files (one for each year), we'll train on 5 machines, meaning each machine will get a year's worth of records.
 
-- We'll be using the AWS CLI and Bash scripts to run the training jobs. Using the AWS CLI and scripts is an excellent way to automate machine learning pipelines and repetitive tasks, such as periodic training jobs. 
+- We'll be using the AWS CLI and Bash scripts to run the training jobs. Using the AWS CLI and scripts is an excellent way to automate machine learning pipelines and repetitive tasks, such as periodic training jobs. As a reminder, in the Prerequisites we recommended the use of AWS Cloud 9 for access to the AWS CLI and Bash environments.  Please open your Cloud9 environment now; below is a screenshot of what your Cloud9 environment should look like as you create the first script below and run the related commands.  Step-by-step instructions follow.
 
-9. Create a text file named `replicated.sh`. Open a terminal/command window that supports Bash to enter commands. In the terminal window, change to the directory in which you created the file (if you're not already there), then run the following command:
+![Cloud9](./images/dev-environment.png)
+
+9. Create a text file named `replicated.sh`. If you haven't done so already, open a terminal/command window that supports Bash to enter commands. In the terminal window, change to the directory in which you created the file (if you're not already there), then run the following command:
 
 ```
 chmod +x replicated.sh

@@ -20,11 +20,9 @@ You'll start by creating a SageMaker notebook instance with the requisite permis
 
 # Prerequisites
 
-BEFORE beginning any of the workshops, please review the following and complete any actions that are required.
-
 ## AWS Account
 
-In order to complete this workshop you'll need an AWS Account with access to create AWS IAM, S3 and SageMaker resources. The code and instructions in this workshop assume only one student is using a given AWS account at a time. If you try sharing an account with another student, you'll run into naming conflicts for certain resources. You can work around these by appending a unique suffix to the resources that fail to create due to conflicts, but the instructions do not provide details on the changes required to make this work.
+In order to complete this workshop you'll need an AWS Account and an AWS IAM user with access to create AWS IAM, Amazon S3, Amazon SageMaker, and AWS Cloud9 resources. The code and instructions in this workshop assume only one student is using a given AWS account at a time. If you try sharing an account with another student, you'll run into naming conflicts for certain resources. You can work around these by appending a unique suffix to the resources that fail to create due to conflicts, but the instructions do not provide details on the changes required to make this work. Use a personal account or create a new AWS account for this workshop rather than using an organization’s account to ensure you have full access to the necessary services and to ensure you do not leave behind any resources from the workshop.
 
 Some, but NOT all, of the resources you will launch as part of this workshop are eligible for the AWS free tier if your account is less than 12 months old. See the [AWS Free Tier page](https://aws.amazon.com/free/) for more details. An example of a resource that is **not** covered by the free tier is the ml.m4.xlarge notebook instance used in some workshops. To avoid charges for endpoints and other resources you might not need after you've finished a workshop, please refer to the [**Cleanup Guide**](./CleanupGuide). 
 
@@ -42,15 +40,21 @@ We recommend you use the latest version of Chrome or Firefox to complete this wo
 
 ## AWS Command Line Interface
 
-To complete certain workshops, you'll need the AWS Command Line Interface (CLI) installed on your local machine. You'll use the CLI to interface with SageMaker and other AWS services. At this time, only the following workshops require use of the CLI:  **SageMaker Built-in Algorithms** workshop.
+To complete certain workshops, you'll need the AWS Command Line Interface (CLI). You'll use the CLI to interface with SageMaker and other AWS services. At this time, only the following workshops require use of the CLI:  **SageMaker Built-in Algorithms** workshop. You'll also need access to a Bash environment. The following are some options for getting and using the CLI. Using AWS Cloud9 is the preferred option to avoid problems that can arise configuring the CLI on your machine.  
 
-Follow the [AWS CLI Getting Started](http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-set-up.html) guide to install and configure the CLI on your machine.
+- AWS Cloud9: is a cloud-based integrated development environment (IDE) that lets you write, run, and debug your code with just a browser. It has the AWS CLI pre-installed so you don’t need to install files or configure your laptop for this workshop. For Cloud9 setup directions for these workshops, see [**Cloud9 Setup**](Cloud9).  
 
-WINDOWS USERS NOTE:  For workshops that use the AWS CLI, Bash scripts are utilized. You can either setup your local Windows computer with Bash, OR for the CLI-based portions of the workshop use a cloud-based EC2 instance with the Amazon Linux AMI, which comes with the AWS CLI pre-installed. Connect to your EC2 instance with PuTTY or a similar tool, and then upgrade the AWS CLI with the command `sudo pip install --upgrade awscli`, and configure it per the above instructions.  
+
+- Install the AWS CLI locally: Follow the [AWS CLI Getting Started](http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-set-up.html) guide to install and configure the CLI on your machine.
+
+
+- Use a cloud-based Amazon EC2 instance with the Amazon Linux AMI:  this AMI comes with the AWS CLI pre-installed. Connect to your EC2 instance with SSH, PuTTY (if you're using Windows) or a similar tool, and then upgrade the AWS CLI with the command `sudo pip install --upgrade awscli`, and configure it per the above instructions. 
+
+WINDOWS USERS NOTE:  As a reminder, for workshops that use the AWS CLI, Bash scripts are utilized. Using AWS Cloud9 is the preferred option, but if you choose to install the AWS CLI on your machine, be sure your Windows machine has a Bash environment. On Windows 10, you can install the [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/about) with a Bash environment.
 
 ## Text Editor
 
-For any workshop that requires use of the AWS Command Line Interface (see above), you also will need a **plain text** editor for writing Bash scripts. Make sure the text editor supports plain text because any editor that inserts Windows or other special characters potentially will cause scripts to fail.
+For any workshop that requires use of the AWS Command Line Interface (see above), you also will need a **plain text** editor for writing Bash scripts. Make sure the text editor supports plain text because any editor that inserts Windows or other special characters potentially will cause scripts to fail. The preferred option of Cloud9 includes a text editor. 
 
 
 # License & Contributing
