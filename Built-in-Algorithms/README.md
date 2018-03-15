@@ -75,21 +75,21 @@ SageMaker makes it easy to train machine learning models across a cluster contai
 
 - To begin, open a terminal window to enter commands.  
 
-9. Create a text file named `replicated.sh`. In the terminal window, change to the directory in which you created the file (if you're not already there), then run the following command :
+9. Create a text file named `replicated.sh`. In the terminal window, change to the directory in which you created the file (if you're not already there), then run the following command:
 
 ```
 chmod +x replicated.sh
 ```
 
-10.  Paste the bash script below into the `replicated.sh` file, and then change the text in the angle brackets (< >) as follows.  Do NOT put quotes around the values you insert or retain the brackets.  
+10.  Paste the bash script below into the `replicated.sh` file, and then change the text in the angle brackets (< >) as follows.  Do NOT put quotes around the values you insert, or retain the brackets.  
 
 - arn_role:  To get the value for this variable, go to the SageMaker console, click **Notebook instances** in the left pane, then in the 'Notebook instances' table, click the name of the instance you created for this workshop.  In the **Notebook instance settings** section, look for the 'IAM role ARN' value, and copy its text. It should look like the following:  `arn:aws:iam::1234567890:role/service-role/AmazonSageMaker-ExecutionRole-20171211T211964`.
 
 - training_image:  select one of the following, depending on the AWS Region where you are running this workshop.
-   N. Virginia:  382416733822.dkr.ecr.us-east-1.amazonaws.com/linear-learner:latest
-   Oregon:  174872318107.dkr.ecr.us-west-2.amazonaws.com/linear-learner:latest
-   Ohio:  404615174143.dkr.ecr.us-east-2.amazonaws.com/linear-learner:latest
-   Ireland:  438346466558.dkr.ecr.eu-west-1.amazonaws.com/linear-learner:latest
+  - N. Virginia:  382416733822.dkr.ecr.us-east-1.amazonaws.com/linear-learner:latest
+  - Oregon:  174872318107.dkr.ecr.us-west-2.amazonaws.com/linear-learner:latest
+  - Ohio:  404615174143.dkr.ecr.us-east-2.amazonaws.com/linear-learner:latest
+  - Ireland:  438346466558.dkr.ecr.eu-west-1.amazonaws.com/linear-learner:latest
    
 - bucket:  the name of the S3 bucket you used in your notebook.  It should look like:  `s3://my-amazing-bucket`.
 
@@ -130,15 +130,15 @@ aws sagemaker create-training-job \
 chmod +x sharded.sh
 ```
 
-13.  Paste the bash script below into the `sharded.sh` file, and then change the text in the angle brackets (< >) as follows.  Do NOT put quotes around the values you insert or retain the brackets.  
+13.  Paste the bash script below into the `sharded.sh` file, and then change the text in the angle brackets (< >) as follows.  Do NOT put quotes around the values you insert, or retain the brackets. 
 
 - arn_role:  same as for the previous script. It should look like the following:  `arn:aws:iam::1234567890:role/service-role/AmazonSageMaker-ExecutionRole-20171211T211964`.
 
 - training_image:  same as the previous script; the image depends on the AWS Region where you are running this workshop.  They are shown again here for convenience:  
-   N. Virginia:  382416733822.dkr.ecr.us-east-1.amazonaws.com/linear-learner:latest
-   Oregon:  174872318107.dkr.ecr.us-west-2.amazonaws.com/linear-learner:latest
-   Ohio:  404615174143.dkr.ecr.us-east-2.amazonaws.com/linear-learner:latest
-   Ireland:  438346466558.dkr.ecr.eu-west-1.amazonaws.com/linear-learner:latest
+  - N. Virginia:  382416733822.dkr.ecr.us-east-1.amazonaws.com/linear-learner:latest
+  - Oregon:  174872318107.dkr.ecr.us-west-2.amazonaws.com/linear-learner:latest
+  - Ohio:  404615174143.dkr.ecr.us-east-2.amazonaws.com/linear-learner:latest
+  - Ireland:  438346466558.dkr.ecr.eu-west-1.amazonaws.com/linear-learner:latest
    
 - bucket:  same as for the previous script.  It should look like:  `s3://my-amazing-bucket`.
 
