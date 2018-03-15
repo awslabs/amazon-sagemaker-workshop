@@ -57,7 +57,9 @@ To create a SageMaker notebook instance for this workshop, follow the instructio
 
 ## Parallelized Data Distribution
 
-SageMaker makes it easy to train machine learning models across a cluster containing a large number of machines. This a non-trivial process, but SageMaker's built-in algorithms and pre-built MXNet and TensorFlow containers hide most of the complexity from you. Nevertheless, there are decisions about how to structure data that will have implications regarding how the distributed training is carried out. In this module, we will go through details on setting up your data to take full advantage of distributed processing when using one of the built-in algorithms.
+SageMaker makes it easy to train machine learning models across a cluster containing a large number of machines. This a non-trivial process, but SageMaker's built-in algorithms and pre-built MXNet and TensorFlow containers hide most of the complexity from you. Nevertheless, there are decisions about how to structure data that will have implications regarding how the distributed training is carried out. 
+
+In this module, we will learn about how to take full advantage of distributed training clusters when using one of SageMaker's built-in algorithms. This module also shows how to use SageMaker's built-in algorithms via hosted Jupyter notebooks, the AWS CLI, and the SageMaker console.
 
 1. **Exploratory Data Analysis**:  For this part of the module, we'll be using a SageMaker notebook instance to explore and visualize a data set.  To begin, in your notebook instance, click the **New** button on the right and select **Folder**.  
 
@@ -139,7 +141,7 @@ sagemaker create-training-job \
 ./replicated.sh  
 ```
 
-12. **Second Training Job**:  For our next training job with the `ShardedByS3Key` distribution type, please create a text file named `sharded.sh`.  then run the following command :
+12. **Second Training Job**:  For our next training job with the `ShardedByS3Key` distribution type, please create a text file named `sharded.sh`.  then run the following command:
 
 ```
 chmod +x sharded.sh
