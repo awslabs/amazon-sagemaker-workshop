@@ -77,7 +77,7 @@ SageMaker makes it easy to train machine learning models across a cluster contai
 
 7. Follow the directions in the notebook.  When it is time to set up a training job, return from the notebook to these instructions.  
 
-8. **First Training Job**:  Now that we have our data in S3, we can begin training. We'll use SageMaker's Linear Learner algorithm. Since the focus of this module is data distribution to a training cluster, we'll fit two models in order to compare data distribution types: 
+8. **First Training Job**:  Now that we have our data in S3, we can begin training. We'll use SageMaker's built-in Linear Learner algorithm. Since the focus of this module is data distribution to a training cluster, we'll fit two models in order to compare data distribution types. To understand the different types, please read the following description:
 
 - In the first job, we'll use `FullyReplicated` for our `train` channel. This will pass every file in our input S3 location to every machine (in this case we're using 5 machines). 
 
@@ -85,11 +85,7 @@ SageMaker makes it easy to train machine learning models across a cluster contai
 
 - We'll be using the AWS CLI and Bash scripts to run the training jobs. Using the AWS CLI and scripts is an excellent way to automate machine learning pipelines and repetitive tasks, such as periodic training jobs. 
 
-- As a reminder to Windows users, per the Prerequisites, you'll need to have Bash set up on your computer, or use PuTTY to connect to an Amazon Linux EC2 instance.
-
-- To begin, open a terminal window to enter commands.  
-
-9. Create a text file named `replicated.sh`. In the terminal window, change to the directory in which you created the file (if you're not already there), then run the following command:
+9. Create a text file named `replicated.sh`. Open a terminal/command window that supports Bash to enter commands. In the terminal window, change to the directory in which you created the file (if you're not already there), then run the following command:
 
 ```
 chmod +x replicated.sh
@@ -107,10 +103,14 @@ chmod +x replicated.sh
    
 - bucket:  the name of the S3 bucket you used in your notebook.  It should look like:  `s3://my-amazing-bucket`.
 
+- region:  the region code for the region where you are running this workshop, either `us-east-1` for N. Virginia, `us-west-2` for Oregon, `us-east-2` for Ohio, or `eu-west-1` for Ireland.
+
 ```
+# Fill in the values of these four variables
 arn_role=<arn-of-your-notebook-role>
 training_image=<training-image-for-region>
 bucket=<name-of-your-s3-bucket>
+region=<your-region>
 
 prefix=/sagemaker/data_distribution_types
 training_job_name=linear-replicated-`date '+%Y-%m-%d-%H-%M-%S'`
@@ -120,7 +120,8 @@ eval_data=$bucket$prefix/validation
 train_source={S3DataSource={S3DataType=S3Prefix,S3DataDistributionType=FullyReplicated,S3Uri=$training_data}}
 eval_source={S3DataSource={S3DataType=S3Prefix,S3DataDistributionType=FullyReplicated,S3Uri=$eval_data}}
 
-aws sagemaker create-training-job \
+aws --region $region \
+sagemaker create-training-job \
 --role-arn $arn_role \
 --training-job-name $training_job_name \
 --algorithm-specification TrainingImage=$training_image,TrainingInputMode=File \
@@ -128,11 +129,11 @@ aws sagemaker create-training-job \
 --input-data-config ChannelName=train,DataSource=$train_source,CompressionType=None,RecordWrapperType=None ChannelName=validation,DataSource=$eval_source,CompressionType=None,RecordWrapperType=None \
 --output-data-config S3OutputPath=$bucket$prefix \
 --hyper-parameters feature_dim=25,mini_batch_size=500,predictor_type=regressor,epochs=2,num_models=32,loss=absolute_loss \
---stopping-condition MaxRuntimeInSeconds=3600
+--stopping-condition MaxRuntimeInSeconds=1800
 
 ```
 
-11.  In your terminal window, run the following command, and then move onto the next step.
+11.  In your terminal window, run the following command to start the training job. Total job duration may last up to about 10 minutes, including time for setting up the training cluster. In case the training job encounters problems and is stuck, you can set a stopping condition that times out, in this case after a half hour. Now, since you can run another job concurrently with this one, move onto the next step after you start this job.
 
 ```
 ./replicated.sh  
@@ -156,10 +157,14 @@ chmod +x sharded.sh
    
 - bucket:  same as for the previous script.  It should look like:  `s3://my-amazing-bucket`.
 
+- region:  the region code for the region where you are running this workshop, either `us-east-1` for N. Virginia, `us-west-2` for Oregon, `us-east-2` for Ohio, or `eu-west-1` for Ireland.
+
 ```
+# Fill in the values of these four variables
 arn_role=<arn-of-your-notebook-role>
 training_image=<training-image-for-region>
 bucket=<name-of-your-s3-bucket>
+region=<your-region>
 
 prefix=/sagemaker/data_distribution_types
 training_job_name=linear-sharded-`date '+%Y-%m-%d-%H-%M-%S'`
@@ -169,7 +174,8 @@ eval_data=$bucket$prefix/validation
 train_source={S3DataSource={S3DataType=S3Prefix,S3DataDistributionType=ShardedByS3Key,S3Uri=$training_data}}
 eval_source={S3DataSource={S3DataType=S3Prefix,S3DataDistributionType=FullyReplicated,S3Uri=$eval_data}}
 
-aws sagemaker create-training-job \
+aws --region $region \
+sagemaker create-training-job \
 --role-arn $arn_role \
 --training-job-name $training_job_name \
 --algorithm-specification TrainingImage=$training_image,TrainingInputMode=File \
@@ -177,7 +183,7 @@ aws sagemaker create-training-job \
 --input-data-config ChannelName=train,DataSource=$train_source,CompressionType=None,RecordWrapperType=None ChannelName=validation,DataSource=$eval_source,CompressionType=None,RecordWrapperType=None \
 --output-data-config S3OutputPath=$bucket$prefix \
 --hyper-parameters feature_dim=25,mini_batch_size=500,predictor_type=regressor,epochs=2,num_models=32,loss=absolute_loss \
---stopping-condition MaxRuntimeInSeconds=3600
+--stopping-condition MaxRuntimeInSeconds=1800
 
 ```
 
@@ -187,9 +193,9 @@ aws sagemaker create-training-job \
 ./sharded.sh.  
 ```
 
-15.  In the SageMaker console, click **Jobs** in the left panel to check the status of the training jobs, which run concurrently.  When they are complete, their **Status** column will change from InProgress to Complete.  Duration of these jobs can last up to 8 or 9 minutes, including time for setting up the training cluster.
+15.  In the SageMaker console, click **Jobs** in the left panel to check the status of the training jobs, which run concurrently.  When they are complete, their **Status** column will change from InProgress to Complete.  As a reminder, duration of these jobs can last up to about 10 minutes, including time for setting up the training cluster.
 
-- To check the actual training time for each job when both are complete, click the training job name in the jobs table, then examine the **Training time** listed at the top right under **Job Settings**.  As we can see, and might expect, the sharded distribution type trained substantially faster than the fully replicated type. This is a key differentiator to consider when preparing data and picking the distribution type.
+- To check the actual training time (not including cluster setup) for each job when both are complete, click the training job name in the jobs table, then examine the **Training time** listed at the top right under **Job Settings**.  As we can see, and might expect, the sharded distribution type trained substantially faster than the fully replicated type. This is a key differentiator to consider when preparing data and picking the distribution type.
 
 16.  **SageMaker Model Creation**:  Now that we've trained our machine learning models, we'll want to make predictions by setting up a hosted endpoint for them. The first step in doing that is to create a SageMaker model object that wraps the actual model artifact from training. To create the model object, we will point to the model.tar.gz that came from training and the inference code container, then create the hosting model object.  We'll do this twice, once for each model we trained earlier. Here are the steps to do this via the SageMaker console (see screenshot below for an example of all relevant fields filled in for the Oregon AWS Region):
 
@@ -197,7 +203,12 @@ aws sagemaker create-training-job \
 
 - For the 'Model name' field under **Model Settings**, enter `distributed-replicated`.  
 
-- For the 'Location of inference code image' field under **Primary Container**, enter the same Docker image you specified in Step 11 above for the region where you're running this workshop.
+- For the 'Location of inference code image' field under **Primary Container**, enter the name of the same Docker image you specified previously for the region where you're running this workshop. For ease of reference, here are the image names again:
+
+  - N. Virginia:  382416733822.dkr.ecr.us-east-1.amazonaws.com/linear-learner:latest
+  - Oregon:  174872318107.dkr.ecr.us-west-2.amazonaws.com/linear-learner:latest
+  - Ohio:  404615174143.dkr.ecr.us-east-2.amazonaws.com/linear-learner:latest
+  - Ireland:  438346466558.dkr.ecr.eu-west-1.amazonaws.com/linear-learner:latest
 
 - For the 'Location of model artifacts' field under **Primary Container**, enter the path to the output of your replicated training job.  To find the path, go back to your first browser tab, click **Jobs** in the left pane, then find and click the replicated job name, which will look like `linear-replicated-<date>`.  Scroll down to the **Outputs** section, then copy the path under 'S3 model artifact'.  Paste the path in the field; it should look like `s3://sagemaker-projects-pdx/sagemaker/data_distribution_types/linear-replicated-2018-03-11-18-13-13/output/model.tar.gz`.  
 
