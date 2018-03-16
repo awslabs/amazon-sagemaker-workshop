@@ -27,7 +27,7 @@ Take a moment now and setup your Cloud9 development environment.
 - Review the environment settings and click **Create environment**. It will take several minutes for your environment to be provisioned and prepared.
 
 
-- Once ready, your IDE will open to a welcome screen. Below that, you should see a terminal prompt similar to the following (you may need to scroll down to see it):
+- Once ready, your IDE will open to a welcome screen. The central panel of the IDE has two parts:  a text/code editor in the upper half, and a terminal window in the lower half. Below the welcome screen in the editor, you should see a terminal prompt similar to the following (you may need to scroll down below the welcome screen to see it):
 
 ![Terminal](./images/setup-cloud9-terminal.png)
 
@@ -49,7 +49,11 @@ Admin:~/environment $ aws sts get-caller-identity
 }
 ```
 
-- Keep your AWS Cloud9 IDE opened in a tab throughout this workshop as we’ll use it for activities like using the AWS CLI and running Bash scripts.
+
+- To create a new text/code file, just click the **+** symbol in the tabs section of the editor part of the IDE. You can do that now, and close the wecome screen by clicking the **x** symbol in the welcome screen tab.
+
+
+- Keep your AWS Cloud9 IDE opened in a browser tab throughout this workshop as we’ll use it for activities like using the AWS CLI and running Bash scripts.
 
 ## Tips
 
