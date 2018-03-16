@@ -27,7 +27,7 @@ This workshop is divided into multiple modules. After completing **Preliminaries
 
 ## Preliminaries
 
-- Be sure you have completed all of the Prerequisites listed in the [**main README**](../README.md). Since this workshop makes use of the AWS CLI, it is especially important for Windows users to review the section about the AWS CLI, and make sure they have working access to both the AWS CLI and a Bash environment for scripting.  
+- Be sure you have completed all of the Prerequisites listed in the [**main README**](../README.md). This workshop makes use of the AWS CLI and requires the use of a Bash environment for scripting. We recommend use of AWS Cloud9 to run the CLI and scripts; if you haven't done so already, please see [**Cloud9 Setup**](../Cloud9).
 
 - Download this repository to your computer. To do so:
   - Return to the home page of this GitHub repository or open it in another tab;
@@ -85,7 +85,7 @@ In this module, we will learn about how to take full advantage of distributed tr
 
 - In the second job, we'll use `ShardedByS3Key` for the `train` channel (note that we'll keep `FullyReplicated` for the validation channel). So, for the training data, we'll pass each S3 object to a separate machine. Since we have 5 files (one for each year), we'll train on 5 machines, meaning each machine will get a year's worth of records.
 
-- We'll be using the AWS CLI and Bash scripts to run the training jobs. Using the AWS CLI and scripts is an excellent way to automate machine learning pipelines and repetitive tasks, such as periodic training jobs. As a reminder, in the Prerequisites we recommended the use of AWS Cloud 9 for access to the AWS CLI and Bash environments.  Please open your Cloud9 environment now; below is a screenshot of what your Cloud9 environment should look like as you create the first script below and run the related commands.  Step-by-step instructions follow.
+- We'll be using the AWS CLI and Bash scripts to run the training jobs. Using the AWS CLI and scripts is an excellent way to automate machine learning pipelines and repetitive tasks, such as periodic training jobs. As a reminder, in the Prerequisites we recommended the use of AWS Cloud 9 for access to the AWS CLI and Bash environments.  If you haven't done so already, please set up and open your Cloud9 environment now as described in [**Cloud9 Setup**](../Cloud9). Below is a screenshot of what your Cloud9 environment should look like as you create the first script below and run the related commands.  Step-by-step instructions follow.
 
 ![Cloud9](./images/dev-environment.png)
 
