@@ -137,7 +137,7 @@ sagemaker create-training-job \
 
 ```
 
-11.  In your terminal window, run the following command to start the training job. Total job duration may last up to about 10 minutes, including time for setting up the training cluster. In case the training job encounters problems and is stuck, you can set a stopping condition that times out, in this case after a half hour. Now, since you can run another job concurrently with this one, move onto the next step after you start this job.
+11.  Save your file, then in your terminal window, run the following command to start the training job. Total job duration may last up to about 10 minutes, including time for setting up the training cluster. In case the training job encounters problems and is stuck, you can set a stopping condition that times out, in this case after a half hour. Now, since you can run another job concurrently with this one, move onto the next step after you start this job.
 
 ```
 ./replicated.sh  
@@ -149,7 +149,7 @@ sagemaker create-training-job \
 chmod +x sharded.sh
 ```
 
-13.  Paste the bash script below into the `sharded.sh` file, and then change the text in the angle brackets (< >) as follows.  Do NOT put quotes around the values you insert, or retain the brackets. 
+13.  Paste the bash script below into the `sharded.sh` file, and then change the text in the angle brackets (< >) as follows.  Do NOT put quotes around the values you insert, or retain the brackets. All four values to change are the same as the values you changed for the previous script; they are noted again below for your ease of reference.
 
 - arn_role:  same as for the previous script. It should look like the following:  `arn:aws:iam::1234567890:role/service-role/AmazonSageMaker-ExecutionRole-20171211T211964`.
 
@@ -191,13 +191,13 @@ sagemaker create-training-job \
 
 ```
 
-14.  In your terminal window, run the following command to start your second training job now, there is no need to wait for the first training job to complete:
+14.  Save your file, then in your terminal window, run the following command to start your second training job now, there is no need to wait for the first training job to complete:
 
 ```
 ./sharded.sh 
 ```
 
-15.  In the SageMaker console, click **Jobs** in the left panel to check the status of the training jobs, which run concurrently.  When they are complete, their **Status** column will change from InProgress to Complete.  As a reminder, duration of these jobs can last up to about 10 minutes, including time for setting up the training cluster, as show in the **Duration** column of the **Jobs** table.
+15.  In the SageMaker console, click **Jobs** in the left panel to check the status of the training jobs, which run concurrently.  When they are complete, their **Status** column will change from InProgress to Complete.  As a reminder, duration of these jobs can last up to about 10 minutes, including time for setting up the training cluster, as shown in the **Duration** column of the **Jobs** table.
 
 - To check the actual training time (not including cluster setup) for each job when both are complete, click the training job name in the jobs table, then examine the **Training duration** listed at the top right under **Job Settings**.  **Training duration** does not include the time related to cluster setup. As we can see, and might expect, the sharded distribution type trained substantially faster than the fully replicated type. This is a key differentiator to consider when preparing data and picking the distribution type.
 
