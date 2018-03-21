@@ -38,7 +38,7 @@ Use the console or AWS CLI to create an Amazon S3 bucket. Keep in mind that your
 
 ![Notebook Instances](./images/notebook-instances.png)
 
-4. Type [First Name]-[Last Name]-workshop into the **Notebook instance name** text box, and select ml.m4.xlarge for the **Notebook instance type**.
+4. Type smworkshop-[First Name]-[Last Name] into the **Notebook instance name** text box, and select ml.m4.xlarge for the **Notebook instance type**.
 
 ![Create Notebook Instance](./images/notebook-settings.png)
 
@@ -50,7 +50,7 @@ Use the console or AWS CLI to create an Amazon S3 bucket. Keep in mind that your
 
 ### 3. Accessing the Notebook Instance
 
-1. Wait for the server status to change to **InService**. This will take several minutes, possibly five.
+1. Wait for the server status to change to **InService**. This will take several minutes, possibly up to ten but likely less.
 
 ![Access Notebook](./images/open-notebook.png)
 
