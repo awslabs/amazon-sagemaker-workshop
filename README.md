@@ -22,7 +22,7 @@ You'll start by creating a SageMaker notebook instance with the requisite permis
 
 ## AWS Account
 
-In order to complete this workshop you'll need an AWS Account, and an AWS IAM user in that account with at least full permissions to to the following AWS services: 
+In order to complete this workshop you'll need an AWS Account, and an AWS IAM user in that account with at least full permissions to the following AWS services: 
 
 - AWS IAM
 - Amazon S3
