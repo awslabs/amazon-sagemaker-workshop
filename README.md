@@ -40,7 +40,7 @@ We recommend you use the latest version of Chrome or Firefox to complete this wo
 
 ## AWS Command Line Interface
 
-To complete certain workshops, you'll need the AWS Command Line Interface (CLI). You'll use the AWS CLI to interface with SageMaker and other AWS services. At this time, only the following workshops require use of the CLI:  **SageMaker Built-in Algorithms** workshop. If your workshop requires the use of the CLI, you'll also need access to a Bash environment. The following are some options for getting and using the CLI. Using AWS Cloud9 is the preferred option to avoid problems that can arise configuring the CLI on your machine.  
+To complete the workshops, you'll need the AWS Command Line Interface (CLI). You'll use the AWS CLI to interface with SageMaker and other AWS services. If your workshop requires the use of the CLI, you'll also need access to a Bash environment. The following are some options for getting and using the CLI. Using AWS Cloud9 is the preferred option to avoid problems that can arise configuring the CLI on your machine.  
 
 - AWS Cloud9: is a cloud-based integrated development environment (IDE) that lets you write, run, and debug your code with just a browser. It has the AWS CLI pre-installed so you don’t need to install files or configure your laptop for this workshop. For Cloud9 setup directions for these workshops, see [**Cloud9 Setup**](Cloud9).  
 
