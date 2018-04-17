@@ -16,7 +16,7 @@ This workshop is divided into multiple modules. After completing **Preliminaries
 
 ## Preliminaries
 
-- Be sure you have completed all of the Prerequisites listed in the [**main README**](../README.md).
+- Be sure you have completed all of the Prerequisites listed in the [**main README**](../README.md).  This workshop makes use of the AWS CLI and requires the use of a Bash environment for scripting. AWS Cloud9 is used to run the CLI and scripts; if you haven't done so already, please complete the [**Cloud9 Setup**](../Cloud9).
 
 - Download this repository to your computer. To do so:
   - Return to the home page of this GitHub repository or open it in another tab;
