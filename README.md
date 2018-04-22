@@ -8,15 +8,14 @@ You'll start by creating a SageMaker notebook instance with the requisite permis
 
 **BEFORE attempting any of the workshops, please review the Prerequisites below and complete any actions that are required.**
 
+
 # Workshops
 
 - [**Introduction to SageMaker**](Introduction) - This workshop demonstrates the main features of SageMaker via a set of straightforward examples for common use cases.
 
 
-- [**Introduction to SageMaker (Advanced)**](Introduction-Advanced) - [COMING SOON] This workshop is targeted to experienced data scientists. It demonstrates the main features of SageMaker via a set of advanced examples for more complex use cases.
-
-
 - [**SageMaker Built-in Algorithms**](Built-in-Algorithms) - The focus of this workshop is on SageMaker's built-in algorithms. These algorithms are ready-to-use, scalable, and provide many other conveniences. The workshop shows how to use SageMaker's built-in algorithms via hosted Jupyter notebooks, the AWS CLI, and the SageMaker console.
+
 
 # Prerequisites
 
@@ -41,6 +40,7 @@ SageMaker is not available in all AWS Regions at this time.  Accordingly, we rec
 Once you've chosen a region, you should create all of the resources for this workshop there, including a new Amazon S3 bucket and a new SageMaker notebook instance. Make sure you select your region from the dropdown in the upper right corner of the AWS Console before getting started.
 
 ![Region selection screenshot](./images/region-selection.png)
+
 
 ## Browser
 
