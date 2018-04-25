@@ -29,9 +29,10 @@ This workshop is divided into multiple modules. After completing **Preliminaries
 
 - Be sure you have completed all of the Prerequisites listed in the [**main README**](../README.md). This workshop makes use of the AWS CLI and requires the use of a Bash environment for scripting. AWS Cloud9 is used to run the CLI and scripts; if you haven't done so already, please complete the [**Cloud9 Setup**](../Cloud9).
 
-- Download this repository to your computer. To do so:
+- **DOWNLOAD THIS REPOSITORY TO YOUR COMPUTER**. To do so:
   - Return to the home page of this GitHub repository or open it in another tab;
   - Click the green **Clone or download** button from the upper right of the main page of the repository, then **Download ZIP**.
+  - Use the downloaded notebooks in the notebooks directory rather than other versions you might find inside your notebook instance or elsewhere; the downloaded versions are modified for use in workshops.  
 
 If you are new to using Jupyter notebooks, read the next section, otherwise you may now skip ahead to the next module, **Parallelized Data Distribution**.
 
@@ -61,7 +62,7 @@ SageMaker makes it easy to train machine learning models across a cluster contai
 
 In this module, we will learn about how to take full advantage of distributed training clusters when using one of SageMaker's built-in algorithms. This module also shows how to use SageMaker's built-in algorithms via hosted Jupyter notebooks, the AWS CLI, and the SageMaker console.
 
-1. **Exploratory Data Analysis**:  For this part of the module, we'll be using a SageMaker notebook instance to explore and visualize a data set.  To begin, in your notebook instance, click the **New** button on the right and select **Folder**.  
+1. **Exploratory Data Analysis**:  For this part of the module, we'll be using a SageMaker notebook instance to explore and visualize a data set.  Be sure you have downloaded this GitHub repository as specified in **Preliminaries** before you start.  Next, in your notebook instance, click the **New** button on the right and select **Folder**.  
 
 2. Click the checkbox next to your new folder, click the **Rename** button above in the menu bar, and give the folder a name such as 'distributed-data'.
 
