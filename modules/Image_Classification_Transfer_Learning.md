@@ -7,7 +7,7 @@ It uses a convolutional neural network (ResNet) that can be trained from scratch
 
 Follow these steps:
 
-1. In your notebook instance, click the **New** button on the right and select **Folder**.  
+1. Be sure you have downloaded this GitHub repository as specified in **Preliminaries** before you start.  Next, in your notebook instance, click the **New** button on the right and select **Folder**.  
 
 2. Click the checkbox next to your new folder, click the **Rename** button above in the menu bar, and give the folder a name such as 'image-classification'.
 
