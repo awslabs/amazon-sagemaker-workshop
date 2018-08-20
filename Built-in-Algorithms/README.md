@@ -1,8 +1,8 @@
-# Built-in Algorithms Workshop
+# Distributed Training with SageMaker's Built-in Algorithms
 
 ## Introduction
 
-Amazon SageMaker provides high-performance, scalable machine learning algorithms optimized for speed, scale, and accuracy, and designed to run on extremely large training datasets. Based on the type of learning that you are undertaking, you can choose from either supervised algorithms (e.g. linear/logistic regression or classification), or unsupervised algorithms (e.g. k-means clustering). Besides general purpose algorithms, SageMaker's set of built-in algorithms also includes specific-purpose algorithms suited for tasks in domains such as natural language processing and image processing.  
+Amazon SageMaker provides high-performance, scalable machine learning algorithms optimized for speed, scale, and accuracy, and designed to run on extremely large training datasets. Based on the type of learning that you are undertaking, you can choose from either supervised algorithms (e.g. linear/logistic regression or classification), or unsupervised algorithms (e.g. k-means clustering). Besides general purpose algorithms, SageMaker's set of built-in algorithms also includes specific-purpose algorithms suited for tasks in domains such as natural language processing and computer vision.  
 
 SageMaker's built-in algorithms are re-envisioned from the ground up, specifically for large training data sets. Most algorithms available elsewhere rely on being able to load files or the entire data set into memory, which doesn’t work for very large datasets. Even algorithms that don’t do this need all of the data downloaded before training starts, instead of streaming the data in and processing it as it comes in. And lastly, large training data sets can cause some algorithms available elsewhere to give up - in some cases, with training data sets as small as a few gigabytes.
 
