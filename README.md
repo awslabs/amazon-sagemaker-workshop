@@ -11,10 +11,10 @@ You'll start by creating a SageMaker notebook instance with the requisite permis
 
 # Workshops
 
-- [**Introduction to SageMaker**](Introduction) - This workshop demonstrates the main features of SageMaker via a set of straightforward examples for common use cases.
+- [**Introduction to SageMaker**](Introduction) - This workshop demonstrates the main features of SageMaker via a set of straightforward examples for common use cases.  The first module in particular shows how to do exploratory data analysis, run hosted training, and stand up hosted model endpoints via SageMaker Jupyter notebook instances, the AWS CLI, and the SageMaker console.
 
 
-- [**SageMaker Built-in Algorithms**](Built-in-Algorithms) - The focus of this workshop is on SageMaker's built-in algorithms. These algorithms are ready-to-use, scalable, and provide many other conveniences. The workshop shows how to use SageMaker's built-in algorithms via hosted Jupyter notebooks, the AWS CLI, and the SageMaker console.
+- [**Distributed Training with SageMaker's Built-in Algorithms**](Built-in-Algorithms) - The focus of this workshop is on the convenience of distributed cluster training with SageMaker's built-in algorithms. These algorithms are ready-to-use, scalable, and provide many other advantages. The workshop shows how to run distributed training with SageMaker's built-in Linear Learner algorithm via SageMaker Jupyter notebook instances, the AWS CLI, and the SageMaker console.
 
 
 # Prerequisites
