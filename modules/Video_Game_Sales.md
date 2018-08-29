@@ -18,9 +18,13 @@ This module also shows how to use SageMaker's built-in algorithms via hosted Jup
 
 6. In the ```bucket = '<your_s3_bucket_name_here>'``` code line, paste the name of the S3 bucket you created in Module 1 to replace ```<your_s3_bucket_name_here>```.  The code line should now read similar to ```bucket = 'smworkshop-john-smith'```.  Do NOT paste the entire path (s3://.......), just the bucket name.  
 
-7. Follow the directions in the notebook.  When it is time to set up a training job, return from the notebook to these instructions.  
+7. Follow the directions in the notebook.  Begin by reading the **Background** section, then run the cells in the **Setup** and **Data** sections; the first cell to run is pictured below.  When it is time to set up a training job, return from the notebook to these instructions.  
 
-8. **Training Job**:  Now that we have our data in S3, we can begin training a model. We'll use SageMaker's built-in version of the XGBoost algorithm, and the AWS CLI to run the training job.  XGBoost has many tunable hyperparameters. Some of these hyperparameters are listed below; initially we'll only use a few of them.  Many of the hyperparameters are used to prevent overfitting, which prevents a model from generalizing to new observations.  
+![First Cell](./images/videogames-first-cell.png)
+
+8. **Training Job**:  The next few steps will be performed outside the notebook, but leave the notebook open for now becaause you'll be returning to it later.
+
+Now that we have our data in S3, we can begin training a model. We'll use SageMaker's built-in version of the XGBoost algorithm, and the AWS CLI to run the training job.  XGBoost has many tunable hyperparameters. Some of these hyperparameters are listed below; initially we'll only use a few of them.  Many of the hyperparameters are used to prevent overfitting, which prevents a model from generalizing to new observations.  
 
 - `max_depth`: Maximum depth of a tree. As a cautionary note, a value too small could underfit the data, while increasing it will make the model more complex and thus more likely to overfit the data (in other words, the classic bias-variance tradeoff).
 - `eta`: Step size shrinkage used in updates to prevent overfitting.  
@@ -130,8 +134,9 @@ sagemaker create-training-job \
 
 ![Endpoint](./images/videogames-endpoint.png)
 
-17.  **Evaluate**:  To evaluate predictions from our model, let's return to the notebook we used earlier.  When you are finished, return here and proceed to the next section.  
+17.  **Evaluate**:  To evaluate predictions from our model, let's return to the notebook we used earlier.  You'll pick up where you left off, in the **Evaluation** section, and run the remaining notebook cells, the first of which is pictured below.  When you are finished, return here and proceed to the next section.  
 
+![Next Cell](./images/videogames-next-cell.png)
 
 ### Conclusion & Extensions
 
