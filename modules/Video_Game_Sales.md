@@ -22,9 +22,7 @@ This module also shows how to use SageMaker's built-in algorithms via hosted Jup
 
 ![First Cell](./images/videogames-first-cell.png)
 
-8. **Training Job**:  The next few steps will be performed outside the notebook, but leave the notebook open for now becaause you'll be returning to it later.
-
-Now that we have our data in S3, we can begin training a model. We'll use SageMaker's built-in version of the XGBoost algorithm, and the AWS CLI to run the training job.  XGBoost has many tunable hyperparameters. Some of these hyperparameters are listed below; initially we'll only use a few of them.  Many of the hyperparameters are used to prevent overfitting, which prevents a model from generalizing to new observations.  
+8. **Training Job**:  The next few steps will be performed outside the notebook, but leave the notebook open for now because you'll be returning to it later. Now that we have our data in S3, we can begin training a model. We'll use SageMaker's built-in version of the XGBoost algorithm, and the AWS CLI to run the training job.  XGBoost has many tunable hyperparameters. Some of these hyperparameters are listed below; initially we'll only use a few of them.  Many of the hyperparameters are used to prevent overfitting, which prevents a model from generalizing to new observations.  
 
 - `max_depth`: Maximum depth of a tree. As a cautionary note, a value too small could underfit the data, while increasing it will make the model more complex and thus more likely to overfit the data (in other words, the classic bias-variance tradeoff).
 - `eta`: Step size shrinkage used in updates to prevent overfitting.  
@@ -106,7 +104,7 @@ sagemaker create-training-job \
   - Ohio:  825641698319.dkr.ecr.us-east-2.amazonaws.com/xgboost:latest
   - Ireland:  685385470294.dkr.ecr.eu-west-1.amazonaws.com/xgboost:latest
    
-- For the 'Location of model artifacts' field under **Primary Container**, enter the path to the output of your replicated training job.  To find the path, go back to your first browser tab, click **Jobs** in the left pane, then find and click the replicated job name, which will look like `videogames-xgboost-<date>`.  Scroll down to the **Outputs** section, then copy the path under 'S3 model artifact'.  Paste the path in the field; it should look like `s3://smworkshop-john-smith/sagemaker/videogames_xgboost/videogames-xgboost-2018-04-17-20-40-13/output/model.tar.gz `.  
+- For the 'Location of model artifacts' field under **Primary Container**, enter the path to the output of your training job.  To find the path, go back to your first browser tab, click **Jobs** in the left pane, then find and click the job name, which will look like `videogames-xgboost-<date>`.  Scroll down to the **Outputs** section, then copy the path under 'S3 model artifact'.  Paste the path in the field; it should look like `s3://smworkshop-john-smith/sagemaker/videogames_xgboost/videogames-xgboost-2018-04-17-20-40-13/output/model.tar.gz `.  
 
 - Click **Create model** at the bottom of the page.
 
@@ -140,5 +138,5 @@ sagemaker create-training-job \
 
 ### Conclusion & Extensions
 
-This XGBoost model is just the starting point for predicting whether a game will be a hit based on reviews and other features.  There are several possible avenues for improving the model's performance.  First, of course, would be to collect more data and, if possible, fill in the existing missing fields with actual information.  Another possibility is further hyperparameter tuning, with Amazon SageMaker's Hyperparameter Optimization service.  And, although ensemble learners often do well with imbalanced data sets, it could be worth exploring techniques for mitigating imbalances such as downsampling, synthetic data augmentation, and other approaches.  
+This XGBoost model is just the starting point for predicting whether a game will be a hit based on reviews and other features. There are several possible avenues for improving the model's performance.  First, of course, would be to collect more data and, if possible, fill in the existing missing fields with actual information.  Another possibility is further hyperparameter tuning with Amazon SageMaker's Automatic Model Tuning feature, which automates the tuning process. And, although ensemble learners often do well with imbalanced data sets, it could be worth exploring techniques for mitigating imbalances such as downsampling, synthetic data augmentation, and other approaches.  
 
