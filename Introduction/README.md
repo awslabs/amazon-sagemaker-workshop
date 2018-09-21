@@ -10,7 +10,7 @@ This workshop is divided into multiple modules. After completing **Preliminaries
 
 - Video Game Sales 
 
-- Sentiment Analysis with SageMaker's Prebuilt Deep Learning Containers 
+- Sentiment Analysis 
 
 - Image Classification  
 
