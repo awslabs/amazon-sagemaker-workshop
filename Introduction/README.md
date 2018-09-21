@@ -10,7 +10,7 @@ This workshop is divided into multiple modules. After completing **Preliminaries
 
 - Video Game Sales 
 
-- Distributed Training with TensorFlow 
+- Sentiment Analysis with SageMaker's Prebuilt Deep Learning Containers 
 
 - Image Classification  
 
@@ -47,21 +47,21 @@ To create a SageMaker notebook instance for this workshop, follow the instructio
 
 ## Video Game Sales
 
-Please go to the following link for this module:  [**Video Game Sales**](../modules/Video_Game_Sales.md).  Be sure to use the downloaded version of the applicable Jupyter notebook.  
+Please go to the following link for this module:  [**Video Game Sales**](../modules/Video_Game_Sales.md).  Be sure to use the **downloaded** version of the applicable Jupyter notebook from this workshop repository.  
 
 When you're finished, return here to move on to the next module.  
 
 
-## Distributed Training with TensorFlow 
+## Sentiment Analysis 
 
-Please go to the following link for this module:  [**TensorFlow Distributed MNIST**](../modules/TensorFlow_Distributed_MNIST.md).  Be sure to use the downloaded version of the applicable Jupyter notebook.  
+Please go to the following link for this module:  [**Sentiment Analysis**](../modules/Sentiment_Analysis.md).  Be sure to use the **downloaded** version of the applicable Jupyter notebook from this workshop repository.  
 
 When you're finished, return here to move on to the next module.  
 
 
 ## Image Classification 
 
-Please go to the following link for this module:  [**Image Classification with Transfer Learning**](../modules/Image_Classification_Transfer_Learning.md).  Be sure to use the downloaded version of the applicable Jupyter notebook.  
+Please go to the following link for this module:  [**Image Classification with Transfer Learning**](../modules/Image_Classification_Transfer_Learning.md).  Be sure to use the **downloaded** version of the applicable Jupyter notebook from this workshop repository.  
 
 When you're finished, return here and go on to the Cleanup Guide.  
 
