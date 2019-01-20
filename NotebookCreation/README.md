@@ -56,7 +56,7 @@ Use the console or AWS CLI to create an Amazon S3 bucket. Keep in mind that your
 
 ![Access Notebook](./images/open-notebook.png)
 
-2. Click **Open**. You will now see the Jupyter homepage for your notebook instance.
+2. Click **Open Jupyter**. You will now see the Jupyter homepage for your notebook instance.
 
 ![Open Notebook](./images/jupyter-homepage.png)
 
