@@ -40,13 +40,15 @@ Use the console or AWS CLI to create an Amazon S3 bucket. Keep in mind that your
 
 4. Type smworkshop-[First Name]-[Last Name] into the **Notebook instance name** text box, and select ml.m4.xlarge for the **Notebook instance type**.
 
-![Create Notebook Instance](./images/notebook-settings.png)
-
 5. For IAM role, choose **Create a new role**, and in the resulting pop-up modal, select **Specific S3 buckets** under **S3 Buckets you specify – optional**. In the text field, paste the name of the S3 bucket you created above, AND the following bucket name separated from the first by a comma:  `gdelt-open-data`.  The combined field entry should look similar to ```smworkshop-john-smith, gdelt-open-data```. Click **Create role**.
 
 ![Create IAM role](./images/role-popup.png)
 
-6. You will be taken back to the Create Notebook instance page.  Click **Create notebook instance**.
+6. You should see a message saying "Success! You created an IAM role."
+
+![Create Notebook Instance](./images/notebook-settings.png)
+
+7. You will be taken back to the Create Notebook instance page.  Click **Create notebook instance**.
 
 ### 3. Accessing the Notebook Instance
 
