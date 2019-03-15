@@ -2,11 +2,11 @@
 
 ## Introduction
 
-Amazon SageMaker provides high-performance, scalable machine learning algorithms optimized for speed, scale, and accuracy, and designed to run on extremely large training datasets. Based on the type of learning that you are undertaking, you can choose from either supervised algorithms (e.g. linear/logistic regression or classification), or unsupervised algorithms (e.g. k-means clustering). Besides general purpose algorithms, SageMaker's set of built-in algorithms also includes specific-purpose algorithms suited for tasks in domains such as natural language processing and computer vision.  
+Amazon SageMaker provides high-performance, scalable machine learning algorithms optimized for speed, scale, and accuracy, and designed to run on extremely large training datasets. Based on the type of learning that you are undertaking, you can choose from either supervised algorithms (e.g. linear/logistic regression or classification), or unsupervised algorithms (e.g. k-means clustering). Besides general purpose algorithms, Amazon SageMaker's set of built-in algorithms also includes specific-purpose algorithms suited for tasks in domains such as natural language processing and computer vision.  
 
-SageMaker's built-in algorithms are re-envisioned from the ground up, specifically for large training data sets. Most algorithms available elsewhere rely on being able to load files or the entire data set into memory, which doesn’t work for very large datasets. Even algorithms that don’t do this need all of the data downloaded before training starts, instead of streaming the data in and processing it as it comes in. And lastly, large training data sets can cause some algorithms available elsewhere to give up - in some cases, with training data sets as small as a few gigabytes.
+Amazon SageMaker's built-in algorithms are re-envisioned from the ground up, specifically for large training data sets. Most algorithms available elsewhere rely on being able to load files or the entire data set into memory, which doesn’t work for very large datasets. Even algorithms that don’t do this need all of the data downloaded before training starts, instead of streaming the data in and processing it as it comes in. And lastly, large training data sets can cause some algorithms available elsewhere to give up - in some cases, with training data sets as small as a few gigabytes.
 
-To summarize, there are many reasons to use SageMaker’s built-in algorithms instead of "bringing your own" (BYO) algorithm if the built-in algorithms fit your use case:  
+To summarize, there are many reasons to use Amazon SageMaker’s built-in algorithms instead of "bringing your own" (BYO) algorithm if the built-in algorithms fit your use case:  
 
 - With BYO, time/cost must be spent on design (e.g. of a neural net).
 - With BYO, you must solve the problems of scalability and reliability for large data sets. 
@@ -15,54 +15,13 @@ To summarize, there are many reasons to use SageMaker’s built-in algorithms in
 - Faster training, and faster inference with smaller models produced by some built-in algorithms.
 - Even if you’re doing BYO, built-in algorithms may be helpful at some point in the machine learning pipeline, such as the PCA built-in algorithm for dimensionality reduction.
 
-## Modules
-
-This workshop is divided into multiple modules. After completing **Preliminaries**, complete the module **Creating a Notebook Instance** next.  You can complete the remaining module(s) in any order.  
-
-- Preliminaries
-
-- Creating a Notebook Instance
-
-- Parallelized Data Distribution 
-
-## Preliminaries
-
-- Be sure you have completed all of the Prerequisites listed in the [**main README**](../README.md). This workshop makes use of the AWS CLI and requires the use of a Bash environment for scripting. AWS Cloud9 is used to run the CLI and scripts; if you haven't done so already, please complete the [**Cloud9 Setup**](../Cloud9).
-
-- **DOWNLOAD THIS REPOSITORY TO YOUR COMPUTER**. To do so:
-  - Return to the home page of this GitHub repository or open it in another tab;
-  - Click the green **Clone or download** button from the upper right of the main page of the repository, then **Download ZIP**.
-  - Use the downloaded notebooks in the notebooks directory rather than other versions you might find inside your notebook instance or elsewhere; the downloaded versions are modified for use in workshops.  
-
-If you are new to using Jupyter notebooks, read the next section, otherwise you may now skip ahead to the next module, **Parallelized Data Distribution**.
-
-### Jupyter Notebooks:  A Brief Overview
-
-Jupyter is an open-source web application that allows you to create and share documents that contain live code, equations, visualizations and narrative text. Uses include: data cleaning and transformation, numerical simulation, statistical modeling, data visualization, machine learning, and much more. With respect to code, it can be thought of as a web-based IDE that executes code on the server it is running on instead of locally. 
-
-There are two main types of "cells" in a notebook:  code cells, and "markdown" cells with explanatory text. You will be running the code cells.  These are distinguished by having "In" next to them in the left margin next to the cell, and a greyish background.  Markdown cells lack "In" and have a white background. In the screenshot below, the upper cell is a markdown cell, while the lower cell is a code cell:
-
-![Cells](../images/cells.png)
-
-To run a code cell, simply click in it, then either click the **Run Cell** button in the notebook's toolbar, or use Control+Enter from your computer's keyboard. It may take a few seconds to a few minutes for a code cell to run. You can determine whether a cell is running by examining the `In[]:` indicator in the left margin next to each cell:  a cell will show `In [*]:` when running, and `In [a number]:` when complete.
-
-Please run each code cell in order, and **only once**, to avoid repeated operations.  For example, running the same training job cell twice might create two training jobs, possibly exceeding your service limits.
-
-
-## Creating a Notebook Instance
-
-SageMaker provides hosted Jupyter notebooks that require no setup, so you can begin processing your training data sets immediately. With a few clicks in the SageMaker console, you can create a fully managed notebook instance, pre-loaded with useful libraries for machine learning. You need only add your data.
-
-To create a SageMaker notebook instance for this workshop, follow the instructions at [**Creating a Notebook Instance**](../NotebookCreation), then return here to continue with the next module of the workshop.
-
-
 ## Parallelized Data Distribution
 
-SageMaker makes it easy to train machine learning models across a cluster containing a large number of machines. This a non-trivial process, but SageMaker's built-in algorithms and pre-built MXNet and TensorFlow containers hide most of the complexity from you. Nevertheless, there are decisions about how to structure data that will have implications regarding how the distributed training is carried out. 
+Amazon SageMaker makes it easy to train machine learning models across a cluster containing a large number of machines. This a non-trivial process, but Amazon SageMaker's built-in algorithms and pre-built deep learning containers (for TensorFlow, PyTorch, MXNet and Chainer) hide most of the complexity from you. Nevertheless, there are decisions about how to structure data that will have implications regarding how the distributed training is carried out. 
 
-In this module, we will learn about how to take full advantage of distributed training clusters when using one of SageMaker's built-in algorithms. This module also shows how to use SageMaker's built-in algorithms via hosted Jupyter notebooks, the AWS CLI, and the SageMaker console.
+In this module, we will learn about how to take full advantage of distributed training clusters when using one of Amazon SageMaker's built-in algorithms. This module also shows how to use SageMaker's built-in algorithms via hosted Jupyter notebooks, the AWS CLI, and the Amazon SageMaker console.
 
-1. **Exploratory Data Analysis**:  For this part of the module, we'll be using a SageMaker notebook instance to explore and visualize a data set.  Be sure you have downloaded this GitHub repository as specified in **Preliminaries** before you start.  Next, in your notebook instance, click the **New** button on the right and select **Folder**.  
+1. **Exploratory Data Analysis**:  For this part of the module, we'll be using an Amazon SageMaker notebook instance to explore and visualize a data set.  Be sure you have downloaded this GitHub repository as specified in **Preliminaries** before you start.  Next, in your notebook instance, click the **New** button on the right and select **Folder**.  
 
 2. Click the checkbox next to your new folder, click the **Rename** button above in the menu bar, and give the folder a name such as 'distributed-data'.
 
@@ -80,7 +39,7 @@ In this module, we will learn about how to take full advantage of distributed tr
 
 7. Follow the directions in the notebook.  When it is time to set up a training job, return from the notebook to these instructions.  
 
-8. **First Training Job**:  Now that we have our data in S3, we can begin training. We'll use SageMaker's built-in Linear Learner algorithm. Since the focus of this module is data distribution to a training cluster, we'll fit two models in order to compare data distribution types. To understand the different types, please read the following:
+8. **First Training Job**:  Now that we have our data in S3, we can begin training. We'll use Amazon SageMaker's built-in Linear Learner algorithm. Since the focus of this module is data distribution to a training cluster, we'll fit two models in order to compare data distribution types. To understand the different types, please read the following:
 
 - In the first job, we'll use `FullyReplicated` for our `train` channel. This will pass every file in our input S3 location to every machine (in this case we're using 5 machines). 
 
@@ -88,7 +47,7 @@ In this module, we will learn about how to take full advantage of distributed tr
 
 - We'll be using the AWS CLI and Bash scripts to run the training jobs. Using the AWS CLI and scripts is an excellent way to automate machine learning pipelines and repetitive tasks, such as periodic training jobs. If you haven't done so already, please set up and open your Cloud9 environment now as described in [**Cloud9 Setup**](../Cloud9). Below is a screenshot of what your Cloud9 environment should look like as you create the first script below and run the related commands.  Step-by-step instructions follow.
 
-![Cloud9](./images/dev-environment.png)
+![Cloud9](./images/distrib-dev-environment.png)
 
 9. Create a text file named `replicated.sh`. If you haven't done so already, open a terminal/command window that supports Bash to enter commands. In the terminal window, change to the directory in which you created the file (if you're not already there), then run the following command:
 
@@ -98,7 +57,7 @@ chmod +x replicated.sh
 
 10.  Paste the bash script below into the `replicated.sh` file, and then change the text in the angle brackets (< >) as follows.  Do NOT put quotes around the values you insert, or retain the brackets.  
 
-- arn_role:  To get the value for this variable, go to the SageMaker console, click **Notebook instances** in the left pane, then in the 'Notebook instances' table, click the name of the instance you created for this workshop.  In the **Notebook instance settings** section, look for the 'IAM role ARN' value, and copy its text. It should look like the following:  `arn:aws:iam::1234567890:role/service-role/AmazonSageMaker-ExecutionRole-20171211T211964`.
+- arn_role:  To get the value for this variable, go to the Amazon SageMaker console, click **Notebook instances** in the left pane, then in the 'Notebook instances' table, click the name of the instance you created for this workshop.  In the **Notebook instance settings** section, look for the 'IAM role ARN' value, and copy its text. It should look like the following:  `arn:aws:iam::1234567890:role/service-role/AmazonSageMaker-ExecutionRole-20171211T211964`.
 
 - training_image:  select one of the following, depending on the AWS Region where you are running this workshop.
   - N. Virginia:  382416733822.dkr.ecr.us-east-1.amazonaws.com/linear-learner:latest
@@ -198,11 +157,11 @@ sagemaker create-training-job \
 ./sharded.sh 
 ```
 
-15.  In the SageMaker console, click **Jobs** in the left panel to check the status of the training jobs, which run concurrently.  When they are complete, their **Status** column will change from InProgress to Complete.  As a reminder, duration of these jobs can last up to about 10 minutes, including time for setting up the training cluster, as shown in the **Duration** column of the **Jobs** table.
+15.  In the Amazon SageMaker console, click **Jobs** in the left panel to check the status of the training jobs, which run concurrently.  When they are complete, their **Status** column will change from InProgress to Complete.  As a reminder, duration of these jobs can last up to about 10 minutes, including time for setting up the training cluster, as shown in the **Duration** column of the **Jobs** table.
 
 - To check the actual training time (not including cluster setup) for each job when both are complete, click the training job name in the jobs table, then examine the **Training duration** listed at the top right under **Job Settings**.  **Training duration** does not include the time related to cluster setup. As we can see, and might expect, the sharded distribution type trained substantially faster than the fully replicated type. This is a key differentiator to consider when preparing data and picking the distribution type.
 
-16.  **SageMaker Model Creation**:  Now that we've trained our machine learning models, we'll want to make predictions by setting up a hosted endpoint for them. The first step in doing that is to create a SageMaker model object that wraps the actual model artifact from training. To create the model object, we will point to the model.tar.gz that came from training and the inference code container, then create the hosting model object.  We'll do this twice, once for each model we trained earlier. Here are the steps to do this via the SageMaker console (see screenshot below for an example of all relevant fields filled in for the Oregon AWS Region):
+16.  **Amazon SageMaker Model Creation**:  Now that we've trained our machine learning models, we'll want to make predictions by setting up a hosted endpoint for them. The first step in doing that is to create a SageMaker model object that wraps the actual model artifact from training. To create the model object, we will point to the model.tar.gz that came from training and the inference code container, then create the hosting model object.  We'll do this twice, once for each model we trained earlier. Here are the steps to do this via the Amazon SageMaker console (see screenshot below for an example of all relevant fields filled in for the Oregon AWS Region):
 
 - In the left pane of the SageMaker console home page, right click the **Models** link and open it in another tab of your browser.  Click the **Create Model** button at the upper right above the 'Models' table.
 
@@ -221,7 +180,7 @@ sagemaker create-training-job \
 
 - Repeat the above steps for the sharded training job model, except:  for 'Model name', enter `distributed-sharded`, and for 'Location of model artifacts', enter the path for the sharded training job model artifact.  
 
-![Model](./images/model.png)
+![Model](./images/distrib-model.png)
 
 17.  **Endpoint Configuration**:  Once we've setup our models, we can configure what our hosting endpoints should be. Here we specify the EC2 instance type to use for hosting, the initial number of instances, and our hosting model name.  Again, we'll do this twice, once for each model we trained earlier. Here are the steps to do this via the SageMaker console (see screenshot below for an example of all relevant fields filled in for the Oregon AWS Region):
 
@@ -233,11 +192,11 @@ sagemaker create-training-job \
 
 - Repeat the above steps for the sharded training job model, except:  for 'Endpoint configuration name', enter `distributed-sharded`, and for the **Add model** popup, select the `distributed-sharded` model.  
 
-![Endpoint Configuration](./images/endpoint-config.png)
+![Endpoint Configuration](./images/distrib-endpoint-config.png)
 
 18.  **Endpoint Creation**:  Now that we've specified how our endpoints should be configured, we can create them.  For this final step in the process of settng up endpoints, we'll once again use the SageMaker console to do so (see screenshot below for an example of all relevant fields filled in for the Oregon AWS Region):
 
-- In the left pane of the SageMaker console, click **Endpoints**.  Click the **Create endpoint** button at the upper right above the 'Endpoints' table.
+- In the left pane of the Amazon SageMaker console, click **Endpoints**.  Click the **Create endpoint** button at the upper right above the 'Endpoints' table.
 
 - For the 'Endpoint name' field under **Endpoint**, enter `distributed-replicated`. 
 
@@ -247,7 +206,7 @@ sagemaker create-training-job \
 
 - In the **Endpoints** table, refer to the 'Status' column, and wait for both endpoints to change from 'Creating' to 'InService' before proceeding to the next step. It will take several minutes for endpoint creation, possibly as long as ten minutes.  
 
-![Endpoint](./images/endpoint.png)
+![Endpoint](./images/distrib-endpoint.png)
 
 19.  **Evaluate**:  To compare predictions from our two models, let's return to the notebook we used earlier.  When you are finished, return here and proceed to the next section.  
 
@@ -259,9 +218,6 @@ Overall, sharding data into separate files and sending them to separate training
 
 Different algorithms can be expected to show variation in which distribution mechanism is most effective at achieving optimal compute spend per point of model accuracy. The message remains the same though, that the process of finding the right distribution type is another experiment in optimizing model training times.
 
-## Cleanup
-
-To avoid charges for endpoints and other resources you might not need after the workshop, please refer to the [**Cleanup Guide**](../CleanupGuide). 
 
 
 

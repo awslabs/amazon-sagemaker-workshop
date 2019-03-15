@@ -1,20 +1,20 @@
 # Amazon SageMaker Workshops
 
-Amazon SageMaker is a fully managed service that enables developers and data scientists to quickly and easily build, train, and deploy machine learning models at any scale. This repository contains a collection of workshops and other hands on content that will guide you through using the many features of SageMaker.  
+Amazon SageMaker is a fully managed service that enables developers and data scientists to quickly and easily build, train, and deploy machine learning models at any scale. This repository contains a collection of workshops and other hands on content that will guide you through using the many features of Amazon SageMaker.  
 
 ![Overview](./images/overview.png)
 
-You'll start by creating a SageMaker notebook instance with the requisite permissions. Depending on the workshop, you will then interact with SageMaker via sample Jupyter notebooks, the AWS CLI, the SageMaker console, or all three. During a workshop, you'll explore various data sets, create model training jobs using SageMaker's hosted training feature, and create endpoints to serve predictions from your models using SageMaker's hosted endpoint feature.  
+You'll start by creating an Amazon SageMaker notebook instance with the requisite permissions. Depending on the workshop, you will then interact with Amazon SageMaker via sample Jupyter notebooks, the AWS CLI, the Amazon SageMaker console, or all three. During a workshop, you'll explore various data sets, create model training jobs using Amazon SageMaker's hosted training feature, and create endpoints to serve predictions from your models using Amazon SageMaker's hosted model endpoints feature.  
 
 **BEFORE attempting any of the workshops, please review the Prerequisites below and complete any actions that are required.**
 
 
 # Workshops
 
-- [**Introduction to SageMaker**](Introduction) - This workshop demonstrates the main features of SageMaker.  It does so via a set of straightforward examples for common use cases including working with structured data, natural language processing (sentiment analysis), and computer vision (image classification).  The first module in particular shows how to do exploratory data analysis, run hosted training, and stand up hosted model endpoints via SageMaker Jupyter notebook instances, the AWS CLI, and the SageMaker console.
+- [**Introduction to Amazon SageMaker**](Introduction) - This workshop demonstrates the main features of Amazon SageMaker.  It does so via a set of straightforward examples for common use cases including: working with structured data, natural language processing (sentiment analysis), and computer vision (image classification).  Content includes how to do exploratory data analysis in Amazon SageMaker notebook instances, run hosted training, and stand up hosted model endpoints.
 
 
-- [**Distributed Training with SageMaker's Built-in Algorithms**](Built-in-Algorithms) - The focus of this workshop is on the convenience of distributed cluster training with SageMaker's built-in algorithms. These algorithms are ready-to-use, scalable, and provide many other advantages. The workshop shows how to run distributed training with SageMaker's built-in Linear Learner algorithm via SageMaker Jupyter notebook instances, the AWS CLI, and the SageMaker console.
+- [**Simplify Workflows with Scripts, the CLI and Console**](Simplify-Workflows) - The focus of this workshop is on simplifying Amazon SageMaker workflows using scripts, the AWS CLI, and the Amazon SageMaker console.  All of these are alternatives to using Jupyter notebooks as your interface to Amazon SageMaker; there is no necessity to use notebooks to leverage key Amazon SageMaker components such as hosted training and hosted model endpoints. 
 
 
 # Prerequisites
@@ -35,7 +35,7 @@ In order to complete this workshop you'll need an AWS Account, and an AWS IAM us
 
 ## AWS Region
 
-SageMaker is not available in all AWS Regions at this time.  Accordingly, we recommend running this workshop in one of the following supported AWS Regions:  N. Virginia, Oregon, Ohio, or Ireland.
+Amazon SageMaker is not available in all AWS Regions at this time.  Accordingly, we recommend running this workshop in one of the following supported AWS Regions:  N. Virginia, Oregon, Ohio, or Ireland.
 
 Once you've chosen a region, you should create all of the resources for this workshop there, including a new Amazon S3 bucket and a new SageMaker notebook instance. Make sure you select your region from the dropdown in the upper right corner of the AWS Console before getting started.
 
@@ -49,7 +49,7 @@ We recommend you use the latest version of Chrome or Firefox to complete this wo
 
 ## AWS Command Line Interface
 
-To complete certain workshop modules, you'll need the AWS Command Line Interface (CLI) and a Bash environment. You'll use the AWS CLI to interface with SageMaker and other AWS services. 
+To complete certain workshop modules, you'll need the AWS Command Line Interface (CLI) and a Bash environment. You'll use the AWS CLI to interface with Amazon SageMaker and other AWS services. 
 
 For these workshops, AWS Cloud9 is used to avoid problems that can arise configuring the CLI on your machine. AWS Cloud9 is a cloud-based integrated development environment (IDE) that lets you write, run, and debug your code with just a browser. It has the AWS CLI pre-installed so you don’t need to install files or configure your laptop to use the AWS CLI. For Cloud9 setup directions for these workshops, see [**Cloud9 Setup**](Cloud9). Do NOT attempt to use a locally installed AWS CLI during a live workshop because there is insufficient time during a live workshop to resolve related issues.
 
