@@ -9,7 +9,7 @@ SageMaker typically uses S3 as storage for data and model artifacts.  In this st
 
 ### High-Level Instructions
 
-Use the console or AWS CLI to create an Amazon S3 bucket. Keep in mind that your bucket's name must be globally unique across all regions and customers. We recommend using a name like `smworkshop-firstname-lastname`. If you get an error that your bucket name already exists, try adding additional numbers or characters until you find an unused name.
+Use the console or AWS CLI to create an Amazon S3 bucket (see step-by-step instructions below if you are unfamiliar with this process). Keep in mind that your bucket's name must be globally unique across all regions and customers. We recommend using a name like `smworkshop-firstname-lastname`. If you get an error that your bucket name already exists, try adding additional numbers or characters until you find an unused name.
 
 <details>
 <summary><strong>Step-by-step instructions (expand for details)</strong></summary><p>
@@ -28,31 +28,33 @@ Use the console or AWS CLI to create an Amazon S3 bucket. Keep in mind that your
 
 ## 2. Launching the Notebook Instance
 
-1. Click on Amazon SageMaker from the list of all services in the AWS Management Console.  This will bring you to the Amazon SageMaker console homepage.
+1. Make sure you are on the AWS Management Console home page.  In the **Find Services** search box, type **SageMaker**.  The search result list will populate with Amazon SageMaker, which you should now click.  This will bring you to the Amazon SageMaker console homepage.
 
 ![Services in Console](./images/console-services.png)
 
 2. In the upper-right corner of the AWS Management Console, confirm you are in the desired AWS region. Select N. Virginia, Oregon, Ohio, or Ireland.
 
-3. To create a new notebook instance, go to **Notebook instances**, and click the **Create notebook instance** button at the top of the browser window.
+3. To create a new notebook instance, click the **Notebook instances** link on the left side, and click the **Create notebook instance** button in the upper right corner of the browser window.
 
 ![Notebook Instances](./images/notebook-instances.png)
 
-4. Type smworkshop-[First Name]-[Last Name] into the **Notebook instance name** text box, and select ml.m4.xlarge for the **Notebook instance type** (see screenshot below).
+4. Type smworkshop-[First Name]-[Last Name] into the **Notebook instance name** text box, and select ml.m5.xlarge for the **Notebook instance type**.
 
-5. For IAM role, choose **Create a new role**, and in the resulting pop-up modal, select **Specific S3 buckets** under **S3 Buckets you specify – optional**. In the text field, paste the name of the S3 bucket you created above, AND the following bucket name separated from the first by a comma:  `gdelt-open-data`.  The combined field entry should look similar to ```smworkshop-john-smith, gdelt-open-data```. Click **Create role**.
+![Notebook Settings](./images/notebook-settings.png)
+
+5. In the **Permissions and encryption** section, choose **Create a new role** in the **IAM role** drop down menu.  In the resulting pop-up modal, select **Specific S3 buckets** under **S3 Buckets you specify – optional**. In the text field, paste the name of the S3 bucket you created above, AND the following bucket name separated from the first by a comma:  `gdelt-open-data`.  The combined field entry should look similar to ```smworkshop-john-smith, gdelt-open-data```. Click **Create role**.
 
 ![Create IAM role](./images/role-popup.png)
 
-6. You should see a message saying "Success! You created an IAM role."
+6. You will be taken back to the Create Notebook instance page.  Now you should see a message saying "Success! You created an IAM role."
 
-![Create Notebook Instance](./images/notebook-settings.png)
+![Create Notebook Instance](./images/permissions-settings.png)
 
-7. You will be taken back to the Create Notebook instance page.  Click **Create notebook instance**.
+7. Click **Create notebook instance** at the bottom.
 
 ### 3. Accessing the Notebook Instance
 
-1. Wait for the server status to change to **InService**. This will take several minutes, possibly up to ten but likely less.
+1. Wait for the server status to change to **InService**. This will take several minutes, possibly up to ten but likely much less.
 
 ![Access Notebook](./images/open-notebook.png)
 
