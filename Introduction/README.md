@@ -8,7 +8,7 @@ This workshop is divided into multiple modules. After completing **Preliminaries
 
 - Creating a Notebook Instance
 
-- Video Game Sales 
+- Videogame Sales 
 
 - Sentiment Analysis 
 
@@ -16,7 +16,7 @@ This workshop is divided into multiple modules. After completing **Preliminaries
 
 ## Preliminaries
 
-- Be sure you have completed all of the Prerequisites listed in the [**main README**](../README.md).  This workshop makes use of the AWS CLI and requires the use of a Bash environment for scripting. AWS Cloud9 is used to run the CLI and scripts; if you haven't done so already, please complete the [**Cloud9 Setup**](../Cloud9).
+- Be sure you have completed all of the Prerequisites listed in the [**main README**](../README.md). 
 
 - **DOWNLOAD THIS REPOSITORY TO YOUR COMPUTER**. To do so:
   - Return to the home page of this GitHub repository or open it in another tab;
@@ -45,9 +45,9 @@ SageMaker provides hosted Jupyter notebooks that require no setup, so you can be
 To create a SageMaker notebook instance for this workshop, follow the instructions at [**Creating a Notebook Instance**](../NotebookCreation), then return here to continue with the next module of the workshop.
 
 
-## Video Game Sales
+## Videogame Sales
 
-Please go to the following link for this module:  [**Video Game Sales**](../modules/Video_Game_Sales.md).  Be sure to use the **downloaded** version of the applicable Jupyter notebook from this workshop repository.  
+Please go to the following link for this module:  [**Videogame Sales**](../modules/Video_Game_Sales.md).  Be sure to use the **downloaded** version of the applicable Jupyter notebook from this workshop repository.  
 
 When you're finished, return here to move on to the next module.  
 
