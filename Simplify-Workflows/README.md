@@ -8,7 +8,7 @@ This workshop is divided into multiple modules. After completing **Preliminaries
 
 - Creating a Notebook Instance
 
-- Video Game Sales with the CLI and Console
+- Videogame Sales with the CLI and Console
 
 - Distributed Training with Built-in Algorithms, the CLI and Console 
 
@@ -44,9 +44,9 @@ SageMaker provides hosted Jupyter notebooks that require no setup, so you can be
 To create a SageMaker notebook instance for this workshop, follow the instructions at [**Creating a Notebook Instance**](../NotebookCreation), then return here to continue with the next module of the workshop.
 
 
-## Video Game Sales with the CLI and Console
+## Videogame Sales with the CLI and Console
 
-Please go to the following link for this module:  [**Video Game Sales**](../modules/Video_Game_Sales.md).  Be sure to use the **downloaded** version of the applicable Jupyter notebook from this workshop repository.  
+Please go to the following link for this module:  [**Videogame Sales with the CLI and Console**](../modules/Video_Game_Sales_CLI_Console.md).  Be sure to use the **downloaded** version of the applicable Jupyter notebook from this workshop repository.  
 
 When you're finished, return here to move on to the next module.  
 
