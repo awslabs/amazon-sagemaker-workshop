@@ -1,18 +1,25 @@
 # Introduction to SageMaker
 
+In this workshop, we'll work though several examples that demonstrate Amazon SageMaker's core components including notebook instances, hosted training, and hosted model endpoints.  Examples are divided into modules.  The examples that involve training machine learning models show how Amazon SageMaker can be applied in three fundamental categories of machine learning:  working with structured data, computer vision, and natural language processing.  
+
+We'll also make use of some of Amazon SageMaker's built-in algorithms, specifically an AWS-optimized version of XGBoost and a deep learning-based image classification algorithm.  Built-in algorithms enable you to avoid spending time against algorithm/neural net design, provide conveniences such as reduced need for model tuning, and are meant to handle the scalability and reliability issues that arise when working with large datasets.  As a contrast, in one module we'll use a script defining our own deep learning model rather than a built-in algorithm.  Whether using your own models or built-in algorithms, all of Amazon SageMaker's features may be used in a similar way.  
+
 ## Modules
 
-This workshop is divided into multiple modules. After completing **Preliminaries**, complete the module **Creating a Notebook Instance** next.  You can complete the remaining modules in any order. 
+This workshop is divided into multiple modules. After completing **Preliminaries**, complete the module **Creating a Notebook Instance** next.  You can complete the remaining modules in any order, EXCEPT the Videogame Sales module must be completed before the Extra Credit module. 
 
 - Preliminaries
 
 - Creating a Notebook Instance
 
-- Videogame Sales 
+- Structured Data Use Case:  Videogame Sales 
 
-- Sentiment Analysis 
+- Computer Vision Use Case:  Image Classification  
 
-- Image Classification  
+- Natural Language Processing Use Case:  Sentiment Analysis 
+
+- Extra Credit:  Videogame Sales Using Scripts, the CLI and Console
+
 
 ## Preliminaries
 
@@ -45,26 +52,32 @@ SageMaker provides hosted Jupyter notebooks that require no setup, so you can be
 To create a SageMaker notebook instance for this workshop, follow the instructions at [**Creating a Notebook Instance**](../NotebookCreation), then return here to continue with the next module of the workshop.
 
 
-## Videogame Sales
+## Structured Data Use Case:  Videogame Sales
 
-Please go to the following link for this module:  [**Videogame Sales**](../modules/Video_Game_Sales.md).  Be sure to use the **downloaded** version of the applicable Jupyter notebook from this workshop repository.  
-
-When you're finished, return here to move on to the next module.  
-
-
-## Sentiment Analysis 
-
-Please go to the following link for this module:  [**Sentiment Analysis**](../modules/Sentiment_Analysis.md).  Be sure to use the **downloaded** version of the applicable Jupyter notebook from this workshop repository.  
+In this module, we'll use Amazon SageMaker's built-in version of XGBoost to make predictions based on structured data related to the videogame industry.  Please go to the following link for this module:  [**Videogame Sales**](../modules/Video_Game_Sales.md).  Be sure to use the **downloaded** version of the applicable Jupyter notebook from this workshop repository.  
 
 When you're finished, return here to move on to the next module.  
 
 
-## Image Classification 
+## Computer Vision Use Case:  Image Classification
 
-Please go to the following link for this module:  [**Image Classification with Transfer Learning**](../modules/Image_Classification_Transfer_Learning.md).  Be sure to use the **downloaded** version of the applicable Jupyter notebook from this workshop repository.  
+This module uses Amazon SageMaker's built-in Image Classification algorithm.  Please go to the following link for this module:  [**Image Classification with Transfer Learning**](../modules/Image_Classification_Transfer_Learning.md).  Be sure to use the **downloaded** version of the applicable Jupyter notebook from this workshop repository.  
 
-When you're finished, return here and go on to the Cleanup Guide.  
+When you're finished, return here to move on to the next module.  
 
+
+## Natural Language Processing Use Case:  Sentiment Analysis  
+
+In contrast to the previous modules, which used some of Amazon SageMaker's built-in algorithms, in this module we'll use a deep learning framework within Amazon SageMaker with our own script defining our model.  Please go to the following link for this module:  [**Sentiment Analysis**](../modules/Sentiment_Analysis.md).  Be sure to use the **downloaded** version of the applicable Jupyter notebook from this workshop repository.  
+
+When you're finished, return here and go on to the Extra Credit module or Cleanup Guide.  
+
+
+## Extra Credit:  Videogame Sales Using Scripts, the CLI and Console 
+
+The previous modules all use Jupyter notebooks to demonstrate the use of hosted training and hosted model endpoints in Amazon SageMaker.  However, in a typical machine learning pipeline, scripts are used to launch training jobs and deploy models, not notebooks.  Also, it is convenient to use the console for these tasks on an ad hoc basis without having to open notebooks or use scripts.
+
+In this extra credit module, you will revisit the Videogame Sales example, but use Bash scripts to launch a training job and the Amazon SageMaker console to deploy the trained model.  To begin, please go to the following link for this module and start at **Step 8 (Training Job)**:  [**Videogame Sales with the CLI and Console**](../modules/Video_Game_Sales_CLI_Console.md).
 
 ## Cleanup
 

@@ -1,9 +1,9 @@
 ## Videogame Sales with the CLI and Console
 
 
-In this module, we'll work our way through an example Jupyter notebook that demonstrates how to use a built-in algorithm in SageMaker. More specifically, we'll use Amazon SageMaker's version of XGBoost, a popular and efficient open-source implementation of the gradient boosted trees algorithm. 
+In this module, we'll work our way through an example that demonstrates how to use a built-in algorithm in SageMaker. More specifically, we'll use Amazon SageMaker's version of XGBoost, a popular and efficient open-source implementation of the gradient boosted trees algorithm. 
 
-Gradient boosting is a supervised learning algorithm that attempts to predict a target variable by combining the estimates of a set of simpler, weaker models. XGBoost has done remarkably well in machine learning competitions because it robustly handles a wide variety of data types, relationships, and distributions. It often is a useful, go-to algorithm in working with structured data, such as data that might be found in relational databases and flat files. 
+A gradient boosted trees algorithm attempts to predict a target variable by combining the estimates of a set of simpler, weaker models. XGBoost has done remarkably well in machine learning competitions because it robustly handles a wide variety of data types, relationships, and distributions. It often is a useful, go-to algorithm in working with structured data, such as data that might be found in relational databases and flat files. 
 
 This module also shows how to use Amazon SageMaker's built-in algorithms via hosted Jupyter notebooks, the AWS CLI, and the Amazon SageMaker console.  To proceed, follow these steps:
 
@@ -14,6 +14,7 @@ This module also shows how to use Amazon SageMaker's built-in algorithms via hos
 3. Click the folder to enter it.
 
 4. To upload the notebook for this module, click the **Upload** button on the right. Then in the file selection popup, select the file 'videogame-sales-cli-console.ipynb' from the notebooks subdirectory in the folder on your computer where you downloaded this GitHub repository. DO NOT USE THE DIFFERNT NOTEBOOK 'videogame-sales' (it does not use the CLI or console).  Click the blue **Upload** button that appears to the right of the notebook's file name.
+
 5. You are now ready to begin the notebook:  click the notebook's file name to open it.
 
 6. In the ```bucket = '<your_s3_bucket_name_here>'``` code line, paste the name of the S3 bucket you created in Module 1 to replace ```<your_s3_bucket_name_here>```.  The code line should now read similar to ```bucket = 'smworkshop-john-smith'```.  Do NOT paste the entire path (s3://.......), just the bucket name.  
@@ -132,7 +133,7 @@ sagemaker create-training-job \
 
 ![Endpoint](./images/videogames-endpoint.png)
 
-17.  **Evaluate**:  To evaluate predictions from our model, let's return to the notebook we used earlier.  You'll pick up where you left off, in the **Evaluation** section, and run the remaining notebook cells, the first of which is pictured below.  When you are finished, return here and proceed to the next section.  
+17.  **Evaluate**:  To evaluate predictions from our model, we'll use the notebook uploaded to your Amazon SageMaker notebook instance in steps 1 to 5.  (NOTE:  IF YOU DID NOT PERFORM STEPS 1 TO 5 EARLIER, DO SO NOW.)  Go to the **Evaluation** section of the notebook, and run the remaining notebook cells, the first of which is pictured below.  When you are finished, return here and proceed to the next section.  
 
 ![Next Cell](./images/videogames-next-cell.png)
 
