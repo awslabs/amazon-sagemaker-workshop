@@ -4,6 +4,18 @@ In this workshop, we'll work though several examples that demonstrate Amazon Sag
 
 We'll also make use of some of Amazon SageMaker's built-in algorithms, specifically an AWS-optimized version of XGBoost and a deep learning-based image classification algorithm.  Built-in algorithms enable you to avoid spending time against algorithm/neural net design, provide conveniences such as reduced need for model tuning, and are meant to handle the scalability and reliability issues that arise when working with large datasets.  As a contrast, in one module we'll use a script defining our own deep learning model rather than a built-in algorithm.  Whether using your own models or built-in algorithms, all of Amazon SageMaker's features may be used in a similar way.  
 
+To summarize, here are some of the key components and features of Amazon SageMaker demonstrated in this workshop:
+
+- Using **Notebook Instances** for Exploratory Data Analysis and prototyping.
+- **Local Mode Training** to confirm your code is working before moving on to full scale model training.
+- **Hosted Training** for large scale model training.
+- **Built-in algorithms** designed for web scale and kickstarting data science projects.
+- **Script Mode**, which enables you to use your own model definitions and scripts similar to those outside SageMaker, with prebuilt machine learning containers.
+- **Hosted Endpoints** for near real-time predictions.
+- **Batch Transform** for asynchronous, large scale batch inference.
+
+
+
 ## Modules
 
 This workshop is divided into multiple modules. After completing **Preliminaries**, complete the module **Creating a Notebook Instance** next.  You can complete the remaining modules in any order, EXCEPT the Videogame Sales module must be completed before the Extra Credit module. 
@@ -77,7 +89,11 @@ When you're finished, return here and go on to the Extra Credit module or Cleanu
 
 The previous modules all use Jupyter notebooks to demonstrate the use of hosted training and hosted model endpoints in Amazon SageMaker.  However, in a typical machine learning pipeline, scripts are used to launch training jobs and deploy models, not notebooks.  Also, it is convenient to use the console for these tasks on an ad hoc basis without having to open notebooks or use scripts.
 
-In this extra credit module, you will revisit the Videogame Sales example, but use Bash scripts to launch a training job and the Amazon SageMaker console to deploy the trained model.  To begin, please go to the following link for this module and start at **Step 8 (Training Job)**:  [**Videogame Sales with the CLI and Console**](../modules/Video_Game_Sales_CLI_Console.md).
+In this extra credit module, you will revisit the Videogame Sales example, but use Bash scripts to launch a training job and the Amazon SageMaker console to deploy the trained model.  Here are the steps you will need to take before beginning this module:
+
+- Be sure you have completed the first module, **Structured Data Use Case:  Videogame Sales**.
+- Copy the name of the default bucket created in the first cell of the Videogame Sales notebook from the first module.  It should look like:  `sagemaker-<region>-<your_account_id>`.
+- Go to the following link and start at **Step 8 (Training Job)**:  [**Videogame Sales with the CLI and Console**](../modules/Video_Game_Sales_CLI_Console.md).  When the instructions ask for a bucket name, **USE THE BUCKET NAME YOU JUST COPIED.**
 
 ## Cleanup
 
