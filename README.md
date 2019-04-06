@@ -4,33 +4,34 @@ Amazon SageMaker is a fully managed service that enables developers and data sci
 
 ![Overview](./images/overview.png)
 
-You'll start by creating an Amazon SageMaker notebook instance with the requisite permissions. Depending on the workshop, you will then interact with Amazon SageMaker via sample Jupyter notebooks, the AWS CLI, the Amazon SageMaker console, or all three. During a workshop, you'll explore various data sets, create model training jobs using Amazon SageMaker's hosted training feature, and create endpoints to serve predictions from your models using Amazon SageMaker's hosted model endpoints feature.  
+You'll start by creating an Amazon SageMaker notebook instance with the requisite permissions. Depending on the workshop, you will then interact with Amazon SageMaker via sample Jupyter notebooks, the AWS CLI, the Amazon SageMaker console, or all three. 
 
 **BEFORE attempting any of the workshops, please review the Prerequisites below and complete any actions that are required.**
 
 
 # Workshops
 
-- [**Introduction to Amazon SageMaker**](Introduction) - This workshop demonstrates the main features of Amazon SageMaker.  It does so via a set of straightforward examples for common use cases including: working with structured data, natural language processing (sentiment analysis), and computer vision (image classification).  Content includes how to do exploratory data analysis in Amazon SageMaker notebook instances, run hosted training, and stand up hosted model endpoints.
+- [**Introduction to Amazon SageMaker**](Introduction) - This workshop demonstrates some of the key features of Amazon SageMaker.  It does so via a set of straightforward examples for common use cases including: working with structured data, natural language processing (sentiment analysis), and computer vision (image classification).  Content includes how to do exploratory data analysis in Amazon SageMaker notebook instances, run local and hosted training jobs, and get predictions using hosted model endpoints and batch transform jobs.
 
 
-- [**Simplify Workflows with Scripts, the CLI and Console**](Simplify-Workflows) - The focus of this workshop is on simplifying Amazon SageMaker workflows using scripts, the AWS CLI, and the Amazon SageMaker console.  All of these are alternatives to using Jupyter notebooks as your interface to Amazon SageMaker; there is no necessity to use notebooks to leverage key Amazon SageMaker components such as hosted training and hosted model endpoints. 
+- [**Simplify Workflows with Scripts, the CLI and Console**](Simplify-Workflows) - The focus of this workshop is on simplifying Amazon SageMaker workflows using scripts, the AWS CLI, and the Amazon SageMaker console.  All of these are alternatives to using Jupyter notebooks as your interface to Amazon SageMaker; there is no necessity to use notebooks to leverage key Amazon SageMaker components such as hosted training and hosted model endpoints. In this workshop, you'll apply Amazon SageMaker built-in algorithms to a structured data use case, and a distributed training example showing different ways to set up nodes in a training cluster.
 
 
 # Prerequisites
 
 ## AWS Account
 
-In order to complete this workshop you'll need an AWS Account, and an AWS IAM user in that account with at least full permissions to the following AWS services: 
+**Permissions**: In order to complete this workshop you'll need an AWS Account, and an AWS IAM user in that account with at least full permissions to the following AWS services: 
 
 - AWS IAM
 - Amazon S3
 - Amazon SageMaker
 - AWS Cloud9
+- Amazon EC2:  including P3, C5, and M5 instance types; to check you limits, see [Viewing Your Current Limits](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-resource-limits.html)
 
 **Use Your Own Account**: The code and instructions in this workshop assume only one student is using a given AWS account at a time. If you try sharing an account with another student, you'll run into naming conflicts for certain resources. You can work around these by appending a unique suffix to the resources that fail to create due to conflicts, but the instructions do not provide details on the changes required to make this work. Use a personal account or create a new AWS account for this workshop rather than using an organization’s account to ensure you have full access to the necessary services and to ensure you do not leave behind any resources from the workshop.
 
-**Costs**: Some, but NOT all, of the resources you will launch as part of this workshop are eligible for the AWS free tier if your account is less than 12 months old. See the [AWS Free Tier page](https://aws.amazon.com/free/) for more details. An example of a resource that is **not** covered by the free tier is the ml.m4.xlarge notebook instance used in some workshops. To avoid charges for endpoints and other resources you might not need after you've finished a workshop, please refer to the [**Cleanup Guide**](./CleanupGuide). 
+**Costs**: Some, but NOT all, of the resources you will launch as part of this workshop are eligible for the AWS free tier if your account is less than 12 months old. See the [AWS Free Tier page](https://aws.amazon.com/free/) for more details. An example of a resource that is **not** covered by the free tier is the Amazon SageMaker notebook instance type used in some workshops. To avoid charges for endpoints and other resources you might not need after you've finished a workshop, please refer to the [**Cleanup Guide**](./CleanupGuide). 
 
 
 ## AWS Region
