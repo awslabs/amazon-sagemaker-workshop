@@ -10,8 +10,9 @@ Here are some of the key features of Amazon SageMaker relevant to TensorFlow dem
 - **Distributed Training with Horovod** to perform large scale model training more efficiently.
 - **Automatic Model Tuning** to find the best model using automation.
 - **Run your trained model locally** after retrieving it from SageMaker/S3.
-- **Hosted Endpoints** for near real-time predictions.
+- **Hosted Endpoints** for real time predictions.
 - **Batch Transform** for asynchronous, large scale batch inference.
+- **Elastic Inference** for lower-cost GPU acceleration for real time inference.
 - **Inference Pipelines** to transform input data before sending it to the model for inference.
 
 
