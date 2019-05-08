@@ -13,7 +13,7 @@ Here are some of the key features of Amazon SageMaker relevant to TensorFlow dem
 - **Hosted Endpoints** for real time predictions.
 - **Batch Transform** for asynchronous, large scale batch inference.
 - **Elastic Inference** for lower-cost GPU acceleration for real time inference.
-- **Inference Pipelines** to transform input data before sending it to the model for inference.
+- **Inference Pre/Post-Processing Scripts** to transform data before sending it to a trained model for inference.
 
 
 ## Modules
@@ -79,7 +79,7 @@ When you're finished, return here to move on to the next module.
 
 ## Computer Vision Use Case:  Image Classification
 
-This module applies TensorFlow within Amazon SageMaker to an image classification use case.  In particular, we'll see how to use Horovod for more efficient distributed training.  Please go to the following link for this module:  [**CIFAR-10**](../modules/CIFAR-10.md).  Be sure to use the **downloaded** version of the applicable Jupyter notebook from this workshop repository.  
+This module applies TensorFlow within Amazon SageMaker to an image classification use case.  In particular, we'll see how to use Horovod for more efficient distributed training.  We'll also use the pre/post-processing script feature of the Amazon SageMaker TensorFlow Serving container to transform data for inference, without having to build separate containers and infrastructure to do this job.  Please go to the following link for this module:  [**CIFAR-10**](../modules/CIFAR-10.md).  Be sure to use the **downloaded** version of the applicable Jupyter notebook from this workshop repository.  
 
 When you're finished, return here and go on to the Cleanup Guide.  
 

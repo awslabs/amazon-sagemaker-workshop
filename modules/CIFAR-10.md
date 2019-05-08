@@ -1,7 +1,7 @@
 ## CIFAR-10 
 
 
-In this module, we'll perform image classification on the well-known CIFAR-10 dataset.  We'll focus on distributed training using Horovod, which uses the Ring-AllReduce paradigm rather than parameter servers to share gradients in a cluster of machines.  Additionally, we'll look at how to use Amazon Elastic Inference for lower cost real time inference, and how to set up an Inference Pipeline for asynchronous Batch Transform jobs on large amounts of data.
+In this module, we'll perform image classification on the well-known CIFAR-10 dataset.  We'll focus on distributed training using Horovod, which uses the Ring-AllReduce paradigm rather than parameter servers to share gradients in a cluster of machines.  Additionally, we'll look at how to use Amazon Elastic Inference for lower cost real time inference, and how to use inference pre/post-processing scripts with Amazon SageMaker's TensorFlow Serving container to transform data before sending it to a trained model.
 
 Follow these steps:
 
