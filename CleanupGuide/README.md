@@ -1,7 +1,7 @@
 
 # Cleanup Guide
 
-To avoid charges for resources you no longer need when you're done with this workshop, you can delete them or, in the case of your notebook instance, stop them.  Here are the resources you should consider:
+To avoid charges for resources you no longer need when you're done with this workshop, you can delete them or, in the case of your notebook instance, stop them.  Below is a list of the resources you should check.  Please go through them in order to make sure you do not incur charges unnecessarily:
 
 - **Endpoints**:  these are the clusters of one or more instances serving inferences from your models. If you did not delete them from within a notebook, you can delete them via the SageMaker console.  To do so:
 
