@@ -5,11 +5,12 @@ This workshop demonstrates various aspects of TensorFlow usage in Amazon SageMak
 Here are some of the key features of Amazon SageMaker relevant to TensorFlow demonstrated in this workshop:
 
 - **Script Mode**, which enables you to use your own model definitions and scripts similar to those outside SageMaker, with prebuilt TensorFlow containers.
-- **Local Mode Training** to confirm your code is working before moving on to full scale model training.
+- **Local Mode Training** for rapid prototyping and to confirm your code is working before moving on to full scale model training.
+- **Local Mode Endpoints** to test your SageMaker inference code before deploying models to production.
 - **Hosted Training** for large scale model training.
 - **Distributed Training with Horovod** to perform large scale model training more efficiently.
 - **Automatic Model Tuning** to find the best model using automation.
-- **Run your trained model locally** after retrieving it from SageMaker/S3.
+- **Run your trained model locally** after retrieving it from SageMaker/S3 (as an alternative to Local Mode Endpoints).
 - **Hosted Endpoints** for real time predictions.
 - **Batch Transform** for asynchronous, large scale batch inference.
 - **Elastic Inference** for lower-cost GPU acceleration for real time inference.
