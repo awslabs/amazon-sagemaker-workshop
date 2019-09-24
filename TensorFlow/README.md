@@ -4,18 +4,19 @@ This workshop demonstrates various aspects of TensorFlow usage in Amazon SageMak
 
 Here are some of the key features of Amazon SageMaker relevant to TensorFlow demonstrated in this workshop:
 
-- **Script Mode**, which enables you to use your own model definitions and training scripts similar to those outside SageMaker, with prebuilt TensorFlow containers.
-- **Git integration** for Script Mode, which allows you to specify a training script in GitHub or another Git repository so your code is version controlled, and you don't have to download code locally to use SageMaker. 
+- **Script Mode**, which enables you to use your own model definitions and training scripts similar to those outside Amazon SageMaker, with prebuilt TensorFlow containers.
+- **Git integration** for Script Mode, which allows you to specify a training script in a Git repository so your code is version controlled and you don't have to download code locally. 
 - **Local Mode Training** for rapid prototyping and to confirm your code is working before moving on to full scale model training.
-- **Local Mode Endpoints** to test your SageMaker inference code before deploying models to production in SageMaker hosted endpoints.
+- **Local Mode Endpoints** to test your models and SageMaker inference code before deploying to production in SageMaker hosted endpoints.
 - **Hosted Training** for large scale model training.
-- **Distributed Training with Horovod** to perform large scale model training more efficiently.
+- **Distributed Training with Parameter Servers** to perform large scale model training.
+- **Distributed Training with Horovod** as an alternative to perform large scale model training using the Ring-AllReduce paradigm.
 - **Automatic Model Tuning** to find the best model using automation.
-- **Run your trained model locally** after retrieving it from SageMaker/S3 (as an alternative to Local Mode Endpoints).
+- **Test a model checkpoint locally** after retrieving it from SageMaker/S3 (as an alternative to Local Mode Endpoints).
 - **Hosted Endpoints** for real time predictions.
 - **Batch Transform Jobs** for asynchronous, large scale batch inference.
 - **Elastic Inference** for lower-cost GPU acceleration for real time inference.
-- **Inference Pre/Post-Processing Scripts** to transform data before sending it to a trained model for inference.
+- **Inference Pre/Post-Processing Scripts** to transform data before sending it to the SageMaker TensorFlow Serving container for inference.
 
 
 ## Modules
@@ -67,21 +68,21 @@ To create a SageMaker notebook instance for this workshop, follow the instructio
 
 ## Natural Language Processing Use Case:  Sentiment Analysis  
 
-This module applies TensorFlow within Amazon SageMaker with our own script defining our model.  Please go to the following link for this module:  [**Sentiment Analysis**](../modules/Sentiment_Analysis.md).  Be sure to use the **downloaded** version of the applicable Jupyter notebook from this workshop repository.  
+In this module, we'll use Script Mode with TensorFlow by providing our own Python training script to be used with Amazon SageMaker's prebuilt TensorFlow container.  Please go to the following link for this module:  [**Sentiment Analysis**](../modules/Sentiment_Analysis.md).  Be sure to use the **downloaded** version of the applicable Jupyter notebook from this workshop repository.  
 
 When you're finished, return here to move on to the next module.  
 
 
 ## Structured Data Use Case:  Boston Housing
 
-In this module, we'll use Amazon SageMaker's prebuilt TensorFlow containers and Automatic Model Tuning to find the best model to predict prices based on the Boston Housing dataset.  Please go to the following link for this module:  [**Boston Housing**](../modules/Boston_Housing.md).  Be sure to use the **downloaded** version of the applicable Jupyter notebook from this workshop repository.  
+We'll focus on a more complete workflow in this module.  In particular, we'll use Local Mode training and Local Mode endpoints to test our code, and Automatic Model Tuning to find the best model to predict prices based on the Boston Housing dataset.  Please go to the following link for this module:  [**Boston Housing**](../modules/Boston_Housing.md).  Be sure to use the **downloaded** version of the applicable Jupyter notebook from this workshop repository.  
 
 When you're finished, return here to move on to the next module.  
 
 
 ## Computer Vision Use Case:  Image Classification
 
-This module applies TensorFlow within Amazon SageMaker to an image classification use case.  In particular, we'll see how to use Horovod for more efficient distributed training.  We'll also use the pre/post-processing script feature of the Amazon SageMaker TensorFlow Serving container to transform data for inference, without having to build separate containers and infrastructure to do this job.  Please go to the following link for this module:  [**CIFAR-10**](../modules/CIFAR-10.md).  Be sure to use the **downloaded** version of the applicable Jupyter notebook from this workshop repository.  
+This module applies TensorFlow within Amazon SageMaker to an image classification use case.  In particular, we'll see how Amazon SageMaker makes distributed training easy for the parameter server method and Horovod.  We'll also use the pre/post-processing script feature of the Amazon SageMaker TensorFlow Serving container to transform data for inference, without having to build separate containers and infrastructure to do this job.  Please go to the following link for this module:  [**CIFAR-10**](../modules/CIFAR-10.md).  Be sure to use the **downloaded** version of the applicable Jupyter notebook from this workshop repository.  
 
 When you're finished, return here and go on to the Cleanup Guide.  
 
