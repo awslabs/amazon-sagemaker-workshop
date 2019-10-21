@@ -30,7 +30,9 @@ This module also shows how to use Amazon SageMaker's built-in algorithms via hos
 - `eval_metric`: Evaluation metric(s) for validation data. For data sets such as this one with imbalanced classes, we'll use the AUC metric.
 - `scale_pos_weight`: Controls the balance of positive and negative weights, again useful for data sets having imbalanced classes.
 
-9.  We'll be using the AWS CLI and a Bash script to run the training job. Using the AWS CLI and scripts is an excellent way to automate machine learning pipelines and repetitive tasks, such as periodic training jobs. As a reminder, in the Prerequisites we recommended the use of AWS Cloud 9 for access to the AWS CLI and Bash environments.  If you haven't done so already, please set up and open your Cloud9 environment now as described in [**Cloud9 Setup**](../Cloud9). Below is a screenshot of what your Cloud9 environment should look like as you create the first script below and run the related commands.  Step-by-step instructions follow.
+9.  We'll be using the AWS CLI and a Bash script to run the training job. Using the AWS CLI and scripts is an excellent way to automate machine learning pipelines and repetitive tasks, such as periodic training jobs. As a reminder, in the Prerequisites we recommended the use of AWS Cloud 9 for access to the AWS CLI and Bash environments.  If you haven't done so already, please set up and open your Cloud9 environment now as described in [**Cloud9 Setup**](../Cloud9). 
+
+    Below is a screenshot of what your Cloud9 environment should look like as you create the first script below and run the related commands.  Step-by-step instructions follow, ALONG WITH CODE TO COPY AND PASTE.
 
 ![Cloud9](./images/videogames-cloud9.png)
 
@@ -61,7 +63,7 @@ training_image=<training-image-for-region>
 bucket=<name-of-your-s3-bucket>
 region=<your-region>
 
-prefix=/sagemaker/videogames_xgboost
+prefix=/sagemaker/videogames-xgboost
 training_job_name=videogames-xgboost-`date '+%Y-%m-%d-%H-%M-%S'`
 
 training_data=$bucket$prefix/train
@@ -133,7 +135,11 @@ sagemaker create-training-job \
 
 ![Endpoint](./images/videogames-endpoint.png)
 
-17.  **Evaluate**:  To evaluate predictions from our model, we'll use the notebook uploaded to your Amazon SageMaker notebook instance in steps 1 to 5.  (NOTE:  IF YOU DID NOT PERFORM STEPS 1 TO 5 EARLIER, DO SO NOW.)  Go to the **Evaluation** section of the notebook, and run the remaining notebook cells, the first of which is pictured below.  When you are finished, return here and proceed to the next section.  
+17.  **Evaluate**:  To evaluate predictions from our model, we'll use the notebook uploaded to your Amazon SageMaker notebook instance in steps 1 to 5.  (NOTE:  IF YOU DID NOT PERFORM STEPS 1 TO 5 EARLIER, DO SO NOW.)  Next:
+
+    [a]  Run the first two cells of the notebook if you haven't done so already, in order to make sure you have imported the required libraries.
+    
+    [b]  Go to the **Evaluation** section of the notebook, and run the remaining notebook cells, the first of which is pictured below.  When you are finished, return here and proceed to the next section.  
 
 ![Next Cell](./images/videogames-next-cell.png)
 
