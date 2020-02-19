@@ -51,10 +51,11 @@ chmod +x videogames.sh
   - Oregon:  433757028032.dkr.ecr.us-west-2.amazonaws.com/xgboost:latest
   - Ohio:  825641698319.dkr.ecr.us-east-2.amazonaws.com/xgboost:latest
   - Ireland:  685385470294.dkr.ecr.eu-west-1.amazonaws.com/xgboost:latest
+  - Sydney:  544295431143.dkr.ecr.ap-southeast-2.amazonaws.com/xgboost:latest
    
 - bucket:  the name of the S3 bucket you used in your notebook.  It should look like:  `s3://smworkshop-john-smith`.
 
-- region:  the region code for the region where you are running this workshop, either `us-east-1` for N. Virginia, `us-west-2` for Oregon, `us-east-2` for Ohio, or `eu-west-1` for Ireland.
+- region:  the region code for the region where you are running this workshop, either `us-east-1` for N. Virginia, `us-west-2` for Oregon, `us-east-2` for Ohio, `eu-west-1` for Ireland, or `ap-southeast-2` for Sydney.
 
 ```
 # Fill in the values of these four variables
@@ -106,6 +107,7 @@ sagemaker create-training-job \
   - Oregon:  433757028032.dkr.ecr.us-west-2.amazonaws.com/xgboost:latest
   - Ohio:  825641698319.dkr.ecr.us-east-2.amazonaws.com/xgboost:latest
   - Ireland:  685385470294.dkr.ecr.eu-west-1.amazonaws.com/xgboost:latest
+  - Sydney:  544295431143.dkr.ecr.ap-southeast-2.amazonaws.com/xgboost:latest
    
 - For the 'Location of model artifacts' field under **Primary Container**, enter the path to the output of your training job.  To find the path, go back to your first browser tab, click **Jobs** in the left pane, then find and click the job name, which will look like `videogames-xgboost-<date>`.  Scroll down to the **Outputs** section, then copy the path under 'S3 model artifact'.  Paste the path in the field; it should look like `s3://smworkshop-john-smith/sagemaker/videogames_xgboost/videogames-xgboost-2018-04-17-20-40-13/output/model.tar.gz `.  
 
