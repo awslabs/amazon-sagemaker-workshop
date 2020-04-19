@@ -113,7 +113,7 @@ sagemaker create-training-job \
 
 - Click **Create model** at the bottom of the page.
 
-![Model](./images/videogames-model.png)
+![Model](./images/videogames-model-v1.png)
 
 15.  **Endpoint Configuration**:  Once we've setup our model, we can configure what our hosting endpoint should be. Here we specify the EC2 instance type to use for hosting, the initial number of instances, and our hosting model name.  Here are the steps to do this via the SageMaker console (see screenshot below for an example of all relevant fields filled in for the Oregon AWS Region):
 
@@ -123,7 +123,7 @@ sagemaker create-training-job \
 
 - Under **Production variants**, click **Add model**.  From the **Add model** popup, select the `videogames-xgboost` model you created earlier, and click **Save**.  Then click **Create endpoint configuration** at the bottom of the page.
 
-![Endpoint Configuration](./images/videogames-endpoint-config.png)
+![Endpoint Configuration](./images/videogames-endpoint-config-v1.png)
 
 16.  **Endpoint Creation**:  Now that we've specified how our endpoint should be configured, we can create it.  For this final step in the process of settng up an endpoint, we'll once again use the SageMaker console to do so (see screenshot below for an example of all relevant fields filled in for the Oregon AWS Region):
 
@@ -135,7 +135,7 @@ sagemaker create-training-job \
 
 - In the **Endpoints** table, refer to the 'Status' column, and wait for the endpoint status to change from 'Creating' to 'InService' before proceeding to the next step. It will take several minutes for endpoint creation, possibly as long as ten minutes.  
 
-![Endpoint](./images/videogames-endpoint.png)
+![Endpoint](./images/videogames-endpoint-v1.png)
 
 17.  **Evaluate**:  To evaluate predictions from our model, we'll use the notebook uploaded to your Amazon SageMaker notebook instance in steps 1 to 5.  (NOTE:  IF YOU DID NOT PERFORM STEPS 1 TO 5 EARLIER, DO SO NOW.)  Next:
 
