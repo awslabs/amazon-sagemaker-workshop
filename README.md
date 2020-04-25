@@ -1,19 +1,17 @@
 # Amazon SageMaker Workshops
 
-Amazon SageMaker is a fully managed service that enables developers and data scientists to quickly and easily build, train, and deploy machine learning models at any scale. This repository contains a collection of workshops and other hands on content that will guide you through using the many features of Amazon SageMaker.  
+Amazon SageMaker is a fully managed service that enables developers and data scientists to quickly and easily build, train, and deploy machine learning models at any scale. This repository contains a collection of 2-hour workshops covering many features of Amazon SageMaker.  They are suitable for self-service or live, guided events.  
 
 ![Overview](./images/overview.png)
 
-You'll start by creating an Amazon SageMaker notebook instance with the requisite permissions. Depending on the workshop, you will then interact with Amazon SageMaker via sample Jupyter notebooks, the AWS CLI, the Amazon SageMaker console, or all three. 
-
-**BEFORE attempting any of the workshops, please review the Prerequisites below and complete any actions that are required, especially those in the Permissions section.**
+**BEFORE ATTEMPTING ANY WORKSHOP:  please review the Prerequisites below and complete any actions that are required, especially those in the Permissions section.**
 
 
 # Workshops
 
-- [**Introduction to Amazon SageMaker**](Introduction) - This 100-200 level workshop demonstrates some of the key features of Amazon SageMaker.  It does so via a set of straightforward examples for common use cases including: working with structured data, natural language processing (sentiment analysis), and computer vision (image classification).  Content includes how to do exploratory data analysis in Amazon SageMaker notebook instances, run local and hosted training jobs, and get predictions using hosted model endpoints and batch transform jobs.
+- [**Introduction to Amazon SageMaker**](Introduction) - This 100-200 level workshop demonstrates some of the key features of Amazon SageMaker.  It does so via a set of straightforward examples for common use cases including: working with structured (tabular) data, natural language processing (sentiment analysis), and computer vision (image classification).  Content includes how to (1) do exploratory data analysis in Amazon SageMaker notebooks; (2) run local and hosted training jobs with your own custom models or built-in algorithms; and (3) get predictions using hosted model endpoints and batch transform jobs.
 
-- [**TensorFlow in Amazon SageMaker**](TensorFlow) - In this 400 level workshop for TensorFlow users, various aspects of TensorFlow usage in Amazon SageMaker will be demonstrated.  In particular, TensorFlow will be applied to a natural language processing use case, a structured data use case, and a computer vision use case.  Relevant Amazon SageMaker features that will be demonstrated include:  prototyping with Local Mode training and endpoints, hosted training jobs for full-scale training, distributed training with parameter servers and Horovod, Automatic Model Tuning, batch inference, and hosted endpoints for real time inference, including low-cost inference acceleration using Amazon Elastic Inference.
+- [**TensorFlow in Amazon SageMaker**](TensorFlow) - In this 400 level workshop for experienced TensorFlow users, various aspects of TensorFlow usage in Amazon SageMaker will be demonstrated.  In particular, TensorFlow will be applied to a natural language processing use case, a structured data use case, and a computer vision use case.  Relevant Amazon SageMaker features that will be demonstrated include:  prototyping with Local Mode training and endpoints, hosted training jobs for full-scale training, distributed training with parameter servers and Horovod, Automatic Model Tuning, batch inference, and hosted endpoints for real time inference.
 
 - [**Simplify Workflows with Scripts, the CLI and Console**](Simplify-Workflows) - The focus of this 200+ level workshop is on simplifying Amazon SageMaker workflows using scripts, the AWS CLI, and the Amazon SageMaker console.  All of these are alternatives to using Jupyter notebooks as your interface to Amazon SageMaker; there is no necessity to use notebooks to leverage key Amazon SageMaker components such as hosted training and hosted model endpoints. In this workshop, you'll apply Amazon SageMaker built-in algorithms to a structured data use case, and a distributed training example showing different ways to set up nodes in a training cluster.
 
