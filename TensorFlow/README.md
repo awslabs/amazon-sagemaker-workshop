@@ -9,8 +9,9 @@ Here are some of the key features of Amazon SageMaker relevant to TensorFlow dem
 - **Local Mode Training** for rapid prototyping and to confirm your code is working before moving on to full scale model training.
 - **Local Mode Endpoints** to test your models and SageMaker inference code before deploying to production in SageMaker hosted endpoints.
 - **Hosted Training** for large scale model training.
-- **Distributed Training with Parameter Servers** to perform large scale model training.
-- **Distributed Training with Horovod** as an alternative to perform large scale model training using the Ring-AllReduce paradigm.
+- **Distributed Training with TensorFlow's native MirroredStrategy** to perform training with multiple GPUs on a single instance.  
+- **Distributed Training with Parameter Servers** to perform large scale model training on multiple instances.
+- **Distributed Training with Horovod** as an alternative to perform large scale model training using the Ring-AllReduce paradigm on multiple instances.
 - **Automatic Model Tuning** to find the best model using automation.
 - **Test a model checkpoint locally** after retrieving it from SageMaker/S3 (as an alternative to Local Mode Endpoints).
 - **Hosted Endpoints** for real time predictions.
@@ -68,7 +69,7 @@ To create a SageMaker notebook instance for this workshop, follow the instructio
 
 ## Natural Language Processing Use Case:  Sentiment Analysis  
 
-In this module, we'll use Script Mode with TensorFlow by providing our own Python training script to be used with Amazon SageMaker's prebuilt TensorFlow container.  Please go to the following link for this module:  [**Sentiment Analysis**](../modules/Sentiment_Analysis.md).  Be sure to use the **downloaded** version of the applicable Jupyter notebook from this workshop repository.  
+In this module, we'll train a custom sentiment analysis model by providing our own Python training script for use with Amazon SageMaker's prebuilt TensorFlow 2 container.  Please go to the following link for this module:  [**Sentiment Analysis**](../modules/Sentiment_Analysis.md).  Be sure to use the **downloaded** version of the applicable Jupyter notebook from this workshop repository.  
 
 When you're finished, return here to move on to the next module.  
 
