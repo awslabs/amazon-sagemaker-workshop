@@ -1,23 +1,33 @@
 # TensorFlow in Amazon SageMaker
 
-This workshop demonstrates various aspects of TensorFlow usage in Amazon SageMaker.  We'll examine how TensorFlow can be applied in Amazon SageMaker to a natural language processing use case, a structured data use case, and a computer vision use case.  
+This workshop demonstrates various aspects of how to work with custom TensorFlow models in Amazon SageMaker.  We'll examine how TensorFlow can be applied in  SageMaker to a natural language processing use case, a structured data use case, and a computer vision use case.  
 
-Here are some of the key features of Amazon SageMaker relevant to TensorFlow demonstrated in this workshop:
+Here are some of the key features of SageMaker demonstrated in this workshop:
 
-- **Script Mode**, which enables you to use your own model definitions and training scripts similar to those outside Amazon SageMaker, with prebuilt TensorFlow containers.
-- **Git integration** for Script Mode, which allows you to specify a training script in a Git repository so your code is version controlled and you don't have to download code locally. 
-- **Local Mode Training** for rapid prototyping and to confirm your code is working before moving on to full scale model training.
-- **Local Mode Endpoints** to test your models and SageMaker inference code before deploying to production in SageMaker hosted endpoints.
-- **Hosted Training** for large scale model training.
-- **Distributed Training with TensorFlow's native MirroredStrategy** to perform training with multiple GPUs on a single instance.  
-- **Distributed Training with Parameter Servers** to perform large scale model training on multiple instances.
-- **Distributed Training with Horovod** as an alternative to perform large scale model training using the Ring-AllReduce paradigm on multiple instances.
-- **Automatic Model Tuning** to find the best model using automation.
-- **Test a model checkpoint locally** after retrieving it from SageMaker/S3 (as an alternative to Local Mode Endpoints).
-- **Hosted Endpoints** for real time predictions.
-- **Batch Transform Jobs** for asynchronous, large scale batch inference.
-- **Elastic Inference** for lower-cost GPU acceleration for real time inference.
-- **Inference Pre/Post-Processing Scripts** to transform data before sending it to the SageMaker TensorFlow Serving container for inference.
+- **Data Processing**
+  - **SageMaker Processing** for data preprocessing tasks within SageMaker.
+
+- **Prototyping and Working with Code**
+  - **Script Mode**, which enables you to use your own custom model definitions and training scripts similar to those outside Amazon SageMaker, with prebuilt TensorFlow containers.
+  - **Git integration** for Script Mode, which allows you to specify a training script in a Git repository so your code is version controlled and you don't have to download code locally. 
+  - **Local Mode Training** for rapid prototyping and to confirm your code is working before moving on to full scale model training.
+  - **Local Mode Endpoints** to test your models and inference code before deploying with TensorFlow Serving in SageMaker hosted endpoints for production.
+
+- ** Training and Tuning Models**
+  - **Hosted Training** for large scale model training.
+  - **Distributed Training with TensorFlow's native MirroredStrategy** to perform training with multiple GPUs on a single instance.  
+  - **Distributed Training with Parameter Servers** to perform large scale model training on multiple instances.
+  - **Distributed Training with Horovod** as an alternative to perform large scale model training using the Ring-AllReduce paradigm on multiple instances.
+  - **Automatic Model Tuning** to find the best model hyperparameters using automation.
+
+- ** Inference **
+  - **Hosted Endpoints** for real time predictions with TensorFlow Serving.
+  - **Batch Transform Jobs** for asynchronous, large scale batch inference.
+  - **Elastic Inference** for lower-cost GPU acceleration for real time inference.
+  - **Inference Pre/Post-Processing Scripts** to transform data before sending it to the SageMaker TensorFlow Serving container for inference.
+
+- ** Workflow Automation **
+  - **AWS Step Functions Data Science SDK** for creating an automated pipeline from model training through deployment outside of notebooks.  
 
 
 ## Modules
@@ -30,7 +40,7 @@ This workshop is divided into multiple modules. After completing **Preliminaries
 
 - Natural Language Processing Use Case:  Sentiment Analysis 
 
-- Structured Data Use Case:  Boston Housing 
+- Structured Data Use Case:  Workflow for Boston Housing Price Predictions 
 
 - Computer Vision Use Case:  Image Classification  
 
@@ -74,9 +84,9 @@ In this module, we'll train a custom sentiment analysis model by providing our o
 When you're finished, return here to move on to the next module.  
 
 
-## Structured Data Use Case:  Boston Housing
+## Structured Data Use Case:  Workflow for Boston Housing Price Predictions
 
-We'll focus on a more complete workflow in this module.  In particular, we'll use Local Mode training and Local Mode endpoints to test our code, and Automatic Model Tuning to find the best model to predict prices based on the Boston Housing dataset.  Please go to the following link for this module:  [**Boston Housing**](../modules/Boston_Housing.md).  Be sure to use the **downloaded** version of the applicable Jupyter notebook from this workshop repository.  
+We'll focus on a relatively complete TensorFlow 2 workflow in this module to predict prices based on the Boston Housing dataset.  In particular, we'll preprocess data with SageMaker Processing, prototype training and inference code with Local Mode, use Automatic Model Tuning, deploy the tuned model to a real time endpoint, and examine how the AWS Step Functions Data Science SDK can automate setting up this workflow for a production environment.  Please go to the following link for this module:  [**Boston Housing**](../modules/Boston_Housing.md).  Be sure to use the **downloaded** version of the applicable Jupyter notebook from this workshop repository.  
 
 When you're finished, return here to move on to the next module.  
 
