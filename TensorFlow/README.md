@@ -13,20 +13,20 @@ Here are some of the key features of SageMaker demonstrated in this workshop:
   - **Local Mode Training** for rapid prototyping and to confirm your code is working before moving on to full scale model training.
   - **Local Mode Endpoints** to test your models and inference code before deploying with TensorFlow Serving in SageMaker hosted endpoints for production.
 
-- ** Training and Tuning Models**
+- **Training and Tuning Models**
   - **Hosted Training** for large scale model training.
   - **Distributed Training with TensorFlow's native MirroredStrategy** to perform training with multiple GPUs on a single instance.  
   - **Distributed Training with Parameter Servers** to perform large scale model training on multiple instances.
   - **Distributed Training with Horovod** as an alternative to perform large scale model training using the Ring-AllReduce paradigm on multiple instances.
   - **Automatic Model Tuning** to find the best model hyperparameters using automation.
 
-- ** Inference **
+- **Inference **
   - **Hosted Endpoints** for real time predictions with TensorFlow Serving.
   - **Batch Transform Jobs** for asynchronous, large scale batch inference.
   - **Elastic Inference** for lower-cost GPU acceleration for real time inference.
   - **Inference Pre/Post-Processing Scripts** to transform data before sending it to the SageMaker TensorFlow Serving container for inference.
 
-- ** Workflow Automation **
+- **Workflow Automation **
   - **AWS Step Functions Data Science SDK** for creating an automated pipeline from model training through deployment outside of notebooks.  
 
 
