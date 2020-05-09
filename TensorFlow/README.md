@@ -20,13 +20,13 @@ Here are some of the key features of SageMaker demonstrated in this workshop:
   - **Distributed Training with Horovod** as an alternative to perform large scale model training using the Ring-AllReduce paradigm on multiple instances.
   - **Automatic Model Tuning** to find the best model hyperparameters using automation.
 
-- **Inference **
+- **Inference**
   - **Hosted Endpoints** for real time predictions with TensorFlow Serving.
   - **Batch Transform Jobs** for asynchronous, large scale batch inference.
   - **Elastic Inference** for lower-cost GPU acceleration for real time inference.
   - **Inference Pre/Post-Processing Scripts** to transform data before sending it to the SageMaker TensorFlow Serving container for inference.
 
-- **Workflow Automation **
+- **Workflow Automation**
   - **AWS Step Functions Data Science SDK** for creating an automated pipeline from model training through deployment outside of notebooks.  
 
 
