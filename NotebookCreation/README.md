@@ -28,7 +28,7 @@ Use the console or AWS CLI to create an Amazon S3 bucket (see step-by-step instr
 
 ## 2. Launching the Notebook Instance
 
-1. Make sure you are on the AWS Management Console home page.  In the **Find Services** search box, type **SageMaker**.  The search result list will populate with Amazon SageMaker, which you should now click.  This will bring you to the Amazon SageMaker console homepage.
+1. In the AWS Management Console, choose **Services** then select **Amazon SageMaker** under Machine Learning. This will bring you to the Amazon SageMaker console homepage.
 
 ![Services in Console](./images/console-services.png)
 
@@ -60,4 +60,4 @@ Use the console or AWS CLI to create an Amazon S3 bucket (see step-by-step instr
 
 2. Click **Open Jupyter**. You will now see the Jupyter homepage for your notebook instance.
 
-
+3. You have completed the Jupyter Notebook creation, now return to the previous instructions webpage.
