@@ -7,9 +7,9 @@ We'll also make use of some of Amazon SageMaker's built-in algorithms, specifica
 To summarize, here are some of the key components and features of Amazon SageMaker demonstrated in this workshop:
 
 - Using **Notebook Instances** for Exploratory Data Analysis and prototyping.
-- **Local Mode Training** to confirm your code is working before moving on to full scale model training.
+- **Choosing different instance types** for different use cases (CPU vs. GPU, model training vs. deployment, etc.).
 - **Hosted Training** for large scale model training.
-- **Built-in algorithms** designed for web scale and rapid prototyping of data science projects.
+- **Built-in algorithms** designed for web scale and rapid prototyping of data science projects without the need to write a lot of code.
 - **Script Mode**, which enables you to use your own custom model definitions and scripts similar to those outside SageMaker, with prebuilt machine learning containers.
 - **Hosted Endpoints** for near real-time predictions.
 - **Batch Transform** for asynchronous, large scale batch inference.
@@ -18,11 +18,11 @@ To summarize, here are some of the key components and features of Amazon SageMak
 
 ## Modules
 
-This workshop is divided into multiple modules. After completing **Preliminaries**, complete the module **Creating a Notebook Instance** next.  You can complete the remaining modules in any order, EXCEPT the Videogame Sales module must be completed before the Extra Credit module. 
+This workshop is divided into multiple modules. After completing **Preliminaries**, complete the module **Creating a Notebook Environment** next.  You can complete the remaining modules in any order, EXCEPT the Videogame Sales module must be completed before the Extra Credit module. 
 
 - Preliminaries
 
-- Creating a Notebook Instance
+- Creating a Notebook Environment
 
 - Structured Data Use Case:  Videogame Sales 
 
@@ -57,11 +57,17 @@ To run a code cell, simply click in it, then either click the **Run Cell** butto
 Please run each code cell in order, and **only once**, to avoid repeated operations.  For example, running the same training job cell twice might create two training jobs, possibly exceeding your service limits.
 
 
-## Creating a Notebook Instance
+## Creating a Notebook Environment
 
-SageMaker provides hosted Jupyter notebooks that require no setup, so you can begin processing your training data sets immediately. With a few clicks in the SageMaker console, you can create a fully managed notebook instance, pre-loaded with useful libraries for machine learning. You need only add your data.
+SageMaker provides hosted Jupyter notebooks that require no setup, so you can begin processing your training data sets immediately. With a few clicks in the SageMaker console, you can create a fully managed notebook environment, pre-loaded with useful libraries for machine learning. You need only add your data.  You have two different options for this workshop.  Follow the choice specified by your workshop instructor if you're in a live workshop, or make your own choice otherwise:
 
-To create a SageMaker notebook instance for this workshop, follow the instructions at [**Creating a Notebook Instance**](../NotebookCreation), then return here to continue with the next module of the workshop.
+- **SageMaker Studio**:  An IDE for data science projects.
+  - Go to https://docs.aws.amazon.com/sagemaker/latest/dg/onboard-quick-start.html
+  - For **Execution role**, choose **Create a new role**, leave the defaults on the pop up, and click **Create role**.
+  - When creation is complete, click **Open Studio** in the line for your default user.
+  - Return here to continue with the next module of the workshop.
+
+- **SageMaker Notebook Instance**:  A managed instance with preinstalled data science tools (though not as fully managed as SageMaker Studio).  To create a SageMaker notebook instance for this workshop, follow the instructions at [**Creating a Notebook Instance**](../NotebookCreation), then return here to continue with the next module of the workshop.
 
 
 ## Structured Data Use Case:  Videogame Sales
