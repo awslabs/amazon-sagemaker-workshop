@@ -32,7 +32,7 @@ Here are some of the key features of SageMaker demonstrated in this workshop:
 
 ## Modules
 
-This workshop is divided into multiple modules. After completing **Preliminaries**, complete the module **Creating a Notebook Instance** next.  You can complete the remaining modules in any order, though we strongly recommend completing them in order to see how to build a workflow from relatively simple to more complex. 
+This workshop is divided into multiple modules. After completing **Preliminaries**, complete the module **Creating a Notebook Instance** next (currently this workshop is not adapted to SageMaker Studio).  You can complete the remaining modules in any order, though we strongly recommend completing them in order to see how to build a workflow from relatively simple to more complex. 
 
 - Preliminaries
 
@@ -49,12 +49,7 @@ This workshop is divided into multiple modules. After completing **Preliminaries
 
 - Be sure you have completed all of the Prerequisites listed in the [**main README**](../README.md). 
 
-- **DOWNLOAD THIS REPOSITORY TO YOUR COMPUTER**. To do so:
-  - Return to the home page of this GitHub repository or open it in another tab;
-  - Click the green **Clone or download** button from the upper right of the main page of the repository, then **Download ZIP**.
-  - Use the downloaded notebooks in the notebooks directory rather than other versions you might find inside your notebook instance or elsewhere; the downloaded versions are modified for use in workshops.  
-
-If you are new to using Jupyter notebooks, read the next section, otherwise you may now skip ahead to the next module.
+- If you are new to using Jupyter notebooks, read the next section, otherwise you may now skip ahead to the next module.
 
 
 ### Jupyter Notebooks:  A Brief Overview
@@ -72,28 +67,28 @@ Please run each code cell in order, and **only once**, to avoid repeated operati
 
 ## Creating a Notebook Instance
 
-SageMaker provides hosted Jupyter notebooks that require no setup, so you can begin processing your training data sets immediately. With a few clicks in the SageMaker console, you can create a fully managed notebook instance, pre-loaded with useful libraries for machine learning. You need only add your data.
+(NOTE: currently this workshop is not adapted to SageMaker Studio, except the first module.)  SageMaker provides hosted Jupyter notebook instances that require no setup, so you can begin processing your training datasets immediately. With a few clicks in the SageMaker console, you can create a fully managed notebook instance, pre-loaded with useful libraries for machine learning. You need only add your data.
 
 To create a SageMaker notebook instance for this workshop, follow the instructions at [**Creating a Notebook Instance**](../NotebookCreation), then return here to continue with the next module of the workshop.
 
 
 ## Natural Language Processing Use Case:  Sentiment Analysis  
 
-In this module, we'll train a custom sentiment analysis model by providing our own Python training script for use with Amazon SageMaker's prebuilt TensorFlow 2 container.  Please go to the following link for this module:  [**Sentiment Analysis**](../modules/Sentiment_Analysis.md).  Be sure to use the **downloaded** version of the applicable Jupyter notebook from this workshop repository.  
+In this module, we'll train a custom sentiment analysis model by providing our own Python training script for use with Amazon SageMaker's prebuilt TensorFlow 2 container.  Assuming you have cloned this repository into your notebook environment (which you should do if you haven't), open the `notebooks` directory of the repository and click on the `sentiment-analysis.ipynb` notebook to open it.  
 
 When you're finished, return here to move on to the next module.  
 
 
 ## Structured Data Use Case:  Workflow for Boston Housing Price Predictions
 
-We'll focus on a relatively complete TensorFlow 2 workflow in this module to predict prices based on the Boston Housing dataset.  In particular, we'll preprocess data with SageMaker Processing, prototype training and inference code with Local Mode, use Automatic Model Tuning, deploy the tuned model to a real time endpoint, and examine how the AWS Step Functions Data Science SDK can automate setting up this workflow for a production environment.  Please go to the following link for this module:  [**Boston Housing**](../modules/Boston_Housing.md).  Be sure to use the **downloaded** version of the applicable Jupyter notebook from this workshop repository.  
+We'll focus on a relatively complete TensorFlow 2 workflow in this module to predict prices based on the Boston Housing dataset.  In particular, we'll preprocess data with SageMaker Processing, prototype training and inference code with Local Mode, use Automatic Model Tuning, deploy the tuned model to a real time endpoint, and examine how the AWS Step Functions Data Science SDK can automate setting up this workflow for a production environment.  Assuming you have cloned this repository into your notebook environment (which you should do if you haven't), open the `notebooks` directory of the repository and click on the `tf-2-workflow.ipynb` notebook to open it.  
 
 When you're finished, return here to move on to the next module.  
 
 
 ## Computer Vision Use Case:  Image Classification
 
-This module applies TensorFlow within Amazon SageMaker to an image classification use case.  In particular, we'll see how Amazon SageMaker makes distributed training easy for the parameter server method and Horovod.  We'll also use the pre/post-processing script feature of the Amazon SageMaker TensorFlow Serving container to transform data for inference, without having to build separate containers and infrastructure to do this job.  Please go to the following link for this module:  [**CIFAR-10**](../modules/CIFAR-10.md).  Be sure to use the **downloaded** version of the applicable Jupyter notebook from this workshop repository.  
+This module applies TensorFlow within Amazon SageMaker to an image classification use case.  In particular, we'll see how Amazon SageMaker makes distributed training easy for the parameter server method and Horovod.  We'll also use the pre/post-processing script feature of the Amazon SageMaker TensorFlow Serving container to transform data for inference, without having to build separate containers and infrastructure to do this job.  Assuming you have cloned this repository into your notebook environment (which you should do if you haven't), open the `notebooks` directory of the repository and click on the `tf-distributed-training.ipynb` notebook to open it.  
 
 When you're finished, return here and go on to the Cleanup Guide.  
 
