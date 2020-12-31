@@ -1,8 +1,10 @@
 # AWS Cloud9 IDE
 
+Either [**AWS CloudShell**](https://aws.amazon.com/cloudshell/) or [**AWS Cloud9**](https://aws.amazon.com/cloud9/) can be used to easily run Bash scripts in a workshop setting. AWS CloudShell is a browser-based shell that makes it easy to securely manage, explore, and interact with your AWS resources. To run Bash scripts for workshops using CloudShell, simply create raw text script files on your local computer, and then follow the instruction steps for [uploading and running script files](https://docs.aws.amazon.com/cloudshell/latest/userguide/getting-started.html).
+
 AWS Cloud9 is a cloud-based integrated development environment (IDE) that lets you write, run, and debug your code with just a browser. It includes a code editor, debugger, and terminal. Cloud9 comes prepackaged with essential tools for popular programming languages and the AWS Command Line Interface (CLI) pre-installed so you don’t need to install files or configure your laptop for this workshop. Your Cloud9 environment will have access to the same AWS resources as the user with which you logged into the AWS Management Console.
 
-Take a moment now and setup your Cloud9 development environment.
+If you choose to use Cloud9, take a moment now and setup your Cloud9 development environment.
 
 ## Step-by-step Instructions
 

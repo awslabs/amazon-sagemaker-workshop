@@ -26,7 +26,7 @@ Amazon SageMaker is a fully managed service that enables developers and data sci
 - Amazon S3
 - Amazon SageMaker
 - AWS Step Functions
-- AWS Cloud9
+- AWS CloudShell or AWS Cloud9
 - Amazon EC2:  including P3, C5, and M5 instance types; to check your limits, see [Viewing Your Current Limits](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-resource-limits.html).  If you do not have at least the default limits specified in [the Amazon SageMaker Limits table](https://docs.aws.amazon.com/general/latest/gr/sagemaker.html), please file a limit increase request via the AWS console.
 
 **Use Your Own Account**: The code and instructions in this workshop assume only one student is using a given AWS account at a time. If you try sharing an account with another student, you'll run into naming conflicts for certain resources. You can work around these by appending a unique suffix to the resources that fail to create due to conflicts, but the instructions do not provide details on the changes required to make this work. Use a personal account or create a new AWS account for this workshop rather than using an organization’s account to ensure you have full access to the necessary services and to ensure you do not leave behind any resources from the workshop.
@@ -50,14 +50,16 @@ We recommend you use the latest version of Chrome or Firefox to complete this wo
 
 ## AWS Command Line Interface
 
-To complete certain workshop modules, you'll need the AWS Command Line Interface (CLI) and a Bash environment. You'll use the AWS CLI to interface with Amazon SageMaker and other AWS services. 
+To complete certain workshop modules, you'll need the AWS Command Line Interface (CLI) and a Bash environment. You'll use the AWS CLI to interface with Amazon SageMaker and other AWS services. Do NOT attempt to use a locally installed AWS CLI during a live workshop because there is insufficient time during a live workshop to resolve related issues with your laptop etc.
 
-For these workshops, AWS Cloud9 is used to avoid problems that can arise configuring the CLI on your machine. AWS Cloud9 is a cloud-based integrated development environment (IDE) that lets you write, run, and debug your code with just a browser. It has the AWS CLI pre-installed so you don’t need to install files or configure your laptop to use the AWS CLI. For Cloud9 setup directions for these workshops, see [**Cloud9 Setup**](Cloud9). Do NOT attempt to use a locally installed AWS CLI during a live workshop because there is insufficient time during a live workshop to resolve related issues.
+To avoid problems that can arise configuring the CLI on your machine during a live workshop, either [**AWS CloudShell**](https://aws.amazon.com/cloudshell/) or [**AWS Cloud9**](https://aws.amazon.com/cloud9/) can be used. AWS CloudShell is a browser-based shell that makes it easy to securely manage, explore, and interact with your AWS resources. To run Bash scripts for workshops using CloudShell, simply create raw text script files on your local computer, and then follow the instruction steps for [uploading and running script files](https://docs.aws.amazon.com/cloudshell/latest/userguide/getting-started.html).  
+
+AWS Cloud9 is a cloud-based integrated development environment (IDE) that lets you write, run, and debug your code with just a browser. It has the AWS CLI pre-installed so you don’t need to install files or configure your laptop to use the AWS CLI. For Cloud9 setup directions, see [**Cloud9 Setup**](Cloud9). 
 
 
 ## Text Editor
 
-For any workshop module that requires use of the AWS Command Line Interface (see above), you also will need a **plain text** editor for writing Bash scripts. Any editor that inserts Windows or other special characters potentially will cause scripts to fail. AWS Cloud9 includes a text editor. 
+For any workshop module that requires use of the AWS Command Line Interface (see above), you also will need a **plain text** editor for writing Bash scripts. Any editor that inserts Windows or other special characters potentially will cause scripts to fail. AWS Cloud9 includes a text editor, while for AWS CloudShell you'll need to use your own separate text editor of your choice to create script files (or enter commands one at a time). 
 
 
 # License & Contributing
