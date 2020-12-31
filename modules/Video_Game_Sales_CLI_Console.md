@@ -30,9 +30,9 @@ This module also shows how to use Amazon SageMaker's built-in algorithms via hos
 - `eval_metric`: Evaluation metric(s) for validation data. For data sets such as this one with imbalanced classes, we'll use the AUC metric.
 - `scale_pos_weight`: Controls the balance of positive and negative weights, again useful for data sets having imbalanced classes.
 
-9.  We'll be using the AWS CLI and a Bash script to run the training job. Using the AWS CLI and scripts is an excellent way to automate machine learning pipelines and repetitive tasks, such as periodic training jobs. As a reminder, in the Prerequisites we recommended the use of AWS Cloud 9 for access to the AWS CLI and Bash environments.  If you haven't done so already, please set up and open your Cloud9 environment now as described in [**Cloud9 Setup**](../Cloud9). 
+9.  We'll be using the AWS CLI and a Bash script to run the training job. Besides [Amazon SageMaker Pipelines](https://aws.amazon.com/sagemaker/pipelines), using the AWS CLI and scripts is another way to automate machine learning pipelines and repetitive tasks. Either [**AWS CloudShell**](https://aws.amazon.com/cloudshell/) or [**AWS Cloud9**](https://aws.amazon.com/cloud9/) can be used to easily run Bash scripts in a workshop setting. AWS CloudShell is a browser-based shell that makes it easy to securely manage, explore, and interact with your AWS resources. To run Bash scripts for workshops using CloudShell, simply create raw text script files on your local computer, and then follow the instruction steps for [uploading and running script files](https://docs.aws.amazon.com/cloudshell/latest/userguide/getting-started.html). If you prefer to use Cloud9 but you haven't done so already, please set up and open your Cloud9 environment now as described in [**Cloud9 Setup**](../Cloud9). 
 
-    Below is a screenshot of what your Cloud9 environment should look like as you create the first script below and run the related commands.  Step-by-step instructions follow, ALONG WITH CODE TO COPY AND PASTE.
+    Below is a screenshot of what the first script should look like as you create it and run the related commands.  Step-by-step instructions follow, ALONG WITH CODE TO COPY AND PASTE.
 
 ![Cloud9](./images/videogames-cloud9.png)
 
