@@ -17,7 +17,7 @@ To summarize, there are many reasons to use Amazon SageMaker’s built-in algori
 
 ## Parallelized Data Distribution
 
-Amazon SageMaker makes it easy to train machine learning models across a cluster containing a large number of machines. This a non-trivial process, but Amazon SageMaker's built-in algorithms and pre-built deep learning containers (for TensorFlow, PyTorch, MXNet and Chainer) hide most of the complexity from you. Nevertheless, there are decisions about how to structure data that will have implications regarding how the distributed training is carried out. 
+Amazon SageMaker makes it easy to train machine learning models across a cluster containing a large number of machines. This a non-trivial process, but Amazon SageMaker's built-in algorithms and pre-built machine learning containers (for TensorFlow, PyTorch, XGBoost, Scikit-learn, and MXNet) hide most of the complexity from you. Nevertheless, there are decisions about how to structure data that will have implications regarding how the distributed training is carried out. 
 
 In this module, we will learn about how to take full advantage of distributed training clusters when using one of Amazon SageMaker's built-in algorithms. This module also shows how to use SageMaker's built-in algorithms via hosted Jupyter notebooks, the AWS CLI, and the Amazon SageMaker console.
 
@@ -45,7 +45,9 @@ In this module, we will learn about how to take full advantage of distributed tr
 
 - In the second job, we'll use `ShardedByS3Key` for the `train` channel (note that we'll keep `FullyReplicated` for the validation channel). So, for the training data, we'll pass each S3 object to a separate machine. Since we have 5 files (one for each year), we'll train on 5 machines, meaning each machine will get a year's worth of records.
 
-- We'll be using the AWS CLI and Bash scripts to run the training jobs. Using the AWS CLI and scripts is an excellent way to automate machine learning pipelines and repetitive tasks, such as periodic training jobs. If you haven't done so already, please set up and open your Cloud9 environment now as described in [**Cloud9 Setup**](../Cloud9). Below is a screenshot of what your Cloud9 environment should look like as you create the first script below and run the related commands.  Step-by-step instructions follow.
+- We'll be using the AWS CLI and Bash scripts to run the training jobs. Besides [Amazon SageMaker Pipelines](https://aws.amazon.com/sagemaker/pipelines), using the AWS CLI and scripts is another way to automate machine learning pipelines and repetitive tasks. Either [**AWS CloudShell**](https://aws.amazon.com/cloudshell/) or [**AWS Cloud9**](https://aws.amazon.com/cloud9/) can be used to easily run Bash scripts in a workshop setting. AWS CloudShell is a browser-based shell that makes it easy to securely manage, explore, and interact with your AWS resources. To run Bash scripts for workshops using CloudShell, simply create raw text script files on your local computer, and then follow the instruction steps for [uploading and running script files](https://docs.aws.amazon.com/cloudshell/latest/userguide/getting-started.html). If you prefer to use Cloud9 but you haven't done so already, please set up and open your Cloud9 environment now as described in [**Cloud9 Setup**](../Cloud9).
+
+    Below is a screenshot of what the first script should look like as you create it and run the related commands.  Step-by-step instructions follow, ALONG WITH CODE TO COPY AND PASTE.
 
 ![Cloud9](./images/distrib-dev-environment.png)
 
