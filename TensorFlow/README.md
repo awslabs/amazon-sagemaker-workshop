@@ -15,30 +15,28 @@ Here are some of the key features of SageMaker demonstrated in this workshop:
 
 - **Training and Tuning Models**
   - **Hosted Training** for large scale model training.
-  - **Distributed Training with TensorFlow's native MirroredStrategy** to perform training with multiple GPUs on a single instance.  
-  - **Distributed Training with Parameter Servers** to perform large scale model training on multiple instances.
-  - **Distributed Training with Horovod** as an alternative to perform large scale model training using the Ring-AllReduce paradigm on multiple instances.
   - **Automatic Model Tuning** to find the best model hyperparameters using automation.
+  - **Distributed Training with TensorFlow's native MirroredStrategy** to perform training with multiple GPUs on a *single* instance.
+  - **Distributed Training on a SageMaker-managed cluster** of *multiple* instances using either the SageMaker Distributed Training feature, or parameters servers and Horovod.
 
 - **Inference**
   - **Hosted Endpoints** for real time predictions with TensorFlow Serving.
   - **Batch Transform Jobs** for asynchronous, large scale batch inference.
-  - **Elastic Inference** for lower-cost GPU acceleration for real time inference.
-  - **Inference Pre/Post-Processing Scripts** to transform data before sending it to the SageMaker TensorFlow Serving container for inference.
+  - **Model evaluation or batch inference** with SageMaker Processing.
 
 - **Workflow Automation**
-  - **AWS Step Functions Data Science SDK** for creating an automated pipeline from model training through deployment outside of notebooks.  
+  - **SageMaker Pipelines** for creating an automated pipeline from model training through deployment outside of notebooks.  
 
 
 ## Modules
 
-This workshop is divided into multiple modules. After completing **Preliminaries**, complete the module **Creating a Notebook Instance** next (currently this workshop is not adapted to SageMaker Studio).  You can complete the remaining modules in any order, though we strongly recommend completing them in order to see how to build a workflow from relatively simple to more complex. 
+This workshop is divided into multiple modules. After completing **Preliminaries**, complete the module **Creating a Notebook Instance** next (currently this workshop is not fully compatible with SageMaker Studio).  The next two modules, NLP and Structured Data, should be completed to show how to build a workflow from relatively simple to more complex. 
 
 - Preliminaries
 
 - Creating a Notebook Instance
 
-- Natural Language Processing Use Case:  Sentiment Analysis 
+- Natural Language Processing (NLP) Use Case:  Sentiment Analysis 
 
 - Structured Data Use Case:  Workflow for Boston Housing Price Predictions 
 
@@ -81,15 +79,16 @@ When you're finished, return here to move on to the next module.
 
 ## Structured Data Use Case:  Workflow for Boston Housing Price Predictions
 
-We'll focus on a relatively complete TensorFlow 2 workflow in this module to predict prices based on the Boston Housing dataset.  In particular, we'll preprocess data with SageMaker Processing, prototype training and inference code with Local Mode, use Automatic Model Tuning, deploy the tuned model to a real time endpoint, and examine how the AWS Step Functions Data Science SDK can automate setting up this workflow for a production environment.  Assuming you have cloned this repository into your notebook environment (which you should do if you haven't), open the `notebooks` directory of the repository and click on the `tf-2-workflow.ipynb` notebook to open it.  
+We'll focus on a relatively complete TensorFlow 2 workflow in this module to predict prices based on the Boston Housing dataset.  In particular, we'll preprocess data with SageMaker Processing, prototype training and inference code with Local Mode, use Automatic Model Tuning, deploy the tuned model to a real time endpoint, and examine how SageMaker Pipelines can automate setting up this workflow for a production environment.  Assuming you have cloned this repository into your notebook environment (which you should do if you haven't), open the `notebooks` directory of the repository and click on the `tf-2-workflow-smpipelines.ipynb` notebook to open it.  
 
 When you're finished, return here to move on to the next module.  
 
 
 ## Computer Vision Use Case:  Image Classification
 
-This module applies TensorFlow within Amazon SageMaker to an image classification use case.  In particular, we'll see how Amazon SageMaker makes distributed training easy for the parameter server method and Horovod.  We'll also use the pre/post-processing script feature of the Amazon SageMaker TensorFlow Serving container to transform data for inference, without having to build separate containers and infrastructure to do this job.  Assuming you have cloned this repository into your notebook environment (which you should do if you haven't), open the `notebooks` directory of the repository and click on the `tf-distributed-training.ipynb` notebook to open it.  
+This module applies TensorFlow within Amazon SageMaker to an image classification use case.  Currently we recommend using the example [TensorFlow2 and SMDataParallel](https://github.com/aws/amazon-sagemaker-examples/tree/master/training/distributed_training/tensorflow/data_parallel/mnist).  This example applies the  SageMaker Distributed Training feature with data parallelism to train a model on multiple instances.  (Model parallelism is another possibility.)  
 
+Alternatively, there is a TensorFlow 1.x example for the parameter server method and Horovod.  This example also uses the pre/post-processing script feature of the SageMaker TensorFlow Serving container to transform data for inference, without having to build separate containers and infrastructure to do this job.  Assuming you have cloned this repository into your notebook environment (which you should do if you haven't), open the `notebooks` directory of the repository and click on the `tf-distributed-training.ipynb` notebook to open it.  
 When you're finished, return here and go on to the Cleanup Guide.  
 
 
