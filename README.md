@@ -25,7 +25,6 @@ Amazon SageMaker is a fully managed service that enables developers and data sci
 - AWS IAM
 - Amazon S3
 - Amazon SageMaker
-- AWS Step Functions
 - AWS CloudShell or AWS Cloud9
 - Amazon EC2:  including P3, C5, and M5 instance types; to check your limits, see [Viewing Your Current Limits](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-resource-limits.html).  If you do not have at least the default limits specified in [the Amazon SageMaker Limits table](https://docs.aws.amazon.com/general/latest/gr/sagemaker.html), please file a limit increase request via the AWS console.
 
