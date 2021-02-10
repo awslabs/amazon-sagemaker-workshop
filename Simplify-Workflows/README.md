@@ -15,14 +15,10 @@ This workshop is divided into multiple modules. After completing **Preliminaries
 
 ## Preliminaries
 
-- Be sure you have completed all of the Prerequisites listed in the [**main README**](../README.md).  This workshop makes use of the AWS CLI and requires the use of a Bash environment for scripting. AWS Cloud9 is used to run the CLI and scripts; if you haven't done so already, please complete the [**Cloud9 Setup**](../Cloud9).
+- Be sure you have completed all of the Prerequisites listed in the [**main README**](../README.md).  This workshop makes use of the AWS CLI and requires the use of a Bash environment for scripting. AWS CloudShell or AWS Cloud9 can be used to run the CLI and scripts; if you haven't done so already, please complete the [**CloudShell (or Cloud9) Setup**](../Cloud9).
 
-- **DOWNLOAD THIS REPOSITORY TO YOUR COMPUTER**. To do so:
-  - Return to the home page of this GitHub repository or open it in another tab;
-  - Click the green **Clone or download** button from the upper right of the main page of the repository, then **Download ZIP**.
-  - Use the downloaded notebooks in the notebooks directory rather than other versions you might find inside your notebook instance or elsewhere; the downloaded versions are modified for use in workshops.  
+- If you are new to using Jupyter notebooks, read the next section, otherwise you may now skip ahead to the next section.
 
-If you are new to using Jupyter notebooks, read the next section, otherwise you may now skip ahead to the next module.
 
 ### Jupyter Notebooks:  A Brief Overview
 
@@ -37,11 +33,13 @@ To run a code cell, simply click in it, then either click the **Run Cell** butto
 Please run each code cell in order, and **only once**, to avoid repeated operations.  For example, running the same training job cell twice might create two training jobs, possibly exceeding your service limits.
 
 
-## Creating a Notebook Instance
+## Creating a Notebook Environment
 
-SageMaker provides hosted Jupyter notebooks that require no setup, so you can begin processing your training data sets immediately. With a few clicks in the SageMaker console, you can create a fully managed notebook instance, pre-loaded with useful libraries for machine learning. You need only add your data.
+SageMaker provides hosted Jupyter notebooks that require no setup, so you can begin processing your training data sets immediately. With a few clicks in the SageMaker console, you can create a fully managed notebook environment, pre-loaded with useful libraries for machine learning. You need only add your data.  You have two different options for this workshop.  Follow the choice specified by your workshop instructor if you're in a live workshop, or make your own choice otherwise:
 
-To create a SageMaker notebook instance for this workshop, follow the instructions at [**Creating a Notebook Instance**](../NotebookCreation), then return here to continue with the next module of the workshop.
+- **SageMaker Studio**:  An IDE for machine learning. To create a SageMaker Studio domain for this workshop, follow the instructions at [**Creating an Amazon SageMaker Studio domain**](../StudioCreation), then return here to continue with the next module of the workshop.
+
+- **SageMaker Notebook Instance**:  A managed instance with preinstalled data science tools (though not as fully managed as SageMaker Studio).  To create a SageMaker notebook instance for this workshop, follow the instructions at [**Creating a Notebook Instance**](../NotebookCreation), then return here to continue with the next module of the workshop.
 
 
 ## Videogame Sales with the CLI and Console
