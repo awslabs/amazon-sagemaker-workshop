@@ -1,8 +1,8 @@
 # Introduction to SageMaker
 
-In this workshop, we'll work though several examples that demonstrate Amazon SageMaker's core components including SageMaker Studio (or notebook instances), hosted training, and hosted model endpoints.  Examples are divided into modules.  The examples show how Amazon SageMaker can be applied in three of the common categories of machine learning:  working with structured data, computer vision, and natural language processing.  
+In this workshop, we'll work though several examples that demonstrate Amazon SageMaker's core modular components including SageMaker Studio (or notebook instances), hosted training, and hosted model endpoints.  Examples are divided into modules.  The examples show how Amazon SageMaker can be applied in three of the common categories of machine learning:  working with structured data, computer vision, and natural language processing.  
 
-We'll make use of some of Amazon SageMaker's built-in algorithms, specifically an AWS-optimized version of XGBoost and a deep learning-based image classification algorithm.  Built-in algorithms enable you to avoid spending time against algorithm/neural net design, provide conveniences such as reduced need for model tuning, and are meant to handle the scalability and reliability issues that arise when working with large datasets.  As a contrast, in one module we'll use a script defining our own custom deep learning model instead of a built-in algorithm.  Whether you define your own custom models or use built-in algorithms, all of Amazon SageMaker's features may be used in a similar way.  
+We'll make use of some of Amazon SageMaker's built-in algorithms, specifically an AWS-optimized version of XGBoost and a deep learning-based image classification algorithm.  Built-in algorithms enable you to avoid spending time against algorithm/neural net design, provide conveniences such as reduced need for model tuning, and are meant to handle the scalability and reliability issues that arise when working with large datasets.  As a contrast, in one module we'll use a script defining our own custom deep learning model instead of a built-in algorithm.  Whether you define your own custom models or use built-in algorithms, all of Amazon SageMaker's features may be used in a similar way, in any combination.  
 
 To summarize, here are some of the key components and features of Amazon SageMaker demonstrated in this workshop:
 
@@ -18,7 +18,7 @@ To summarize, here are some of the key components and features of Amazon SageMak
 
 ## Modules
 
-This workshop is divided into multiple modules. After completing **Preliminaries**, complete the module **Creating a Notebook Environment** next.  You can complete the remaining modules in any order, EXCEPT the Videogame Sales module must be completed before the Extra Credit module. 
+This workshop is divided into multiple modules. After completing **Preliminaries**, complete the module **Creating a Notebook Environment** next.  You can complete the remaining modules in any order. 
 
 - Preliminaries
 
@@ -30,7 +30,7 @@ This workshop is divided into multiple modules. After completing **Preliminaries
 
 - Natural Language Processing Use Case:  Sentiment Analysis 
 
-- Extra Credit:  Videogame Sales Using Scripts, the CLI and Console
+- Extra Credit:  Automated Workflow for Boston Housing Price Predictions
 
 
 ## Preliminaries
@@ -82,15 +82,10 @@ In contrast to the previous modules, which used some of Amazon SageMaker's built
 When you're finished, return here and go on to the Extra Credit module or Cleanup Guide.  
 
 
-## Extra Credit:  Videogame Sales Using Scripts, the CLI and Console 
+## Extra Credit:  Automated Workflow for Boston Housing Price Predictions 
 
-The previous modules all use Jupyter notebooks to demonstrate the use of hosted training and hosted model endpoints in Amazon SageMaker.  However, in a typical machine learning pipeline, scripts are used to launch training jobs and deploy models, not notebooks.  Also, it is convenient to use the console for these tasks on an ad hoc basis without having to open notebooks or use scripts.
+For extra credit, this module dives deeper into how to create a complete, automated workflow in Amazon SageMaker for your custom models.  In particular, we'll preprocess data with SageMaker Processing, prototype training and inference code with Local Mode, use Automatic Model Tuning, deploy the tuned model to a real time endpoint, and examine how SageMaker Pipelines can automate setting up this workflow for a production environment.  Assuming you have cloned this repository into your notebook environment (which you should do if you haven't), open the `notebooks` directory of the repository and click on the `tf-2-workflow-smpipelines.ipynb` notebook to open it.  NOTE:  if you are using SageMaker Studio, skip the Local Mode sections of the example.  
 
-In this extra credit module, you will revisit the Videogame Sales example, but use Bash scripts to launch a training job and the Amazon SageMaker console to deploy the trained model.  Here are the steps you will need to take before beginning this module:
-
-- Be sure you have completed the first module, **Structured Data Use Case:  Videogame Sales**.
-- Copy the name of the default bucket created in the first cell of the Videogame Sales notebook from the first module.  It should look like:  `sagemaker-<region>-<your_account_id>`.
-- Go to the following link and start at **Step 8 (Training Job)**:  [**Videogame Sales with the CLI and Console**](../modules/Video_Game_Sales_CLI_Console.md).  When the instructions ask for a bucket name, **USE THE BUCKET NAME YOU JUST COPIED.**
 
 ## Cleanup
 
