@@ -25,20 +25,20 @@ Here are some of the key features of SageMaker demonstrated in this workshop:
   - **Model evaluation or batch inference** with SageMaker Processing.
 
 - **Workflow Automation**
-  - **SageMaker Pipelines** for creating an automated pipeline from model training through deployment outside of notebooks.  
+  - **SageMaker Pipelines** for creating an end-to-end automated pipeline from data preprocessing to model training to hosted model deployment.  
 
 
 ## Modules
 
-This workshop is divided into multiple modules. After completing **Preliminaries**, complete the module **Creating a Notebook Instance** next (currently this workshop is not fully compatible with SageMaker Studio).  The next two modules, NLP and Structured Data, should be completed to show how to build a workflow from relatively simple to more complex. 
+This workshop is divided into multiple modules that should be completed in order. After **Preliminaries**, complete the module **Creating a Notebook Environment**.  The next two modules, NLP and Structured Data, should be completed in order to show how to build a workflow from relatively simple to more complex. 
 
 - Preliminaries
 
-- Creating a Notebook Instance
+- Creating a Notebook Environment
 
 - Natural Language Processing (NLP) Use Case:  Sentiment Analysis 
 
-- Structured Data Use Case:  Workflow for Boston Housing Price Predictions 
+- Structured Data Use Case:  End-to-End Workflow for Boston Housing Price Predictions 
 
 - Computer Vision Use Case:  Image Classification  
 
@@ -63,11 +63,13 @@ To run a code cell, simply click in it, then either click the **Run Cell** butto
 Please run each code cell in order, and **only once**, to avoid repeated operations.  For example, running the same training job cell twice might create two training jobs, possibly exceeding your service limits.
 
 
-## Creating a Notebook Instance
+## Creating a Notebook Environment
 
-(NOTE: currently this workshop is not adapted to SageMaker Studio, except the first module.)  SageMaker provides hosted Jupyter notebook instances that require no setup, so you can begin processing your training datasets immediately. With a few clicks in the SageMaker console, you can create a fully managed notebook instance, pre-loaded with useful libraries for machine learning. You need only add your data.
+SageMaker provides hosted Jupyter notebooks that require no setup, so you can begin processing your training data sets immediately. With a few clicks in the SageMaker console, you can create a fully managed notebook environment, pre-loaded with useful libraries for machine learning. You need only add your data.  You have two different options for this workshop.  Follow the choice specified by your workshop instructor if you're in a live workshop, or make your own choice otherwise:
 
-To create a SageMaker notebook instance for this workshop, follow the instructions at [**Creating a Notebook Instance**](../NotebookCreation), then return here to continue with the next module of the workshop.
+- **SageMaker Studio**:  An IDE for machine learning. To create a SageMaker Studio domain for this workshop, follow the instructions at [**Creating an Amazon SageMaker Studio domain**](../StudioCreation), then return here to continue with the next module of the workshop.
+
+- **SageMaker Notebook Instance**:  A managed instance with preinstalled data science tools (though not as fully managed as SageMaker Studio).  To create a SageMaker notebook instance for this workshop, follow the instructions at [**Creating a Notebook Instance**](../NotebookCreation), then return here to continue with the next module of the workshop.
 
 
 ## Natural Language Processing Use Case:  Sentiment Analysis  
@@ -77,7 +79,7 @@ In this module, we'll train a custom sentiment analysis model by providing our o
 When you're finished, return here to move on to the next module.  
 
 
-## Structured Data Use Case:  Workflow for Boston Housing Price Predictions
+## Structured Data Use Case:  End-to-End Workflow for Boston Housing Price Predictions
 
 We'll focus on a relatively complete TensorFlow 2 workflow in this module to predict prices based on the Boston Housing dataset.  In particular, we'll preprocess data with SageMaker Processing, prototype training and inference code with Local Mode, use Automatic Model Tuning, deploy the tuned model to a real time endpoint, and examine how SageMaker Pipelines can automate setting up this workflow for a production environment.  Assuming you have cloned this repository into your notebook environment (which you should do if you haven't), open the `notebooks` directory of the repository and click on the `tf-2-workflow-smpipelines.ipynb` notebook to open it.  
 
@@ -86,7 +88,7 @@ When you're finished, return here to move on to the next module.
 
 ## Computer Vision Use Case:  Image Classification
 
-This module applies TensorFlow within Amazon SageMaker to an image classification use case.  Currently we recommend using the example [TensorFlow2 and SMDataParallel](https://github.com/aws/amazon-sagemaker-examples/tree/master/training/distributed_training/tensorflow/data_parallel/mnist).  This example applies the  SageMaker Distributed Training feature with data parallelism to train a model on multiple instances.  (Model parallelism is another possibility.)  
+This module applies TensorFlow within Amazon SageMaker to an image classification use case.  Currently we recommend using the example [TensorFlow2 and SMDataParallel](https://github.com/aws/amazon-sagemaker-examples/tree/master/training/distributed_training/tensorflow/data_parallel/mnist).  This example applies the SageMaker Distributed Training feature with data parallelism to train a model on multiple instances.  (Model parallelism is another possibility.)  
 
 Alternatively, there is a TensorFlow 1.x example for the parameter server method and Horovod.  This example also uses the pre/post-processing script feature of the SageMaker TensorFlow Serving container to transform data for inference, without having to build separate containers and infrastructure to do this job.  Assuming you have cloned this repository into your notebook environment (which you should do if you haven't), open the `notebooks` directory of the repository and click on the `tf-distributed-training.ipynb` notebook to open it.  
 When you're finished, return here and go on to the Cleanup Guide.  
