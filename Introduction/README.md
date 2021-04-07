@@ -77,7 +77,7 @@ When you're finished, return here to move on to the next module.
 
 ## Natural Language Processing Use Case:  Sentiment Analysis  
 
-In contrast to the previous modules, which used some of Amazon SageMaker's built-in algorithms, in this module we'll use a deep learning framework within Amazon SageMaker with our own script defining a custom model.  Assuming you have cloned this repository into your notebook environment (which you should do if you haven't), open the `notebooks` directory of the repository and click on the `sentiment-analysis.ipynb` notebook to open it.  Make sure you are using the `Python 3 (Data Science)` kernel if you're using SageMaker Studio.
+In contrast to the previous modules, which used some of Amazon SageMaker's built-in algorithms, in this module we'll use a deep learning framework within Amazon SageMaker with our own script defining a custom model.  Assuming you have cloned this repository into your notebook environment (which you should do if you haven't), open the `notebooks` directory of the repository and click on the `sentiment-analysis.ipynb` notebook to open it.  Make sure you are using the `Python 3 (TensorFlow 2.3 Python 3.7 CPU Optimized)` kernel if you're using SageMaker Studio.
 
 When you're finished, return here and go on to the Extra Credit module or Cleanup Guide.  
 
